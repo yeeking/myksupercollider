@@ -43,14 +43,17 @@ MykMidiObserver : Object {
 
 	/** time period has ended - send observations to callback and reset memory*/
 	step{
-		callback.value(step_events);
-		this.initStepEvents();
+		if (step_events.keys().size > 0, {
+			callback.value(step_events);
+			this.initStepEvents();
+		})
 	}
 
 	initStepEvents{
 		// maintain a list of all observed note numbers
 		// and set them all to rest by default
 		step_events = obs_notes.collect{|item| false};
+		//step_events = ();
 	}
 
 	/** triggered when a midi noteon happens.
