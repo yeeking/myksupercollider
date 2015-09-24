@@ -6,15 +6,16 @@
 */
 MykDrummingSimulator : Object {
 	var channel, viz_filename, tidal_host, tidal_port,
-	mykMidiObserver, <mykMarkov, mykClock, oscResponder, training, simulating, <midi_out, rests_obs, osc_tick_count, >click_out, id_lookup, viz_enabled, tidal_enabled;
+	<mykMidiObserver, <mykMarkov, mykClock, oscResponder, training, simulating, <midi_out, rests_obs, osc_tick_count, >click_out, id_lookup, viz_enabled = false, tidal_enabled, >midiout_channel=9;
 
-  	*new{arg channel = 0, viz_filename = "/Users/matthew/Desktop/canute/canute.json", tidal_host, tidal_port;
-		^super.newCopyArgs(channel, viz_filename, tidal_host, tidal_port).prInit;
+  	*new{arg channel = 0, viz_filename = "/Users/matthew/Desktop/canute/canute.json", tidal_host, tidal_port, enable_viz = true, midi_dev = 0;
+		^super.newCopyArgs(channel, viz_filename, tidal_host, tidal_port).prInit(enable_viz, midi_dev);
 	}
 
-	prInit{
+	prInit{arg enable_viz, midi_dev;
 	 	MIDIClient.init;
-		midi_out = MIDIOut(0);
+		midi_out = MIDIOut(midi_dev);
+		("MYKdrumsim: connected to MIDI out: "++MIDIClient.destinations[midi_dev]).postln;
 		click_out = 0;
 		id_lookup = MykObjId.new;
 		tidal_enabled = false;
@@ -28,7 +29,7 @@ MykDrummingSimulator : Object {
 		simulating = false;
 		this.sendSynthDefs;
 		mykMarkov = MykMarkov.new;
-		this.enableVizData(viz_filename);
+		if (enable_viz,{this.enableVizData(viz_filename);});
 		mykMidiObserver = MykMidiObserver.new(channel);
 		mykMidiObserver.debug = false;
 		// create an internal clock in case we don't want to
@@ -112,11 +113,11 @@ MykDrummingSimulator : Object {
 				count = obs_counts.at(key);
 				obs_counts.put(key, count / obs_sum);
 			};
-			this.sendNodeToVisuxaliser(last_state, obs_counts, filename);
+			this.sendNodeToVisualiser(last_state, obs_counts, filename);
 		}];
 	}
 	/** todo - put the file writing code into this function instead of */
-	sendNodeToVisuxaliser{arg node_id, edge_data, filename;
+	sendNodeToVisualiser{arg node_id, edge_data, filename;
 		var trans_str, f;
 		// build a tr
 		trans_str = "";
@@ -176,8 +177,11 @@ MykDrummingSimulator : Object {
 		notes.postln;
 		notes.do{arg note;
 			var vel = rrand(40, 96);
-			midi_out.noteOn(9, note, vel);
-			midi_out.noteOff(9, note, vel);
+			midi_out.noteOn(midiout_channel, note, vel);
+			// send midi out some point later...
+			SystemClock.sched(0.25, {
+				midi_out.noteOff(midiout_channel, note, vel);
+			});
 		}
 	}
 
@@ -219,7 +223,7 @@ MykDrummingSimulator : Object {
 		mykClock.run;
 		mykClock.add(0,
 			{
-				if (training, {mykMidiObserver.step});
+				if (training, {"MykDrumSim: calling step on midi obs".postln;mykMidiObserver.step});
 				if (simulating, {this.generateMidi});
 				if (tidal_enabled, {this.generateTidal;});
 			},

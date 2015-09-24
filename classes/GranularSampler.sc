@@ -6,21 +6,23 @@
 //g.free;
 
 GranularSampler : Object {
-  
-  var 
+
+  var
   // creation arguments
-  channel, start_note, out_bus, in_bus, start_ctl, mpd_mode, <>pitch, 
+  channel, start_note, out_bus, in_bus, start_ctl, mpd_mode, <>pitch,
   // stuff that needs to be freed
-  buffer, <play_synth, ctlResp, noteOnResp, noteOffResp, 
+  buffer, <play_synth, ctlResp, noteOnResp, noteOffResp,
   // internal workings
   rec_start_time, loop_length, activation_state = 1, record_state,
   // midi controllable arguments
   grain_length=127, grain_count=64, grain_pitch=64, playback_position=0, level=32;
-  *new {arg channel=0, start_note=0, out_bus=0, in_bus=1, start_ctl=8, mpd_mode=1, pitch=1;
-	^super.newCopyArgs(channel, start_note, out_bus, in_bus, start_ctl, mpd_mode, pitch).prInit;
+
+
+  *new {arg channel=0, start_note=0, out_bus=0, in_bus=1, start_ctl=8, mpd_mode=1, pitch=1, setup_midi=0;
+		^super.newCopyArgs(channel, start_note, out_bus, in_bus, start_ctl, mpd_mode, pitch).prInit(setup_midi);
   }
-  
-  prInit{
+
+  prInit{arg setup_midi;
 	var server, notes;
 	server = Server.local;
 	buffer = Buffer.alloc(server,480000*2,1);
@@ -30,73 +32,76 @@ GranularSampler : Object {
 	in_bus.postln;
 	start_ctl.postln;
 	record_state = 0;
+		if (setup_midi == 1, {
 	ctlResp = CCResponder (
-	  {|src, chan, num, value| 
+	  {|src, chan, num, value|
 		// call updates on synths
-		if (activation_state==1, 
+		if (activation_state==1,
 		  {this.updateCtl(num, value);}
 		);
-	  }, 
-	  nil, 
-	  channel, 
-	  [start_ctl, start_ctl+1, start_ctl+2, start_ctl+3], 
+	  },
+	  nil,
+	  channel,
+	  [start_ctl, start_ctl+1, start_ctl+2, start_ctl+3],
 	  nil
 	);
-
+		});
 	// setup the midi respomders
-	
+
 	// which notes does it respond to?
-	if (mpd_mode==1, 
+	if (mpd_mode==1,
 	  {
 		notes = Array.fill(4, {arg i;
 		  MiscFuncs.getMPDNoteArray()[start_note+i];
 		});
-	  }, 
+	  },
 	  {notes = Array.fill(4, {arg i;
 		start_note+i;
 	  });
 	  });
-	
+
 	notes.postln;
-	
+		if (setup_midi == 1, {
 	noteOnResp = NoteOnResponder(
 	  { |src, chan, num, vel| // another way to say arg src, chan, num, vel;
-		if (activation_state==1, 
+		if (activation_state==1,
 		  {
-			switch (num, 
-			  notes[0], {this.startPlay("granular_buffer_player");}, 
+			switch (num,
+			  notes[0], {this.startPlay("granular_buffer_player");},
 			  notes[1], {if (record_state == 0, {this.startRecord;}, {this.stopRecord;})},
-			  //notes[1], {this.startRecord}, 
+			  //notes[1], {this.startRecord},
 			  notes[2], {this.stopPlay;},
 			  notes[3], {this.startPlay("granular_buffer_player_lfo");}
 			);
 		  });
-	  }, 
+	  },
 	  nil, // any midi id
 	  channel,  // only my channel
-	  notes, 
+	  notes,
 	  //[start_note, start_note+1, start_note+2, start_note+3], // only my 4 notes
 	  nil);
-	
+
+
 	noteOffResp = NoteOffResponder(
-	  { |src, chan, num, vel| 
-		if (activation_state==1, 
+	  { |src, chan, num, vel|
+		if (activation_state==1,
 		  {
 			//this.stopRecord;
 		  }
 		);
-	  }, 
+	  },
 	  nil, // any midi id
 	  channel,  // only my channel
 	  notes[1], // only my record note
 	  nil
 	);
+		});
   }
 
   run{
 
   }
-  
+
   free{
 	play_synth.free;
 	buffer.free;
@@ -105,12 +110,14 @@ GranularSampler : Object {
 	noteOffResp.remove;
   }
 
-  updateCtl{ arg ctl, val;
-	ctl = ctl - start_ctl;
-	switch (ctl, 
-	  0, {play_synth.set(\grain_length, val);grain_length=val;}, 
-	  1, {play_synth.set(\grain_count, val);grain_count=val;}, 
-	  2, {play_synth.set(\grain_pitch, val);grain_pitch=val;}, 
+  updateCtl{ arg ctl, val, direct = false;
+	if (direct == false, {
+		ctl = ctl - start_ctl;
+	});
+		switch (ctl,
+	  0, {play_synth.set(\grain_length, val);grain_length=val;},
+	  1, {play_synth.set(\grain_count, val);grain_count=val;},
+	  2, {play_synth.set(\grain_pitch, val);grain_pitch=val;},
 	  3, {play_synth.set(\playback_position, val*2);playback_position=val;}
 	);
   }
@@ -124,13 +131,13 @@ GranularSampler : Object {
 	grain_pitch = 64;
 	playback_position = 127;
 	play_synth = Synth.new(synth, [
-	  \bufnum, buffer.bufnum, 
-	  \loop_length, loop_length, 
-	  \grain_length, grain_length, 
-	  \grain_count, grain_count, 
-	  \grain_pitch, grain_pitch, 
-	  \playback_position, playback_position, 
-	  \out_bus, out_bus, 
+	  \bufnum, buffer.bufnum,
+	  \loop_length, loop_length,
+	  \grain_length, grain_length,
+	  \grain_count, grain_count,
+	  \grain_pitch, grain_pitch,
+	  \playback_position, playback_position,
+	  \out_bus, out_bus,
 	  \level, level]);
   }
 
@@ -143,7 +150,7 @@ GranularSampler : Object {
 	"granular start record".postln;
 	record_state = 1;
 	rec_start_time = thisThread.seconds;
-	Synth("granular_buffer_recorder", [\bufnum, buffer.bufnum, \audioInBus, in_bus]); 
+	Synth("granular_buffer_recorder", [\bufnum, buffer.bufnum, \audioInBus, in_bus]);
   }
 
   stopRecord{
@@ -156,7 +163,7 @@ GranularSampler : Object {
   sendSynthDefs{
 	var server;
 	server = Server.local;
-	
+
 	SynthDef("granular_buffer_recorder", {arg bufnum, audioInBus=1;
 	  // when this gets spawned, simply write from the requested audio input to the requested bus
 	  var audioIn, recorder,bufLength;
@@ -169,7 +176,7 @@ GranularSampler : Object {
 	}
 	).send(server);//.writeDefFile;
 
-	// all args come in as midi ctl data 0-127. 
+	// all args come in as midi ctl data 0-127.
 	SynthDef("granular_buffer_player", {arg bufnum, loop_length, grain_length=64, grain_count=1, grain_pitch=64, playback_position=0.1, out_bus=0, level=64;
 	  var midiTo1, chain, trig, freq, buflength, one_grain_length;
 	  midiTo1 = 1/127;
@@ -215,7 +222,7 @@ GranularSampler : Object {
 	  // convert midi control number to octave multiple
 	  grain_pitch = (64/(grain_pitch+1)).reciprocal;
 	  // test...
-	  // in this synth, the playback_position 
+	  // in this synth, the playback_position
 	  // controls the playback speed??
 	  // playback_postition comes in at 0-254
 	  //lfo_speed = playback_position * midiTo1;
@@ -232,7 +239,7 @@ GranularSampler : Object {
 
 
 GranularSampler2 : GranularSampler{
-  
+
   var >grain_pitches;
 
   prInit{
@@ -246,34 +253,34 @@ GranularSampler2 : GranularSampler{
   }
 
   startPlay{ arg synth = "granular_buffer_player_lfo";
-	"granular2 playing".postln;
+		("granular2 playing synth "++synth).postln;
 	play_synth.free;
 	grain_pitch = grain_pitches[0];
 	grain_pitches = grain_pitches.rotate(-1);
 
 	play_synth = Synth.new(synth, [
-	  \bufnum, buffer.bufnum, 
-	  \loop_length, loop_length, 
-	  \grain_length, grain_length, 
-	  \grain_count, grain_count, 
-	  \grain_pitch, grain_pitch * pitch, 
-	  \playback_position, playback_position, 
-	  \out_bus, out_bus, 
+	  \bufnum, buffer.bufnum,
+	  \loop_length, loop_length,
+	  \grain_length, grain_length,
+	  \grain_count, grain_count,
+	  \grain_pitch, grain_pitch * pitch,
+	  \playback_position, playback_position,
+	  \out_bus, out_bus,
 	  \level, level]);
   }
 
   stopPlay{
 	"granular2 stopped playing".postln;
 	play_synth.free;
-	// now reset 
+	// now reset
 	grain_length = 64;
 	grain_count = 64;
 	grain_pitch = 64;
 	playback_position = 127;
-	
+
 	this.resetArrays;
   }
-  
+
 
 }
 

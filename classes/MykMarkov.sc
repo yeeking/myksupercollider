@@ -129,12 +129,18 @@ MykMarkov : Object {
   }
 
   // internal func that is called when an beat is detected
-  addBeat{arg min_beat;
+  addBeat{arg min_beat = 0.05, max_beat = 2.0;
 	var beat, beat_length, updated;//, prev_steps, next_steps;
+		if (last_beat == nil, {
+			last_beat = thisThread.seconds
+			^nil;
+		});
 	beat = thisThread.seconds;
 	beat_length = beat - last_beat;
 	// ignore too short beats
 	if (beat_length < min_beat, {//"Beat Too short".postln;
+	  ^nil;});
+	if (beat_length > max_beat, {//"Beat Too long".postln;
 	  ^nil;});
 	// quantize
 	beat_length = beat_length - (beat_length % min_beat);

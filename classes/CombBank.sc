@@ -2,53 +2,60 @@
 
 CombBank : Object {
 
-  var 
+  var
   ctlResponder,
-  myInBus, 
-  myOutBus, 
-  fxSynth, 
+  myInBus,
+  myOutBus,
+  fxSynth,
   noteArray;
-  
+
   *new {arg channel=0, lagCtl=1, decayCtl=2, noteCtl=3, outBus=0, inBus=1;
 	^super.new.init(channel, lagCtl, decayCtl, noteCtl, outBus, inBus);
   }
-  
+
   init {arg channel, lagCtl, decayCtl, noteCtl, outBus, inBus;
-	
+
 	this.sendSynthDefs;
 	this.setupNoteArray;
 	myInBus = inBus;
 	myOutBus = outBus;
 	ctlResponder = CCResponder (
-	  {|src, chan, num, value| 
+	  {|src, chan, num, value|
 		//'ctl num set: '.post;
 		//value.postln;
 		// call updates on synths
 		//this.updateSynth(num, value);
-		switch (num, 
+		switch (num,
 		  lagCtl, {
 			fxSynth.set(\lagSet, value);
-		  }, 
+		  },
 		  decayCtl, {
 			fxSynth.set(\decaySet, value);
 		  },
 		  noteCtl, {
 			this.updateCombs;
-		  } 
-		);	
-	  }, 
-	  nil, 
-	  channel, 
-	  [lagCtl, decayCtl, noteCtl], 
+		  }
+		);
+	  },
+	  nil,
+	  channel,
+	  [lagCtl, decayCtl, noteCtl],
 	  nil
 	);
   }
-  
+
+	setLag{arg value;
+		fxSynth.set(\lagSet, value);
+	}
+	setDecay{arg value;
+		fxSynth.set(\decaySet, value);
+	}
+
   setFastReactSynth{
 	fxSynth.set(\lagSet, 1);
 	fxSynth.set(\decaySet, 64);
   }
-  
+
   updateCombs{
 	var n_index, multArray;
 	//multArray = [0.125, 0.25, 0.5];
@@ -56,10 +63,10 @@ CombBank : Object {
 	// choose a set of values from the note array
 	// - pick an array index - could use value for note index or radomly do it
 	n_index = noteArray.size.rand;
-	
+
 	// it doesn't like setting them all with a single set message
 	// so I do it asynchronously instead. If i was a comb filter, i wouldn't like it either
-			
+
 	fxSynth.set(\note1Set, (multArray.choose*noteArray[n_index][0]));
 	fxSynth.set(\note2Set, (multArray.choose*noteArray[n_index][1]));
 	fxSynth.set(\note3Set, (multArray.choose*noteArray[n_index][2]));
@@ -84,33 +91,33 @@ CombBank : Object {
 	// [g#, a, b, c#]
 	// [a, e, a, e]
 	// [f#, e, f#, e]
-	
+
 	noteArray = [
-	  [1/n_fs, 1/n_a, 1/n_b, 1/n_e], 
-	  [1/n_cs, 1/n_d, 1/n_e, 1/n_fs], 
-	  [1/n_e, 1/n_gs, 1/n_a, 1/n_b], 
-	  [1/n_cs, 1/n_b, 1/n_d, 1/n_fs], 
-	  [1/n_gs, 1/n_a, 1/n_b, 1/n_cs], 
-	  [1/n_a, 1/n_e, 1/n_a, 1/n_e], 
+	  [1/n_fs, 1/n_a, 1/n_b, 1/n_e],
+	  [1/n_cs, 1/n_d, 1/n_e, 1/n_fs],
+	  [1/n_e, 1/n_gs, 1/n_a, 1/n_b],
+	  [1/n_cs, 1/n_b, 1/n_d, 1/n_fs],
+	  [1/n_gs, 1/n_a, 1/n_b, 1/n_cs],
+	  [1/n_a, 1/n_e, 1/n_a, 1/n_e],
 	  [1/n_fs, 1/n_e, 1/n_fs, 1/n_e]
-	  ]; 
-	
+	  ];
+
 
   }
-  
+
   // you need to call this after you instantiate the synth to make it run
   run {
-	fxSynth = Synth("combBank", 
-	  [\audioInBus, myInBus, \outBus, myOutBus, 
+	fxSynth = Synth("combBank",
+	  [\audioInBus, myInBus, \outBus, myOutBus,
 	  \lagSet, 0.01, \decaySet, 96, \note1Set, 0.1, \note2Set, 0.1, \note3Set, 0.1, \note4Set, 0.1]);
-	
+
   }
-  
+
   free {
 	fxSynth.free;
 	ctlResponder.remove;
   }
-  
+
   sendSynthDefs{
 	var server;
 	server = Server.local;
@@ -121,7 +128,7 @@ CombBank : Object {
 		source = AudioIn.ar(audioInBus)*0.5;
 		// gate it
 		Compander.ar(source, source,
-		  thresh: 0.25, 
+		  thresh: 0.25,
 		  slopeBelow: 10,
 		  slopeAbove: 1,
 		  clampTime: 0.01,
@@ -133,13 +140,13 @@ CombBank : Object {
 		lagScalar = (midiTo1)*(10-0.001);
 		lagCtl = lagSet*decayScalar+0.001;
 		decay = decaySet*decayScalar+0.01;
-		
+
 		// the values for the comb delaya are read from the control buses
 		// chordBus1-3
 		//		combArray = Array.fill(4, {
 		//  LFDNoise1.ar(1.0)*(CombN.ar(source,0.5, Lag.kr(note1Set, lagCtl), decay)+source);
 		//});
-		
+
 		// now contrain the incoming notes to prevent crashing
 		max_dt = 0.1;
 		min_dt = 0.001;
@@ -147,7 +154,7 @@ CombBank : Object {
 		note2Set =  max(min_dt, clip2(note2Set, max_dt));
 		note3Set =  max(min_dt, clip2(note3Set, max_dt));
 		note4Set =  max(min_dt, clip2(note4Set, max_dt));
-		
+
 		combArray=[
 		  LFDNoise1.ar(0.5, mul:0.5, add:0.5)*(CombN.ar(source,0.1, Lag.kr(note1Set, lagCtl), decay)+source),
 		  LFDNoise1.ar(0.5, mul:0.5, add:0.5)*(CombN.ar(source,0.1, Lag.kr(note2Set, lagCtl), decay)+source),
@@ -159,6 +166,6 @@ CombBank : Object {
 		Out.ar(outBus, combArray);
 	  }
 	).send(server);//.writeDefFile;
-	
+
   }
 }

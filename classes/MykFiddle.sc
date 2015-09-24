@@ -1,5 +1,5 @@
 PitchScanner2 : Object{
-  var callbackFunc, interval, audioInBus, pitchCtlBus, scanner, 
+  var callbackFunc, interval, audioInBus, pitchCtlBus, scanner,
   freqAnalSynth, synthRunning = 0, pollRout, bus;//, last_freq;
 
   *new{arg callbackFunc={arg freq;freq.postln}, interval=0.01, audioInBus=1, pitchCtlBus=130;
@@ -26,15 +26,15 @@ PitchScanner2 : Object{
   }
 
   free{
-	pollRout.stop;	
+	pollRout.stop;
 	freqAnalSynth.free;
   }
-  
+
 
   sendSynthDefs{
 	var server;
 	server = Server.local;
-	
+
 	// freq analysis synth
 	SynthDef("pitchReader2", {arg audioInBus=1, ctlOutBus=0;
 	  var audioIn, outBus, freq, hasFreq;
@@ -50,17 +50,17 @@ PitchScanner2 : Object{
 
 // copy of the pd object cos its really handy
 MykFiddle : Object{
-  var >callbackFunc, interval, audioInBus, pitchCtlBus, scanner, last_freq;
-  
-  *new{arg callbackFunc={arg freq;freq.postln}, interval=0.01, audioInBus=1, pitchCtlBus=130;
-	^super.newCopyArgs(callbackFunc, interval, audioInBus, pitchCtlBus).prInit;
+  var >callback, interval, audioInBus, pitchCtlBus, scanner, last_freq;
+
+  *new{arg callback={arg freq;freq.postln}, interval=0.01, audioInBus=1, pitchCtlBus=130;
+	^super.newCopyArgs(callback, interval, audioInBus, pitchCtlBus).prInit;
   }
 
   prInit{
 	scanner = PitchScanner2.new({arg freq; this.readPitch(freq)}, interval, audioInBus, pitchCtlBus);
 	last_freq = 0;
   }
-  
+
   run{
 	scanner.run;
   }
@@ -74,7 +74,7 @@ MykFiddle : Object{
 	//("MYKFiddle: last, new "++last_freq++","++new_freq).postln;
 	if (freq != last_freq, {
 	  //("MYKFiddle: last, new "++last_freq++","++freq).postln;
-	  callbackFunc.value(freq);
+	  callback.value(freq);
 	  last_freq = freq;
 	});
   }
@@ -86,7 +86,7 @@ MykFiddle : Object{
 // callbackFunc - this will be called with arg freq which is the latest frequency
 // interval - interval between calls to callbackFunc
 // audioInBus - 1 indexed audio input (uses AudioIn)
-// pitchCtlBus - which control bus to read and write the pitch information 
+// pitchCtlBus - which control bus to read and write the pitch information
 
 
 PitchScanner : Object {
@@ -95,11 +95,11 @@ PitchScanner : Object {
 
   *new {arg callbackFunc, interval=0.25, audioInBus=1, pitchCtlBus=128;
 	^super.newCopyArgs(callbackFunc, interval, audioInBus, pitchCtlBus).prInit;
-	
+
   }
 
   prInit{
-	var server; 
+	var server;
 	server = Server.local;
 	this.sendSynthDefs;
 	// set up the osc responder
@@ -113,7 +113,7 @@ PitchScanner : Object {
 		);
 	  }.defer;
 	}).add;
-	
+
 	// set up the osc poller routine
 	oscPollRoutine = Routine({
 	  inf.do {
@@ -125,7 +125,7 @@ PitchScanner : Object {
 		//0.125.wait;
 	  };
 	});
-	
+
   }
 
   changeInterval{ arg newInterval;
@@ -134,7 +134,7 @@ PitchScanner : Object {
 
   // call this to set the pitch scanning in action
   run {
-	if (synthRunning==0, 
+	if (synthRunning==0,
 	  // run has been called for the first time - create the synth
 	  {
 		freqAnalSynth = Synth("pitchReader", [\audioInBus, audioInBus, \ctlOutBus, pitchCtlBus]);
@@ -143,7 +143,7 @@ PitchScanner : Object {
 	oscPollRoutine.reset;
 	oscPollRoutine.play;
   }
-  
+
   stop {
 	oscPollRoutine.stop;
   }
@@ -158,7 +158,7 @@ PitchScanner : Object {
   sendSynthDefs{
 	var server;
 	server = Server.local;
-	
+
 	// freq analysis synth
 	SynthDef("pitchReader", {arg audioInBus=1, ctlOutBus=0;
 	  var audioIn, outBus, freq, hasFreq;
