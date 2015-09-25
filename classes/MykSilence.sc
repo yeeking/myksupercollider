@@ -4,7 +4,7 @@
 MykSilence : Object {
 	var  >threshold, >callback,  oscFunc, silent, sensor;
 
-	*new{arg threshold = 0.05, callback = {arg amp; ("silence starts" ++ amp).postln};
+	*new{arg threshold = 0.1, callback = {arg amp; ("silence starts" ++ amp).postln};
 		^super.newCopyArgs(threshold, callback).prInit;
 	}
 	prInit{
@@ -37,13 +37,21 @@ MykSilence : Object {
 
 	sendSynthDefs{
 		SynthDef("MykSilence_detect", {
-			var in, amp;
+			var in, in2, amp;
 			// change to sound in for live
-			in = In.ar(30);
-			//in = SoundIn.ar(1);
-			amp = Amplitude.kr(in);
+			//in = In.ar(30);
+			in = SoundIn.ar(0);
+			in2 =  CompanderD.ar(in, in,
+				thresh: 0.1,
+				slopeBelow: 100,
+				slopeAbove: 1,
+				clampTime: 0.001,
+				relaxTime: 0.01
+			);
+			amp = Amplitude.kr(in2);
+			//amp.poll;
 			SendTrig.kr(Impulse.kr(10), 99, amp);
-			Out.ar([0, 1], in);
+			//Out.ar([0, 1], in2);
 		}).add;
 	}
 }

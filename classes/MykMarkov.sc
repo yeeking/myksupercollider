@@ -49,6 +49,13 @@ MykMarkov : Object {
 		("MYKMarkov: creating chains from zero up to "++maxOrder++" order. ").postln
 	}
 
+	reset{
+		freqChain = Dictionary.new;
+		beatChain = Dictionary.new;
+		intChain = Dictionary.new;
+		this.vodkaShot;
+	}
+
   trainRandomFreqs{
 	freqChain = Dictionary.new;
 	100.do{

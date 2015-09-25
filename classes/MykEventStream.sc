@@ -1,5 +1,5 @@
 MykEventStream : Object {
-	var >quant, >max_len, mykPitch, mykSilence, pitch_markov, event_markov, playing_note, note_started, silence_started, midi;
+	var >quant, >max_len, mykPitch, mykSilence, pitch_markov, event_markov, playing_note, note_started, silence_started, <midi, >bar_length, <>listening, >ext_pitch_callback, last_len;
 
 	*new {
 		^super.newCopyArgs.prInit;
@@ -7,8 +7,10 @@ MykEventStream : Object {
 
 	prInit{
 		playing_note = false;
-		quant = 5;
-		max_len = 3;
+		quant = 10.0;
+		max_len = 4.0;
+		bar_length = 1.0;
+		listening = true;
 		silence_started = thisThread.seconds;
 
 		event_markov = MykMarkov.new;
@@ -19,12 +21,21 @@ MykEventStream : Object {
 		mykSilence.callback = {arg amp;
 			this.silenceStarts;
 		};
+		ext_pitch_callback = {arg note, len; };
 		mykPitch = MykFiddle.new;
 		mykPitch.callback = {arg note;
 			this.noteStarts(note);
+			ext_pitch_callback.value(note, last_len);
 		}
 
 	}
+
+	reset{
+		event_markov.reset;
+		pitch_markov.reset;
+		bar_length = 1.0;
+	}
+
 	// two events of interest
 	// to the event stream
 	silenceStarts{
@@ -63,42 +74,49 @@ MykEventStream : Object {
 	}
 
 	addEventToStream{arg type, start, end;
-		var len, key;
-		len = end - start;
-		len = this.quantise(5, len);
-		len = min(max_len, len);
-		key = (type ++ "_" ++len);
-		key.postln;
-		event_markov.addFreq(key);
+		if (listening, {
+			var len, key;
+			len = end - start;
+			len = this.quantise(quant, len);
+			len = min(max_len, len);
+			// store it for the external pitch callback
+			last_len = len;
+			key = (type ++ "_" ++len);
+			//key.postln;
+			event_markov.addFreq(key);
+		});
 	}
 
 	quantise {arg steps, val;
 		var frac = val % 1;
-		frac = (frac * steps).round / steps;
+		frac = (frac * steps).ceil / steps;
 		val = (val.floor % val) + frac;
 		^val;
 	}
 	// decide what to do next!
-	next{
+	next{arg vel = 64;
 		var event, type, len, note;
 		event = event_markov.nextFreq;
 		if (event != nil, {
 			event = event.split($_);
 			type = event[0];
-			len = event[1].asFloat;
-			type.postln;
+			len = event[1].asFloat * bar_length;
+			//type.postln;
 			if (type == "note", {
 				note = pitch_markov.nextFreq;
 				if (note != nil, {
-					midi.playNote(0, note, 64, len);
+					midi.playNote(0, note, vel, len);
 				});
 				len.wait;
 			});
 			if (type == "silence", {
 				len.wait;
 			});
-		})
-
+		}, {
+			"MykEventStream... nothin doin...";
+			1.0.wait;
+		}
+		)
 	}
 
 	run{
