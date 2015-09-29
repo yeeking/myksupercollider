@@ -1,8 +1,8 @@
 MykSounds : Object {
-	var all_defs, delay, reverb, fft, dist, dist_buff;
+	var out, all_defs, delay, reverb, fft, dist, dist_buff;
 
-	*new {
-		^super.newCopyArgs().prInit;
+	*new {arg out = 0;
+		^super.newCopyArgs(out).prInit;
 	}
 
 	prInit {
