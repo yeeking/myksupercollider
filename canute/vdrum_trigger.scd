@@ -1,11 +1,40 @@
 s.kill;
 (
 o = Server.local.options;
-o.numOutputBusChannels = 2;
+o.numOutputBusChannels = 8;
 o.numInputBusChannels = 4;
 o.hardwareBufferSize = 64;
 s = Server.local.boot;
+
+s.doWhenBooted{
+	~snd = MykSounds.new;
+	~funcs = [
+		{arg vel;
+			(123.asString++":"++vel).postln;
+			//~snd.play(rrand(0, 10), p1:vel);
+		},
+		{arg vel;
+			(1.asString++":"++vel).postln;
+			//~snd.play(rrand(0, 10), p1:vel);
+		},
+		{arg vel;
+			(2.asString++":"++vel).postln;
+			//~snd.play(rrand(0, 10), p1:vel);
+		},
+		{arg vel;
+			(3.asString++":"++vel).postln;
+			//~snd.play(rrand(0, 10), p1:vel);
+		}
+	];
+	~ons = Array.fill(4, {arg i;
+		MykBonk.new(audio_in:i, sens:0.01, callback:{arg vel; ~funcs[i].value(vel)}, auto_calibrate:true, auto_run:true);
+	});
+}
 )
+
+
+
+
 
 
 ~bd = MykBonk.new(audio_in:0, callback:{arg vel; ("bd"++vel).postln;});

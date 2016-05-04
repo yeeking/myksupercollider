@@ -89,7 +89,7 @@ MykSounds : Object {
 			}).mean;
 			//c = RLPF.ar(c, (freq * (p3 * 2)) * Line.kr(0, 1, p2), p1);
 			c = Normalizer.ar(c, 0.25);
-			Out.ar([0,1,30], c * e * amp);
+			Out.ar([0,1,40], c * e * amp);
 		}).add;
 		SynthDef("MykSounds_fm", {arg freq, len, p1 = 0.5, p2 = 0.5, p3=0.5, amp=1.0;
 			var c1, c, e, muls, lfo,  scalar;
@@ -102,7 +102,7 @@ MykSounds : Object {
 			//c = SinOsc.ar(freq + (c1 * (freq * p3)));
 			c = c1;
 			c = Normalizer.ar(c, 0.5);
-			Out.ar([0,30], c * e * 0.1 * amp);
+			Out.ar([0,40], c * e * 0.1 * amp);
 		}).add;
 
 		SynthDef("MykSounds_bd", {arg freq, len, p1=0.5, p2 = 0.5, p3 = 0.5, amp = 1.0;
@@ -112,7 +112,7 @@ MykSounds : Object {
 			c = SinOsc.ar(freq:Line.kr(bf * 1.5, bf * 0.5, len/3));
 			c = c + RLPF.ar(Pulse.ar(bf), min(8000, bf * 25 * p3), p2*4);
 			c = Normalizer.ar(c, 0.5);
-			Out.ar([1, 31], c * e * amp);
+			Out.ar([1, 41], c * e * amp);
 		}).add;
 
 		SynthDef("MykSounds_sn", {arg freq, len, p1 = 0.5, p2, p3, amp=1.0;
@@ -126,7 +126,8 @@ MykSounds : Object {
 			// snare rattle
 			c = c + WhiteNoise.ar(EnvGen.kr(Env.perc(0.15, len), levelScale:p3));
 			e = EnvGen.kr(Env.perc(0.01, len), doneAction:2);
-			Out.ar([30, 31, 1], c * e * 0.0125 * amp);
+			Out.ar([40, 41, 1], c * e * 0.0125 * amp);
+			//Out.ar([2], c * e * 0.0125 * amp);
 		}).add;
 		SynthDef("MykSounds_oh", {arg freq, len, p1, p2, p3, amp=1.0;
 			var c, e, fs, noise, bf;
@@ -140,7 +141,7 @@ MykSounds : Object {
 				BHiPass4.ar(noise, fs[i], 0.025 + (LFDNoise1.kr(p1 * 50).range(-0.025, 0.05)));
 				//SinOsc.kr(LFDNoise1.kr(0.5).range(1.0, 2.0)).range(0.01, 0.05));
 			}).mean;
-			Out.ar([30, 31,1], c * e * 0.0125 * amp);
+			Out.ar([40, 41,1], c * e * 0.0125 * amp);
 		}).add;
 		SynthDef("MykSounds_ch", {arg p1, p2, p3;
 
@@ -154,7 +155,7 @@ MykSounds : Object {
 			onoff = Lag.kr(onoff);
 			dt = max(0, min(p1, 1));
 			dt = dt * 0.01;
-			in = In.ar(30) + SoundIn.ar(1);// read in on the second input...
+			in = In.ar(40);// + SoundIn.ar(1);// read in on the second input...
 			chain = in * onoff * amp;
 			chain2 =in * onoff * amp;
 			4.do{
@@ -176,7 +177,7 @@ MykSounds : Object {
 			onoff = Lag.kr(onoff);
 			dt = max(0, min(p1, 1));
 			dt = dt * 0.45;
-			in = In.ar(30) + SoundIn.ar(1);
+			in = In.ar(40);// + SoundIn.ar(1);
 			chain = in * onoff * amp;
 			chain = CombC.ar(chain, 0.5, 0.01+ dt, p2 * 10.0);
 			chain2 = chain + CombC.ar(chain, 0.5, 0.05+ dt, p2 * 15.0) * 0.5;
@@ -188,7 +189,7 @@ MykSounds : Object {
 
 		SynthDef("MykSounds_fft", {arg out = 0, onoff = 1, p1 = 0.5, p2 = 0.5, amp = 1.0;
 			var c, in, c1;
-			in = In.ar(30) + SoundIn.ar(1);
+			in = In.ar(40) + SoundIn.ar(1);
 			c = FFT(LocalBuf(2048, 1), in * Lag.kr(onoff));
 			c = PV_LocalMax(c, SinOsc.kr(LFDNoise1.kr(0.5).range(0.1, 1.0)).range(0.1, p1));
 			c = PV_MagFreeze(c, Dust.kr(p2 * 2.0));
@@ -207,9 +208,9 @@ MykSounds : Object {
 			Out.ar(0 + out, [(c* amp), (c1 * amp)]);
 		}).add;
 
-		SynthDef("MykSounds_dist", {arg onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0;
+		SynthDef("MykSounds_dist", {arg onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0, out=0;
 			var in, c,c2, phase, freq;
-			in = In.ar(31) + SoundIn.ar(1);
+			in = In.ar(41) + SoundIn.ar(1);
 			in = Normalizer.ar(in, 0.5);
 			freq = (p1 * 127.0).midicps;
 			phase = in * pi * 2;
@@ -220,17 +221,17 @@ MykSounds : Object {
 			Out.ar(0+out, [c, c2] * amp * onoff);
 			//Out.ar(1, in);
 		}).add;
-		SynthDef("MykSounds_comp", {arg onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0;
+		SynthDef("MykSounds_comp", {arg onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0, out=0;
 			var in, c,c2, phase, freq;
-			in = In.ar(31) + SoundIn.ar(1);
+			in = In.ar(41);// + SoundIn.ar(1);
 			in = Limiter.ar(in * 4, 1.0);
 			in = Compander.ar(in, in, 0.25, 1, 0.1);
 			Out.ar([0 + out, 1 + out], in * amp * onoff);
 			//Out.ar(1, in);
 		}).add;
-		SynthDef("MykSounds_distws", {arg buff, onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0;
+		SynthDef("MykSounds_distws", {arg buff, onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0, out=0;
 			var in, c,c2, phase, freq;
-			in = In.ar(31) + SoundIn.ar(1);
+			in = In.ar(41);// + SoundIn.ar(1);
 			c = Shaper.ar(buff, in * p1, 0.5);
 			c = Normalizer.ar(c, 0.5);
 			Out.ar([0+out, 1+out], c * amp * 0.1 * onoff);

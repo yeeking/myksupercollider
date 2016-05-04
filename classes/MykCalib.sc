@@ -20,7 +20,7 @@ MykCalib : Object {
 
 		if (val < min, {min = val});
 		if (val > max, {max = val});
-		("range "++min.asString ++ "-"++ max.asString).postln;
+		//("range "++min.asString ++ "-"++ max.asString).postln;
 		// scale from range min-max to 0-1
 		//val.postln;
 		val = val - min;
