@@ -1,24 +1,32 @@
 // lang side onset detector like bonk in pd
 MykBonk : Object{
 
-  var audio_in, >callback, osc_id, osc_resp, onset_synth;
+  var audio_in, >callback, osc_id, auto_calibrate,
+	osc_resp, onset_synth, calib;
 
-  *new{arg audio_in = 0, callback = {arg amp;("MykBonk: "++amp).postln;}, osc_id = 301 ;
-	^super.newCopyArgs(audio_in, callback, osc_id).prInit;
+  *new{arg audio_in = 0, callback = {arg amp;("MykBonk: "++amp).postln;}, osc_id = 301, auto_calibrate=false ;
+	^super.newCopyArgs(audio_in, callback, osc_id, auto_calibrate).prInit;
   }
 
   prInit{
-	var server;
-	this.sendSynthDefs;
-	server = Server.local;
-	// the osc responder which responds to onsets
-	osc_resp = OSCresponderNode(server.addr, '/tr', {arg time,responder,msg;
-	  //("MykBonk: bonk"++[time, responder, msg]).postln;
-	  if (msg[2] == osc_id, {
-		//("MykBonk: bonk"++[time, responder, msg]).postln;
-		callback.value(msg[3]);
-	  });
-	}).add;
+		var server;
+		this.sendSynthDefs;
+		// little trick to make creating multiple onsets on different inputs easier!
+		osc_id = osc_id + audio_in;
+		if (auto_calibrate, {calib = MykCalib.new;});
+		server = Server.local;
+		// the osc responder which responds to onsets
+		osc_resp = OSCresponderNode(server.addr, '/tr', {arg time,responder,msg;
+			//("MykBonk: bonk"++[time, responder, msg]).postln;
+			if (msg[2] == osc_id, {
+				//("MykBonk: bonk"++[time, responder, msg]).postln;
+				if (auto_calibrate,
+					{callback.value(calib.getCalib(msg[3]));},
+					{callback.value(msg[3]);}
+				);
+
+			});
+		}).add;
   }
 
   run{
