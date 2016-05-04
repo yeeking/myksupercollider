@@ -1,9 +1,9 @@
 // lang side onset detector like bonk in pd
 MykBonk : Object{
-  
+
   var audio_in, >callback, osc_id, osc_resp, onset_synth;
-  
-  *new{arg audio_in = 1, callback = {arg amp;("MykBonk: "++amp).postln;}, osc_id = 301 ;
+
+  *new{arg audio_in = 0, callback = {arg amp;("MykBonk: "++amp).postln;}, osc_id = 301 ;
 	^super.newCopyArgs(audio_in, callback, osc_id).prInit;
   }
 
@@ -38,11 +38,12 @@ MykBonk : Object{
   sendSynthDefs{
 	var server;
 	server = Server.local;
-	SynthDef("MykBonkOnset", {arg rec_in = 1, osc_id_no, sens = 0.2;
+	SynthDef("MykBonkOnset", {arg rec_in = 0, osc_id_no, sens = 0.2;
 	  var onsets, fft, in, amp;
 	  //in = SoundIn.ar(rec_in);
-	  in = AudioIn.ar(1);
-	  //fft = FFT(LocalBuf.new(1024, 1), in)
+	  in = AudioIn.ar(rec_in);
+		in = SoundIn.ar(rec_in);
+
 	  fft = FFT(LocalBuf.new(1024, 1), in, hop:0.25);
 	  onsets = Onsets.kr(fft, sens, \rcomplex);
 	  amp = Amplitude.kr(in, 0.01, 0.1);
