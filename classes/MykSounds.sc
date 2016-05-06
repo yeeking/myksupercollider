@@ -25,7 +25,8 @@ MykSounds : Object {
 		{
 			reverb = Synth("MykSounds_rev", [\out, out, \onoff:0]);
 			delay = Synth("MykSounds_del", [\out, out, \onoff:0]);
-			fft = Synth("MykSounds_fft", [\out, out, \onoff:0]);
+//			fft = Synth("MykSounds_fft", [\out, out, \onoff:0]);
+//			fft = Synth("MykSounds_fft", [\out, out, \onoff:0]);
 			//dist = Synth("MykSounds_dist", [\onoff:0]);
 			dist = Synth("MykSounds_distws", [\buff, dist_buff, \onoff:0]);
 			comp = Synth("MykSounds_comp", [\onoff:0]);
@@ -102,7 +103,7 @@ MykSounds : Object {
 			//c = SinOsc.ar(freq + (c1 * (freq * p3)));
 			c = c1;
 			c = Normalizer.ar(c, 0.5);
-			Out.ar([0,40], c * e * 0.1 * amp);
+			Out.ar([0,1,40], c * e * 0.1 * amp);
 		}).add;
 
 		SynthDef("MykSounds_bd", {arg freq, len, p1=0.5, p2 = 0.5, p3 = 0.5, amp = 1.0;
@@ -112,7 +113,7 @@ MykSounds : Object {
 			c = SinOsc.ar(freq:Line.kr(bf * 1.5, bf * 0.5, len/3));
 			c = c + RLPF.ar(Pulse.ar(bf), min(8000, bf * 25 * p3), p2*4);
 			c = Normalizer.ar(c, 0.5);
-			Out.ar([1, 41], c * e * amp);
+			Out.ar([1, 0, 41], c * e * amp);
 		}).add;
 
 		SynthDef("MykSounds_sn", {arg freq, len, p1 = 0.5, p2, p3, amp=1.0;
@@ -150,12 +151,12 @@ MykSounds : Object {
 		SynthDef("MykSounds_rev", {arg out= 0,  onoff=1, p1 = 0.5, p2 = 0.5, amp = 1.0;
 			var in, chain, chain2, dt, mix;
 			onoff = max(0, min(onoff, 1));
-			p1 = Lag.kr(p1);
-			p2 = Lag.kr(p2);
-			onoff = Lag.kr(onoff);
+			//p1 = Lag.kr(p1);
+			//p2 = Lag.kr(p2);
+			//onoff = Lag.kr(onoff);
 			dt = max(0, min(p1, 1));
 			dt = dt * 0.01;
-			in = In.ar(40);// + SoundIn.ar(1);// read in on the second input...
+			in = In.ar(40) + SoundIn.ar(0);// read in on the second input...
 			chain = in * onoff * amp;
 			chain2 =in * onoff * amp;
 			4.do{
@@ -164,8 +165,8 @@ MykSounds : Object {
 			4.do{
 				chain2 = AllpassC.ar(chain2, 0.1, Rand(0.001, 0.0015) + dt, p2 * 5.0);
 			};
-			chain = chain * 1.5;
-			chain2 = chain2 * 1.5;
+			chain = chain * 1.0;
+			chain2 = chain2 * 1.0;
 			Out.ar(0+out, [chain, chain2]);
 		}).add;
 
@@ -174,10 +175,10 @@ MykSounds : Object {
 			onoff = max(0, min(onoff, 1));
 			p1 = Lag.kr(p1, LFDNoise1.kr(0.1).range(0.1, 1.0));
 			p2 = Lag.kr(p2, 0.25);
-			onoff = Lag.kr(onoff);
+			//onoff = Lag.kr(onoff);
 			dt = max(0, min(p1, 1));
 			dt = dt * 0.45;
-			in = In.ar(40);// + SoundIn.ar(1);
+			in = In.ar(40) + SoundIn.ar(0);
 			chain = in * onoff * amp;
 			chain = CombC.ar(chain, 0.5, 0.01+ dt, p2 * 10.0);
 			chain2 = chain + CombC.ar(chain, 0.5, 0.05+ dt, p2 * 15.0) * 0.5;
@@ -189,7 +190,8 @@ MykSounds : Object {
 
 		SynthDef("MykSounds_fft", {arg out = 0, onoff = 1, p1 = 0.5, p2 = 0.5, amp = 1.0;
 			var c, in, c1;
-			in = In.ar(40) + SoundIn.ar(1);
+//			in = In.ar(40) + SoundIn.ar(0);
+			in = SoundIn.ar(1);
 			c = FFT(LocalBuf(2048, 1), in * Lag.kr(onoff));
 			c = PV_LocalMax(c, SinOsc.kr(LFDNoise1.kr(0.5).range(0.1, 1.0)).range(0.1, p1));
 			c = PV_MagFreeze(c, Dust.kr(p2 * 2.0));
@@ -204,13 +206,34 @@ MykSounds : Object {
 			4.do{
 				c1 = AllpassC.ar(c1, 0.1, rrand(0.05, 0.1), p1 * 5);
 			};
-			//c = Normalizer.ar(c, 0.0125);
+			c = Normalizer.ar(c, 0.0125);
+			Out.ar(0 + out, [(c* amp), (c1 * amp)]);
+		}).add;
+		SynthDef("MykSounds_fft", {arg out = 0, onoff = 1, p1 = 0.5, p2 = 0.5, amp = 1.0;
+			var c, in, c1;
+			in = In.ar(40);// + SoundIn.ar(0);
+//			in = SoundIn.ar(1);
+			c = FFT(LocalBuf(2048, 1), in * Lag.kr(onoff));
+			c = PV_LocalMax(c, SinOsc.kr(LFDNoise1.kr(0.5).range(0.1, 1.0)).range(0.1, p1));
+			c = PV_MagFreeze(c, Dust.kr(p2 * 2.0));
+			c = IFFT(c);
+			c = Normalizer.ar(c, 0.25);
+			//c = CombL.ar(c, 0.25, SinOsc.ar(0.1).range(0.1, 0.25), 2.0);
+			c1 = c;
+			//bit of reverb
+			4.do{
+				c = AllpassC.ar(c, 0.1, rrand(0.05, 0.1), p1 * 5);
+			};
+			4.do{
+				c1 = AllpassC.ar(c1, 0.1, rrand(0.05, 0.1), p1 * 5);
+			};
+			c = Normalizer.ar(c, 0.0125);
 			Out.ar(0 + out, [(c* amp), (c1 * amp)]);
 		}).add;
 
 		SynthDef("MykSounds_dist", {arg onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0, out=0;
 			var in, c,c2, phase, freq;
-			in = In.ar(41) + SoundIn.ar(1);
+			in = In.ar(41) + SoundIn.ar(0);
 			in = Normalizer.ar(in, 0.5);
 			freq = (p1 * 127.0).midicps;
 			phase = in * pi * 2;
@@ -218,12 +241,28 @@ MykSounds : Object {
 			c = Normalizer.ar(c, 1.0);
 			c2 =FBSineC.ar(freq:phase * freq * 2, c:phase, im:p2 * 10);
 			c2 = Normalizer.ar(c2, 1.0);
+
+			c2 =  Compander.ar(c2, c2,
+        thresh: 0.1,
+        slopeBelow: 10,
+        slopeAbove: 1,
+        clampTime: 0.01,
+        relaxTime: 0.01
+			);
+			c =  Compander.ar(c, c,
+        thresh: 0.1,
+        slopeBelow: 10,
+        slopeAbove: 1,
+        clampTime: 0.01,
+        relaxTime: 0.01
+			);
+
 			Out.ar(0+out, [c, c2] * amp * onoff);
 			//Out.ar(1, in);
 		}).add;
 		SynthDef("MykSounds_comp", {arg onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0, out=0;
 			var in, c,c2, phase, freq;
-			in = In.ar(41);// + SoundIn.ar(1);
+			in = In.ar(41);// + SoundIn.ar(0);
 			in = Limiter.ar(in * 4, 1.0);
 			in = Compander.ar(in, in, 0.25, 1, 0.1);
 			Out.ar([0 + out, 1 + out], in * amp * onoff);
@@ -231,7 +270,7 @@ MykSounds : Object {
 		}).add;
 		SynthDef("MykSounds_distws", {arg buff, onoff = 0, amp = 0.5, p1 = 0.5, p2 = 1.0, out=0;
 			var in, c,c2, phase, freq;
-			in = In.ar(41);// + SoundIn.ar(1);
+			in = In.ar(41) + SoundIn.ar(0);
 			c = Shaper.ar(buff, in * p1, 0.5);
 			c = Normalizer.ar(c, 0.5);
 			Out.ar([0+out, 1+out], c * amp * 0.1 * onoff);

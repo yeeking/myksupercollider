@@ -3,7 +3,7 @@
  *
  */
 MykMidi : Object {
-	var midi_out;
+	var midi_out, midi_in;
 
 	*new{
 		^super.new.prInit;
@@ -13,8 +13,10 @@ MykMidi : Object {
 		MIDIClient.init;
 		MIDIClient.destinations;
 		try{
+			"MYKMidi: Connecting to MIDI out device: Fireface 800 (40D)".postln;
 			midi_out = MIDIOut.newByName("Fireface 800 (40D)", "Port 1");
 			midi_out.latency = 0;
+
 
 		};
 
@@ -29,6 +31,27 @@ MykMidi : Object {
 			SystemClock.sched(len, {
 				midi_out.noteOff(chan, num, vel);
 			});
+		});
+	}
+
+	noteOn{arg chan = 0, num = 64, vel = 64, len = 0.5;
+		this.playNote(chan, num, vel, len);
+	}
+
+	cc{arg chan = 0, num = 0, val = 64, wait = 0;
+		if (this.prHaveMidiOut(), {
+			SystemClock.sched(wait, {
+				midi_out.control(chan, num, val);
+			});
+		});
+	}
+
+	prHaveMidiOut{
+		if (midi_out == nil, {
+			"MykMidi: no midi out available...".postln;
+			^false;
+		}, {
+			^true;
 		});
 	}
 }
