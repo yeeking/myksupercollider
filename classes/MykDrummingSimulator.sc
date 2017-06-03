@@ -8,7 +8,7 @@ MykDrummingSimulator : Object {
 	var channel, viz_filename, tidal_host, tidal_port,
 	<mykMidiObserver, <mykMarkov, mykClock, oscResponder, training, simulating, <midi_out, rests_obs, osc_tick_count, >click_out, id_lookup, viz_enabled = false, tidal_enabled, >midiout_channel=9;
 
-  	*new{arg channel = 0, viz_filename = "/Users/matthew/Desktop/canute/canute.json", tidal_host, tidal_port, enable_viz = true, midi_dev = 0;
+  	*new{arg channel = 0, viz_filename = "/Users/matthew/Desktop/canute/canute.json", tidal_host, tidal_port, enable_viz = false, midi_dev = 0;
 		^super.newCopyArgs(channel, viz_filename, tidal_host, tidal_port).prInit(enable_viz, midi_dev);
 	}
 
