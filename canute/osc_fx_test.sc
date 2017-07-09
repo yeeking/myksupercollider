@@ -137,11 +137,15 @@ m.sendMsg("/fx", "flange", "0");
 m.sendMsg("/fx", "grunge", "1");
 m.sendMsg("/fx", "grunge", "0");
 
+m.sendMsg("/fx", "glass", "1");
+m.sendMsg("/fx", "glass", "0");
+
 // set a param
-m.sendMsg("/fx", "reverb", 0.6);
-m.sendMsg("/fx", "delay", 0.001);
-m.sendMsg("/fx", "flange", 0.1);
-m.sendMsg("/fx", "grunge", 0.7);
+m.sendMsg("/fx", "reverb", 0.01);
+m.sendMsg("/fx", "delay", 0.9);
+m.sendMsg("/fx", "flange", 0.9);
+m.sendMsg("/fx", "grunge", 0.4);
+m.sendMsg("/fx", "glass", 0.3);
 
 
 {
