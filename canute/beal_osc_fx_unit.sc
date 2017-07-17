@@ -177,3 +177,33 @@ s.doWhenBooted{
 		});
 	}, '/fx'); // def style
 };
+
+
+// version that parses multiple params in one message
+s.doWhenBooted{
+	// send the defs
+	~funcs['defs'].value;
+	// start the synths
+	~funcs['startSynths'].value;
+
+	//n = NetAddr("192.168.7.2", 57120); // local machine
+	OSCdef(\fx,  {|msg, time, addr, recvPort|
+		var name, val;
+		msg.postln;
+		if(msg.size >= 3, {
+			var ind = 0;
+			((msg.size - 1)/2).do{
+				name = msg[ind+1];
+				val = msg[ind+2].asFloat;
+				(name ++ " p "++val).postln;
+				if(val == 1, {'on'.postln;~funcs['fxOn'].value(name)});
+				if(val == 0, {'off'.postln;~funcs['fxOff'].value(name)});
+				if((val > 0) && (val < 1), {
+					~funcs['fxParam'].value(name,val);
+				});
+				ind = ind +2;
+			};
+		});
+	}, '/fx'); // def style
+};
+

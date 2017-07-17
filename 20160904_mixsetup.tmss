@@ -1,0 +1,2090 @@
+<Preset>
+	<Fireface80040D>
+		<General>
+			<val e="Version" v="990"/>
+			<val e="Current Preset" v="-0.00,"/>
+			<val e="Mute Global" v="1.00,"/>
+			<val e="Solo Global" v="1.00,"/>
+			<val e="MuteGroup 1" v="0.00,"/>
+			<val e="MuteGroup 2" v="0.00,"/>
+			<val e="MuteGroup 3" v="0.00,"/>
+			<val e="MuteGroup 4" v="0.00,"/>
+			<val e="SoloGroup 1" v="0.00,"/>
+			<val e="SoloGroup 2" v="0.00,"/>
+			<val e="SoloGroup 3" v="0.00,"/>
+			<val e="SoloGroup 4" v="0.00,"/>
+			<val e="FaderGroup 1" v="0.00,"/>
+			<val e="FaderGroup 2" v="0.00,"/>
+			<val e="FaderGroup 3" v="0.00,"/>
+			<val e="FaderGroup 4" v="0.00,"/>
+			<val e="Free FaderGroup" v="1.00,"/>
+			<val e="LinkMainAB" v="1.00,"/>
+			<val e="MainChannel" v="0.00,"/>
+			<val e="MainBChannel" v="-1.00,"/>
+			<val e="Phones1Chan" v="8.00,"/>
+			<val e="Phones2Chan" v="-1.00,"/>
+			<val e="Phones3Chan" v="-1.00,"/>
+			<val e="Phones4Chan" v="-1.00,"/>
+			<val e="SpeakerBSelect" v="0.00,"/>
+			<val e="CueChannel" v="-1.00,"/>
+			<val e="CueToChannel" v="0.00,"/>
+			<val e="DIM Enable" v="0.00,"/>
+			<val e="DIM Level" v="-20.00,"/>
+			<val e="DIM Prev. Level" v="-10.00,"/>
+			<val e="Last State BF" v="64.00,"/>
+			<val e="HW Pre Post" v="0.00,"/>
+			<val e="Recall Level" v="-10.00,"/>
+			<val e="Mute FX" v="0.00,"/>
+			<val e="Last FX Level" v="-3.00,"/>
+			<val e="Mono Main Out" v="0.00,"/>
+			<val e="PFL Mode" v="0.00,"/>
+			<val e="External In" v="0.00,"/>
+			<val e="External In Chan" v="-1.00,"/>
+			<val e="External In Gain" v="-3.00,"/>
+			<val e="Talkback" v="0.00,"/>
+			<val e="Talk Channel" v="-1.00,"/>
+			<val e="Listen Channel" v="-1.00,"/>
+			<val e="Talk Dim" v="-20.00,"/>
+			<val e="Listen Dim" v="-20.00,"/>
+			<val e="SnapshotName 0" v="Mix 1"/>
+			<val e="LayoutName 0" v="Layout 1"/>
+			<val e="SnapshotName 1" v="Mix 2"/>
+			<val e="LayoutName 1" v="Layout 2"/>
+			<val e="SnapshotName 2" v="Mix 3"/>
+			<val e="LayoutName 2" v="Layout 3"/>
+			<val e="SnapshotName 3" v="Mix 4"/>
+			<val e="LayoutName 3" v="Layout 4"/>
+			<val e="SnapshotName 4" v="Mix 5"/>
+			<val e="LayoutName 4" v="Layout 5"/>
+			<val e="SnapshotName 5" v="Mix 6"/>
+			<val e="LayoutName 5" v="Layout 6"/>
+			<val e="SnapshotName 6" v="Mix 7"/>
+			<val e="LayoutName 6" v="Layout 7"/>
+			<val e="SnapshotName 7" v="Mix 8"/>
+			<val e="LayoutName 7" v="Layout 8"/>
+			<val e="MidiEnabled" v="0"/>
+			<val e="OSCEnabled" v="0"/>
+		</General>
+		<Inputs>
+			<val e="Stereo 00" v="0.00,"/>
+			<val e="Name 00" v=""/>
+			<val e="Chan Mute 00" v="0.00,"/>
+			<val e="Rev Return 00" v="-65.00,"/>
+			<val e="Chan Level 00" v="1.00,"/>
+			<val e="Chan Gain 00" v="0.00,"/>
+			<val e="Auto Set 00" v="0.00,"/>
+			<val e="Phase Invert 00" v="0.00,"/>
+			<val e="M/S-Coding 00" v="0.00,"/>
+			<val e="Width 00" v="1.00,"/>
+			<val e="PF Listen 00" v="0.00,"/>
+			<val e="Rev Send 00" v="-300.00,"/>
+			<val e="Loopback 00" v="0.00,"/>
+			<val e="Phant Power 00" v="0.00,"/>
+			<val e="High Z Inp 00" v="0.00,"/>
+			<val e="RecordEnable 00" v="0.00,"/>
+			<val e="PlayChannel 00" v="0.00,"/>
+			<val e="Talkback Sel. 00" v="-1.00,"/>
+			<val e="No Trim 00" v="0.00,"/>
+			<val e="Mirror To 00" v="0.00,"/>
+			<val e="Input Pad 00" v="0.00,"/>
+			<val e="Hide State 00" v="0.00,"/>
+			<val e="Remote Controls 00" v="1023.00,"/>
+			<val e="Stereo 01" v="0.00,"/>
+			<val e="Name 01" v=""/>
+			<val e="Chan Mute 01" v="0.00,"/>
+			<val e="Rev Return 01" v="-65.00,"/>
+			<val e="Chan Level 01" v="1.00,"/>
+			<val e="Chan Gain 01" v="0.00,"/>
+			<val e="Auto Set 01" v="0.00,"/>
+			<val e="Phase Invert 01" v="0.00,"/>
+			<val e="M/S-Coding 01" v="0.00,"/>
+			<val e="Width 01" v="1.00,"/>
+			<val e="PF Listen 01" v="0.00,"/>
+			<val e="Rev Send 01" v="-300.00,"/>
+			<val e="Loopback 01" v="0.00,"/>
+			<val e="Phant Power 01" v="0.00,"/>
+			<val e="High Z Inp 01" v="0.00,"/>
+			<val e="RecordEnable 01" v="0.00,"/>
+			<val e="PlayChannel 01" v="0.00,"/>
+			<val e="Talkback Sel. 01" v="-1.00,"/>
+			<val e="No Trim 01" v="0.00,"/>
+			<val e="Mirror To 01" v="0.00,"/>
+			<val e="Input Pad 01" v="0.00,"/>
+			<val e="Hide State 01" v="0.00,"/>
+			<val e="Remote Controls 01" v="1023.00,"/>
+			<val e="Stereo 02" v="1.00,"/>
+			<val e="Name 02" v=""/>
+			<val e="Chan Mute 02" v="0.00,"/>
+			<val e="Rev Return 02" v="-65.00,"/>
+			<val e="Chan Level 02" v="1.00,"/>
+			<val e="Chan Gain 02" v="0.00,"/>
+			<val e="Auto Set 02" v="0.00,"/>
+			<val e="Phase Invert 02" v="0.00,"/>
+			<val e="M/S-Coding 02" v="0.00,"/>
+			<val e="Width 02" v="1.00,"/>
+			<val e="PF Listen 02" v="0.00,"/>
+			<val e="Rev Send 02" v="-300.00,"/>
+			<val e="Loopback 02" v="0.00,"/>
+			<val e="Phant Power 02" v="0.00,"/>
+			<val e="High Z Inp 02" v="0.00,"/>
+			<val e="RecordEnable 02" v="0.00,"/>
+			<val e="PlayChannel 02" v="0.00,"/>
+			<val e="Talkback Sel. 02" v="-1.00,"/>
+			<val e="No Trim 02" v="0.00,"/>
+			<val e="Mirror To 02" v="0.00,"/>
+			<val e="Input Pad 02" v="0.00,"/>
+			<val e="Hide State 02" v="0.00,"/>
+			<val e="Remote Controls 02" v="1023.00,"/>
+			<val e="Stereo 03" v="1.00,"/>
+			<val e="Name 03" v=""/>
+			<val e="Chan Mute 03" v="0.00,"/>
+			<val e="Rev Return 03" v="-65.00,"/>
+			<val e="Chan Level 03" v="1.00,"/>
+			<val e="Chan Gain 03" v="0.00,"/>
+			<val e="Auto Set 03" v="0.00,"/>
+			<val e="Phase Invert 03" v="0.00,"/>
+			<val e="M/S-Coding 03" v="0.00,"/>
+			<val e="Width 03" v="1.00,"/>
+			<val e="PF Listen 03" v="0.00,"/>
+			<val e="Rev Send 03" v="-300.00,"/>
+			<val e="Loopback 03" v="0.00,"/>
+			<val e="Phant Power 03" v="0.00,"/>
+			<val e="High Z Inp 03" v="0.00,"/>
+			<val e="RecordEnable 03" v="0.00,"/>
+			<val e="PlayChannel 03" v="0.00,"/>
+			<val e="Talkback Sel. 03" v="-1.00,"/>
+			<val e="No Trim 03" v="0.00,"/>
+			<val e="Mirror To 03" v="0.00,"/>
+			<val e="Input Pad 03" v="0.00,"/>
+			<val e="Hide State 03" v="0.00,"/>
+			<val e="Remote Controls 03" v="1023.00,"/>
+			<val e="Stereo 04" v="1.00,"/>
+			<val e="Name 04" v=""/>
+			<val e="Chan Mute 04" v="0.00,"/>
+			<val e="Rev Return 04" v="-65.00,"/>
+			<val e="Chan Level 04" v="1.00,"/>
+			<val e="Chan Gain 04" v="0.00,"/>
+			<val e="Auto Set 04" v="0.00,"/>
+			<val e="Phase Invert 04" v="0.00,"/>
+			<val e="M/S-Coding 04" v="0.00,"/>
+			<val e="Width 04" v="1.00,"/>
+			<val e="PF Listen 04" v="0.00,"/>
+			<val e="Rev Send 04" v="-300.00,"/>
+			<val e="Loopback 04" v="0.00,"/>
+			<val e="Phant Power 04" v="0.00,"/>
+			<val e="High Z Inp 04" v="0.00,"/>
+			<val e="RecordEnable 04" v="0.00,"/>
+			<val e="PlayChannel 04" v="0.00,"/>
+			<val e="Talkback Sel. 04" v="-1.00,"/>
+			<val e="No Trim 04" v="0.00,"/>
+			<val e="Mirror To 04" v="0.00,"/>
+			<val e="Input Pad 04" v="0.00,"/>
+			<val e="Hide State 04" v="0.00,"/>
+			<val e="Remote Controls 04" v="1023.00,"/>
+			<val e="Stereo 05" v="1.00,"/>
+			<val e="Name 05" v=""/>
+			<val e="Chan Mute 05" v="0.00,"/>
+			<val e="Rev Return 05" v="-65.00,"/>
+			<val e="Chan Level 05" v="1.00,"/>
+			<val e="Chan Gain 05" v="0.00,"/>
+			<val e="Auto Set 05" v="0.00,"/>
+			<val e="Phase Invert 05" v="0.00,"/>
+			<val e="M/S-Coding 05" v="0.00,"/>
+			<val e="Width 05" v="1.00,"/>
+			<val e="PF Listen 05" v="0.00,"/>
+			<val e="Rev Send 05" v="-300.00,"/>
+			<val e="Loopback 05" v="0.00,"/>
+			<val e="Phant Power 05" v="0.00,"/>
+			<val e="High Z Inp 05" v="0.00,"/>
+			<val e="RecordEnable 05" v="0.00,"/>
+			<val e="PlayChannel 05" v="0.00,"/>
+			<val e="Talkback Sel. 05" v="-1.00,"/>
+			<val e="No Trim 05" v="0.00,"/>
+			<val e="Mirror To 05" v="0.00,"/>
+			<val e="Input Pad 05" v="0.00,"/>
+			<val e="Hide State 05" v="0.00,"/>
+			<val e="Remote Controls 05" v="1023.00,"/>
+			<val e="Stereo 06" v="1.00,"/>
+			<val e="Name 06" v=""/>
+			<val e="Chan Mute 06" v="0.00,"/>
+			<val e="Rev Return 06" v="-65.00,"/>
+			<val e="Chan Level 06" v="1.00,"/>
+			<val e="Chan Gain 06" v="0.00,"/>
+			<val e="Auto Set 06" v="0.00,"/>
+			<val e="Phase Invert 06" v="0.00,"/>
+			<val e="M/S-Coding 06" v="0.00,"/>
+			<val e="Width 06" v="1.00,"/>
+			<val e="PF Listen 06" v="0.00,"/>
+			<val e="Rev Send 06" v="-300.00,"/>
+			<val e="Loopback 06" v="0.00,"/>
+			<val e="Phant Power 06" v="0.00,"/>
+			<val e="High Z Inp 06" v="0.00,"/>
+			<val e="RecordEnable 06" v="0.00,"/>
+			<val e="PlayChannel 06" v="0.00,"/>
+			<val e="Talkback Sel. 06" v="-1.00,"/>
+			<val e="No Trim 06" v="0.00,"/>
+			<val e="Mirror To 06" v="0.00,"/>
+			<val e="Input Pad 06" v="0.00,"/>
+			<val e="Hide State 06" v="0.00,"/>
+			<val e="Remote Controls 06" v="1023.00,"/>
+			<val e="Stereo 07" v="1.00,"/>
+			<val e="Name 07" v=""/>
+			<val e="Chan Mute 07" v="0.00,"/>
+			<val e="Rev Return 07" v="-65.00,"/>
+			<val e="Chan Level 07" v="1.00,"/>
+			<val e="Chan Gain 07" v="0.00,"/>
+			<val e="Auto Set 07" v="0.00,"/>
+			<val e="Phase Invert 07" v="0.00,"/>
+			<val e="M/S-Coding 07" v="0.00,"/>
+			<val e="Width 07" v="1.00,"/>
+			<val e="PF Listen 07" v="0.00,"/>
+			<val e="Rev Send 07" v="-300.00,"/>
+			<val e="Loopback 07" v="0.00,"/>
+			<val e="Phant Power 07" v="0.00,"/>
+			<val e="High Z Inp 07" v="0.00,"/>
+			<val e="RecordEnable 07" v="0.00,"/>
+			<val e="PlayChannel 07" v="0.00,"/>
+			<val e="Talkback Sel. 07" v="-1.00,"/>
+			<val e="No Trim 07" v="0.00,"/>
+			<val e="Mirror To 07" v="0.00,"/>
+			<val e="Input Pad 07" v="0.00,"/>
+			<val e="Hide State 07" v="0.00,"/>
+			<val e="Remote Controls 07" v="1023.00,"/>
+			<val e="Stereo 08" v="1.00,"/>
+			<val e="Name 08" v=""/>
+			<val e="Chan Mute 08" v="0.00,"/>
+			<val e="Rev Return 08" v="-65.00,"/>
+			<val e="Chan Level 08" v="1.00,"/>
+			<val e="Chan Gain 08" v="0.00,"/>
+			<val e="Auto Set 08" v="0.00,"/>
+			<val e="Phase Invert 08" v="0.00,"/>
+			<val e="M/S-Coding 08" v="0.00,"/>
+			<val e="Width 08" v="1.00,"/>
+			<val e="PF Listen 08" v="0.00,"/>
+			<val e="Rev Send 08" v="-300.00,"/>
+			<val e="Loopback 08" v="0.00,"/>
+			<val e="Phant Power 08" v="0.00,"/>
+			<val e="High Z Inp 08" v="0.00,"/>
+			<val e="RecordEnable 08" v="0.00,"/>
+			<val e="PlayChannel 08" v="0.00,"/>
+			<val e="Talkback Sel. 08" v="-1.00,"/>
+			<val e="No Trim 08" v="0.00,"/>
+			<val e="Mirror To 08" v="0.00,"/>
+			<val e="Input Pad 08" v="0.00,"/>
+			<val e="Hide State 08" v="0.00,"/>
+			<val e="Remote Controls 08" v="1023.00,"/>
+			<val e="Stereo 09" v="1.00,"/>
+			<val e="Name 09" v=""/>
+			<val e="Chan Mute 09" v="0.00,"/>
+			<val e="Rev Return 09" v="-65.00,"/>
+			<val e="Chan Level 09" v="1.00,"/>
+			<val e="Chan Gain 09" v="0.00,"/>
+			<val e="Auto Set 09" v="0.00,"/>
+			<val e="Phase Invert 09" v="0.00,"/>
+			<val e="M/S-Coding 09" v="0.00,"/>
+			<val e="Width 09" v="1.00,"/>
+			<val e="PF Listen 09" v="0.00,"/>
+			<val e="Rev Send 09" v="-300.00,"/>
+			<val e="Loopback 09" v="0.00,"/>
+			<val e="Phant Power 09" v="0.00,"/>
+			<val e="High Z Inp 09" v="0.00,"/>
+			<val e="RecordEnable 09" v="0.00,"/>
+			<val e="PlayChannel 09" v="0.00,"/>
+			<val e="Talkback Sel. 09" v="-1.00,"/>
+			<val e="No Trim 09" v="0.00,"/>
+			<val e="Mirror To 09" v="0.00,"/>
+			<val e="Input Pad 09" v="0.00,"/>
+			<val e="Hide State 09" v="0.00,"/>
+			<val e="Remote Controls 09" v="1023.00,"/>
+			<val e="Stereo 10" v="1.00,"/>
+			<val e="Name 10" v=""/>
+			<val e="Chan Mute 10" v="0.00,"/>
+			<val e="Rev Return 10" v="-65.00,"/>
+			<val e="Chan Level 10" v="1.00,"/>
+			<val e="Chan Gain 10" v="0.00,"/>
+			<val e="Auto Set 10" v="0.00,"/>
+			<val e="Phase Invert 10" v="0.00,"/>
+			<val e="M/S-Coding 10" v="0.00,"/>
+			<val e="Width 10" v="1.00,"/>
+			<val e="PF Listen 10" v="0.00,"/>
+			<val e="Rev Send 10" v="-300.00,"/>
+			<val e="Loopback 10" v="0.00,"/>
+			<val e="Phant Power 10" v="0.00,"/>
+			<val e="High Z Inp 10" v="0.00,"/>
+			<val e="RecordEnable 10" v="0.00,"/>
+			<val e="PlayChannel 10" v="0.00,"/>
+			<val e="Talkback Sel. 10" v="-1.00,"/>
+			<val e="No Trim 10" v="0.00,"/>
+			<val e="Mirror To 10" v="0.00,"/>
+			<val e="Input Pad 10" v="0.00,"/>
+			<val e="Hide State 10" v="0.00,"/>
+			<val e="Remote Controls 10" v="1023.00,"/>
+			<val e="Stereo 11" v="1.00,"/>
+			<val e="Name 11" v=""/>
+			<val e="Chan Mute 11" v="0.00,"/>
+			<val e="Rev Return 11" v="-65.00,"/>
+			<val e="Chan Level 11" v="1.00,"/>
+			<val e="Chan Gain 11" v="0.00,"/>
+			<val e="Auto Set 11" v="0.00,"/>
+			<val e="Phase Invert 11" v="0.00,"/>
+			<val e="M/S-Coding 11" v="0.00,"/>
+			<val e="Width 11" v="1.00,"/>
+			<val e="PF Listen 11" v="0.00,"/>
+			<val e="Rev Send 11" v="-300.00,"/>
+			<val e="Loopback 11" v="0.00,"/>
+			<val e="Phant Power 11" v="0.00,"/>
+			<val e="High Z Inp 11" v="0.00,"/>
+			<val e="RecordEnable 11" v="0.00,"/>
+			<val e="PlayChannel 11" v="0.00,"/>
+			<val e="Talkback Sel. 11" v="-1.00,"/>
+			<val e="No Trim 11" v="0.00,"/>
+			<val e="Mirror To 11" v="0.00,"/>
+			<val e="Input Pad 11" v="0.00,"/>
+			<val e="Hide State 11" v="0.00,"/>
+			<val e="Remote Controls 11" v="1023.00,"/>
+			<val e="Stereo 12" v="1.00,"/>
+			<val e="Name 12" v=""/>
+			<val e="Chan Mute 12" v="0.00,"/>
+			<val e="Rev Return 12" v="-65.00,"/>
+			<val e="Chan Level 12" v="1.00,"/>
+			<val e="Chan Gain 12" v="0.00,"/>
+			<val e="Auto Set 12" v="0.00,"/>
+			<val e="Phase Invert 12" v="0.00,"/>
+			<val e="M/S-Coding 12" v="0.00,"/>
+			<val e="Width 12" v="1.00,"/>
+			<val e="PF Listen 12" v="0.00,"/>
+			<val e="Rev Send 12" v="-300.00,"/>
+			<val e="Loopback 12" v="0.00,"/>
+			<val e="Phant Power 12" v="0.00,"/>
+			<val e="High Z Inp 12" v="0.00,"/>
+			<val e="RecordEnable 12" v="0.00,"/>
+			<val e="PlayChannel 12" v="0.00,"/>
+			<val e="Talkback Sel. 12" v="-1.00,"/>
+			<val e="No Trim 12" v="0.00,"/>
+			<val e="Mirror To 12" v="0.00,"/>
+			<val e="Input Pad 12" v="0.00,"/>
+			<val e="Hide State 12" v="0.00,"/>
+			<val e="Remote Controls 12" v="1023.00,"/>
+			<val e="Stereo 13" v="1.00,"/>
+			<val e="Name 13" v=""/>
+			<val e="Chan Mute 13" v="0.00,"/>
+			<val e="Rev Return 13" v="-65.00,"/>
+			<val e="Chan Level 13" v="1.00,"/>
+			<val e="Chan Gain 13" v="0.00,"/>
+			<val e="Auto Set 13" v="0.00,"/>
+			<val e="Phase Invert 13" v="0.00,"/>
+			<val e="M/S-Coding 13" v="0.00,"/>
+			<val e="Width 13" v="1.00,"/>
+			<val e="PF Listen 13" v="0.00,"/>
+			<val e="Rev Send 13" v="-300.00,"/>
+			<val e="Loopback 13" v="0.00,"/>
+			<val e="Phant Power 13" v="0.00,"/>
+			<val e="High Z Inp 13" v="0.00,"/>
+			<val e="RecordEnable 13" v="0.00,"/>
+			<val e="PlayChannel 13" v="0.00,"/>
+			<val e="Talkback Sel. 13" v="-1.00,"/>
+			<val e="No Trim 13" v="0.00,"/>
+			<val e="Mirror To 13" v="0.00,"/>
+			<val e="Input Pad 13" v="0.00,"/>
+			<val e="Hide State 13" v="0.00,"/>
+			<val e="Remote Controls 13" v="1023.00,"/>
+			<val e="Stereo 14" v="1.00,"/>
+			<val e="Name 14" v=""/>
+			<val e="Chan Mute 14" v="0.00,"/>
+			<val e="Rev Return 14" v="-65.00,"/>
+			<val e="Chan Level 14" v="1.00,"/>
+			<val e="Chan Gain 14" v="0.00,"/>
+			<val e="Auto Set 14" v="0.00,"/>
+			<val e="Phase Invert 14" v="0.00,"/>
+			<val e="M/S-Coding 14" v="0.00,"/>
+			<val e="Width 14" v="1.00,"/>
+			<val e="PF Listen 14" v="0.00,"/>
+			<val e="Rev Send 14" v="-300.00,"/>
+			<val e="Loopback 14" v="0.00,"/>
+			<val e="Phant Power 14" v="0.00,"/>
+			<val e="High Z Inp 14" v="0.00,"/>
+			<val e="RecordEnable 14" v="0.00,"/>
+			<val e="PlayChannel 14" v="0.00,"/>
+			<val e="Talkback Sel. 14" v="-1.00,"/>
+			<val e="No Trim 14" v="0.00,"/>
+			<val e="Mirror To 14" v="0.00,"/>
+			<val e="Input Pad 14" v="0.00,"/>
+			<val e="Hide State 14" v="0.00,"/>
+			<val e="Remote Controls 14" v="1023.00,"/>
+			<val e="Stereo 15" v="1.00,"/>
+			<val e="Name 15" v=""/>
+			<val e="Chan Mute 15" v="0.00,"/>
+			<val e="Rev Return 15" v="-65.00,"/>
+			<val e="Chan Level 15" v="1.00,"/>
+			<val e="Chan Gain 15" v="0.00,"/>
+			<val e="Auto Set 15" v="0.00,"/>
+			<val e="Phase Invert 15" v="0.00,"/>
+			<val e="M/S-Coding 15" v="0.00,"/>
+			<val e="Width 15" v="1.00,"/>
+			<val e="PF Listen 15" v="0.00,"/>
+			<val e="Rev Send 15" v="-300.00,"/>
+			<val e="Loopback 15" v="0.00,"/>
+			<val e="Phant Power 15" v="0.00,"/>
+			<val e="High Z Inp 15" v="0.00,"/>
+			<val e="RecordEnable 15" v="0.00,"/>
+			<val e="PlayChannel 15" v="0.00,"/>
+			<val e="Talkback Sel. 15" v="-1.00,"/>
+			<val e="No Trim 15" v="0.00,"/>
+			<val e="Mirror To 15" v="0.00,"/>
+			<val e="Input Pad 15" v="0.00,"/>
+			<val e="Hide State 15" v="0.00,"/>
+			<val e="Remote Controls 15" v="1023.00,"/>
+			<val e="Stereo 16" v="1.00,"/>
+			<val e="Name 16" v=""/>
+			<val e="Chan Mute 16" v="0.00,"/>
+			<val e="Rev Return 16" v="-65.00,"/>
+			<val e="Chan Level 16" v="1.00,"/>
+			<val e="Chan Gain 16" v="0.00,"/>
+			<val e="Auto Set 16" v="0.00,"/>
+			<val e="Phase Invert 16" v="0.00,"/>
+			<val e="M/S-Coding 16" v="0.00,"/>
+			<val e="Width 16" v="1.00,"/>
+			<val e="PF Listen 16" v="0.00,"/>
+			<val e="Rev Send 16" v="-300.00,"/>
+			<val e="Loopback 16" v="0.00,"/>
+			<val e="Phant Power 16" v="0.00,"/>
+			<val e="High Z Inp 16" v="0.00,"/>
+			<val e="RecordEnable 16" v="0.00,"/>
+			<val e="PlayChannel 16" v="0.00,"/>
+			<val e="Talkback Sel. 16" v="-1.00,"/>
+			<val e="No Trim 16" v="0.00,"/>
+			<val e="Mirror To 16" v="0.00,"/>
+			<val e="Input Pad 16" v="0.00,"/>
+			<val e="Hide State 16" v="0.00,"/>
+			<val e="Remote Controls 16" v="1023.00,"/>
+			<val e="Stereo 17" v="1.00,"/>
+			<val e="Name 17" v=""/>
+			<val e="Chan Mute 17" v="0.00,"/>
+			<val e="Rev Return 17" v="-65.00,"/>
+			<val e="Chan Level 17" v="1.00,"/>
+			<val e="Chan Gain 17" v="0.00,"/>
+			<val e="Auto Set 17" v="0.00,"/>
+			<val e="Phase Invert 17" v="0.00,"/>
+			<val e="M/S-Coding 17" v="0.00,"/>
+			<val e="Width 17" v="1.00,"/>
+			<val e="PF Listen 17" v="0.00,"/>
+			<val e="Rev Send 17" v="-300.00,"/>
+			<val e="Loopback 17" v="0.00,"/>
+			<val e="Phant Power 17" v="0.00,"/>
+			<val e="High Z Inp 17" v="0.00,"/>
+			<val e="RecordEnable 17" v="0.00,"/>
+			<val e="PlayChannel 17" v="0.00,"/>
+			<val e="Talkback Sel. 17" v="-1.00,"/>
+			<val e="No Trim 17" v="0.00,"/>
+			<val e="Mirror To 17" v="0.00,"/>
+			<val e="Input Pad 17" v="0.00,"/>
+			<val e="Hide State 17" v="0.00,"/>
+			<val e="Remote Controls 17" v="1023.00,"/>
+			<val e="Stereo 18" v="1.00,"/>
+			<val e="Name 18" v=""/>
+			<val e="Chan Mute 18" v="0.00,"/>
+			<val e="Rev Return 18" v="-65.00,"/>
+			<val e="Chan Level 18" v="1.00,"/>
+			<val e="Chan Gain 18" v="0.00,"/>
+			<val e="Auto Set 18" v="0.00,"/>
+			<val e="Phase Invert 18" v="0.00,"/>
+			<val e="M/S-Coding 18" v="0.00,"/>
+			<val e="Width 18" v="1.00,"/>
+			<val e="PF Listen 18" v="0.00,"/>
+			<val e="Rev Send 18" v="-300.00,"/>
+			<val e="Loopback 18" v="0.00,"/>
+			<val e="Phant Power 18" v="0.00,"/>
+			<val e="High Z Inp 18" v="0.00,"/>
+			<val e="RecordEnable 18" v="0.00,"/>
+			<val e="PlayChannel 18" v="0.00,"/>
+			<val e="Talkback Sel. 18" v="-1.00,"/>
+			<val e="No Trim 18" v="0.00,"/>
+			<val e="Mirror To 18" v="0.00,"/>
+			<val e="Input Pad 18" v="0.00,"/>
+			<val e="Hide State 18" v="0.00,"/>
+			<val e="Remote Controls 18" v="1023.00,"/>
+			<val e="Stereo 19" v="1.00,"/>
+			<val e="Name 19" v=""/>
+			<val e="Chan Mute 19" v="0.00,"/>
+			<val e="Rev Return 19" v="-65.00,"/>
+			<val e="Chan Level 19" v="1.00,"/>
+			<val e="Chan Gain 19" v="0.00,"/>
+			<val e="Auto Set 19" v="0.00,"/>
+			<val e="Phase Invert 19" v="0.00,"/>
+			<val e="M/S-Coding 19" v="0.00,"/>
+			<val e="Width 19" v="1.00,"/>
+			<val e="PF Listen 19" v="0.00,"/>
+			<val e="Rev Send 19" v="-300.00,"/>
+			<val e="Loopback 19" v="0.00,"/>
+			<val e="Phant Power 19" v="0.00,"/>
+			<val e="High Z Inp 19" v="0.00,"/>
+			<val e="RecordEnable 19" v="0.00,"/>
+			<val e="PlayChannel 19" v="0.00,"/>
+			<val e="Talkback Sel. 19" v="-1.00,"/>
+			<val e="No Trim 19" v="0.00,"/>
+			<val e="Mirror To 19" v="0.00,"/>
+			<val e="Input Pad 19" v="0.00,"/>
+			<val e="Hide State 19" v="0.00,"/>
+			<val e="Remote Controls 19" v="1023.00,"/>
+			<val e="Stereo 20" v="1.00,"/>
+			<val e="Name 20" v=""/>
+			<val e="Chan Mute 20" v="0.00,"/>
+			<val e="Rev Return 20" v="-65.00,"/>
+			<val e="Chan Level 20" v="1.00,"/>
+			<val e="Chan Gain 20" v="0.00,"/>
+			<val e="Auto Set 20" v="0.00,"/>
+			<val e="Phase Invert 20" v="0.00,"/>
+			<val e="M/S-Coding 20" v="0.00,"/>
+			<val e="Width 20" v="1.00,"/>
+			<val e="PF Listen 20" v="0.00,"/>
+			<val e="Rev Send 20" v="-300.00,"/>
+			<val e="Loopback 20" v="0.00,"/>
+			<val e="Phant Power 20" v="0.00,"/>
+			<val e="High Z Inp 20" v="0.00,"/>
+			<val e="RecordEnable 20" v="0.00,"/>
+			<val e="PlayChannel 20" v="0.00,"/>
+			<val e="Talkback Sel. 20" v="-1.00,"/>
+			<val e="No Trim 20" v="0.00,"/>
+			<val e="Mirror To 20" v="0.00,"/>
+			<val e="Input Pad 20" v="0.00,"/>
+			<val e="Hide State 20" v="0.00,"/>
+			<val e="Remote Controls 20" v="1023.00,"/>
+			<val e="Stereo 21" v="1.00,"/>
+			<val e="Name 21" v=""/>
+			<val e="Chan Mute 21" v="0.00,"/>
+			<val e="Rev Return 21" v="-65.00,"/>
+			<val e="Chan Level 21" v="1.00,"/>
+			<val e="Chan Gain 21" v="0.00,"/>
+			<val e="Auto Set 21" v="0.00,"/>
+			<val e="Phase Invert 21" v="0.00,"/>
+			<val e="M/S-Coding 21" v="0.00,"/>
+			<val e="Width 21" v="1.00,"/>
+			<val e="PF Listen 21" v="0.00,"/>
+			<val e="Rev Send 21" v="-300.00,"/>
+			<val e="Loopback 21" v="0.00,"/>
+			<val e="Phant Power 21" v="0.00,"/>
+			<val e="High Z Inp 21" v="0.00,"/>
+			<val e="RecordEnable 21" v="0.00,"/>
+			<val e="PlayChannel 21" v="0.00,"/>
+			<val e="Talkback Sel. 21" v="-1.00,"/>
+			<val e="No Trim 21" v="0.00,"/>
+			<val e="Mirror To 21" v="0.00,"/>
+			<val e="Input Pad 21" v="0.00,"/>
+			<val e="Hide State 21" v="0.00,"/>
+			<val e="Remote Controls 21" v="1023.00,"/>
+			<val e="Stereo 22" v="1.00,"/>
+			<val e="Name 22" v=""/>
+			<val e="Chan Mute 22" v="0.00,"/>
+			<val e="Rev Return 22" v="-65.00,"/>
+			<val e="Chan Level 22" v="1.00,"/>
+			<val e="Chan Gain 22" v="0.00,"/>
+			<val e="Auto Set 22" v="0.00,"/>
+			<val e="Phase Invert 22" v="0.00,"/>
+			<val e="M/S-Coding 22" v="0.00,"/>
+			<val e="Width 22" v="1.00,"/>
+			<val e="PF Listen 22" v="0.00,"/>
+			<val e="Rev Send 22" v="-300.00,"/>
+			<val e="Loopback 22" v="0.00,"/>
+			<val e="Phant Power 22" v="0.00,"/>
+			<val e="High Z Inp 22" v="0.00,"/>
+			<val e="RecordEnable 22" v="0.00,"/>
+			<val e="PlayChannel 22" v="0.00,"/>
+			<val e="Talkback Sel. 22" v="-1.00,"/>
+			<val e="No Trim 22" v="0.00,"/>
+			<val e="Mirror To 22" v="0.00,"/>
+			<val e="Input Pad 22" v="0.00,"/>
+			<val e="Hide State 22" v="0.00,"/>
+			<val e="Remote Controls 22" v="1023.00,"/>
+			<val e="Stereo 23" v="1.00,"/>
+			<val e="Name 23" v=""/>
+			<val e="Chan Mute 23" v="0.00,"/>
+			<val e="Rev Return 23" v="-65.00,"/>
+			<val e="Chan Level 23" v="1.00,"/>
+			<val e="Chan Gain 23" v="0.00,"/>
+			<val e="Auto Set 23" v="0.00,"/>
+			<val e="Phase Invert 23" v="0.00,"/>
+			<val e="M/S-Coding 23" v="0.00,"/>
+			<val e="Width 23" v="1.00,"/>
+			<val e="PF Listen 23" v="0.00,"/>
+			<val e="Rev Send 23" v="-300.00,"/>
+			<val e="Loopback 23" v="0.00,"/>
+			<val e="Phant Power 23" v="0.00,"/>
+			<val e="High Z Inp 23" v="0.00,"/>
+			<val e="RecordEnable 23" v="0.00,"/>
+			<val e="PlayChannel 23" v="0.00,"/>
+			<val e="Talkback Sel. 23" v="-1.00,"/>
+			<val e="No Trim 23" v="0.00,"/>
+			<val e="Mirror To 23" v="0.00,"/>
+			<val e="Input Pad 23" v="0.00,"/>
+			<val e="Hide State 23" v="0.00,"/>
+			<val e="Remote Controls 23" v="1023.00,"/>
+			<val e="Stereo 24" v="1.00,"/>
+			<val e="Name 24" v=""/>
+			<val e="Chan Mute 24" v="0.00,"/>
+			<val e="Rev Return 24" v="-65.00,"/>
+			<val e="Chan Level 24" v="1.00,"/>
+			<val e="Chan Gain 24" v="0.00,"/>
+			<val e="Auto Set 24" v="0.00,"/>
+			<val e="Phase Invert 24" v="0.00,"/>
+			<val e="M/S-Coding 24" v="0.00,"/>
+			<val e="Width 24" v="1.00,"/>
+			<val e="PF Listen 24" v="0.00,"/>
+			<val e="Rev Send 24" v="-300.00,"/>
+			<val e="Loopback 24" v="0.00,"/>
+			<val e="Phant Power 24" v="0.00,"/>
+			<val e="High Z Inp 24" v="0.00,"/>
+			<val e="RecordEnable 24" v="0.00,"/>
+			<val e="PlayChannel 24" v="0.00,"/>
+			<val e="Talkback Sel. 24" v="-1.00,"/>
+			<val e="No Trim 24" v="0.00,"/>
+			<val e="Mirror To 24" v="0.00,"/>
+			<val e="Input Pad 24" v="0.00,"/>
+			<val e="Hide State 24" v="0.00,"/>
+			<val e="Remote Controls 24" v="1023.00,"/>
+			<val e="Stereo 25" v="1.00,"/>
+			<val e="Name 25" v=""/>
+			<val e="Chan Mute 25" v="0.00,"/>
+			<val e="Rev Return 25" v="-65.00,"/>
+			<val e="Chan Level 25" v="1.00,"/>
+			<val e="Chan Gain 25" v="0.00,"/>
+			<val e="Auto Set 25" v="0.00,"/>
+			<val e="Phase Invert 25" v="0.00,"/>
+			<val e="M/S-Coding 25" v="0.00,"/>
+			<val e="Width 25" v="1.00,"/>
+			<val e="PF Listen 25" v="0.00,"/>
+			<val e="Rev Send 25" v="-300.00,"/>
+			<val e="Loopback 25" v="0.00,"/>
+			<val e="Phant Power 25" v="0.00,"/>
+			<val e="High Z Inp 25" v="0.00,"/>
+			<val e="RecordEnable 25" v="0.00,"/>
+			<val e="PlayChannel 25" v="0.00,"/>
+			<val e="Talkback Sel. 25" v="-1.00,"/>
+			<val e="No Trim 25" v="0.00,"/>
+			<val e="Mirror To 25" v="0.00,"/>
+			<val e="Input Pad 25" v="0.00,"/>
+			<val e="Hide State 25" v="0.00,"/>
+			<val e="Remote Controls 25" v="1023.00,"/>
+			<val e="Stereo 26" v="1.00,"/>
+			<val e="Name 26" v=""/>
+			<val e="Chan Mute 26" v="0.00,"/>
+			<val e="Rev Return 26" v="-65.00,"/>
+			<val e="Chan Level 26" v="1.00,"/>
+			<val e="Chan Gain 26" v="0.00,"/>
+			<val e="Auto Set 26" v="0.00,"/>
+			<val e="Phase Invert 26" v="0.00,"/>
+			<val e="M/S-Coding 26" v="0.00,"/>
+			<val e="Width 26" v="1.00,"/>
+			<val e="PF Listen 26" v="0.00,"/>
+			<val e="Rev Send 26" v="-300.00,"/>
+			<val e="Loopback 26" v="0.00,"/>
+			<val e="Phant Power 26" v="0.00,"/>
+			<val e="High Z Inp 26" v="0.00,"/>
+			<val e="RecordEnable 26" v="0.00,"/>
+			<val e="PlayChannel 26" v="0.00,"/>
+			<val e="Talkback Sel. 26" v="-1.00,"/>
+			<val e="No Trim 26" v="0.00,"/>
+			<val e="Mirror To 26" v="0.00,"/>
+			<val e="Input Pad 26" v="0.00,"/>
+			<val e="Hide State 26" v="0.00,"/>
+			<val e="Remote Controls 26" v="1023.00,"/>
+			<val e="Stereo 27" v="1.00,"/>
+			<val e="Name 27" v=""/>
+			<val e="Chan Mute 27" v="0.00,"/>
+			<val e="Rev Return 27" v="-65.00,"/>
+			<val e="Chan Level 27" v="1.00,"/>
+			<val e="Chan Gain 27" v="0.00,"/>
+			<val e="Auto Set 27" v="0.00,"/>
+			<val e="Phase Invert 27" v="0.00,"/>
+			<val e="M/S-Coding 27" v="0.00,"/>
+			<val e="Width 27" v="1.00,"/>
+			<val e="PF Listen 27" v="0.00,"/>
+			<val e="Rev Send 27" v="-300.00,"/>
+			<val e="Loopback 27" v="0.00,"/>
+			<val e="Phant Power 27" v="0.00,"/>
+			<val e="High Z Inp 27" v="0.00,"/>
+			<val e="RecordEnable 27" v="0.00,"/>
+			<val e="PlayChannel 27" v="0.00,"/>
+			<val e="Talkback Sel. 27" v="-1.00,"/>
+			<val e="No Trim 27" v="0.00,"/>
+			<val e="Mirror To 27" v="0.00,"/>
+			<val e="Input Pad 27" v="0.00,"/>
+			<val e="Hide State 27" v="0.00,"/>
+			<val e="Remote Controls 27" v="1023.00,"/>
+		</Inputs>
+		<Playbacks>
+			<val e="Stereo 00" v="1.00,"/>
+			<val e="Name 00" v=""/>
+			<val e="Chan Mute 00" v="0.00,"/>
+			<val e="Rev Return 00" v="-65.00,"/>
+			<val e="Chan Level 00" v="1.00,"/>
+			<val e="Chan Gain 00" v="0.00,"/>
+			<val e="Auto Set 00" v="0.00,"/>
+			<val e="Phase Invert 00" v="0.00,"/>
+			<val e="M/S-Coding 00" v="0.00,"/>
+			<val e="Width 00" v="1.00,"/>
+			<val e="PF Listen 00" v="0.00,"/>
+			<val e="Rev Send 00" v="-300.00,"/>
+			<val e="Hide State 00" v="0.00,"/>
+			<val e="Remote Controls 00" v="1023.00,"/>
+			<val e="Stereo 01" v="1.00,"/>
+			<val e="Name 01" v=""/>
+			<val e="Chan Mute 01" v="0.00,"/>
+			<val e="Rev Return 01" v="-65.00,"/>
+			<val e="Chan Level 01" v="1.00,"/>
+			<val e="Chan Gain 01" v="0.00,"/>
+			<val e="Auto Set 01" v="0.00,"/>
+			<val e="Phase Invert 01" v="0.00,"/>
+			<val e="M/S-Coding 01" v="0.00,"/>
+			<val e="Width 01" v="1.00,"/>
+			<val e="PF Listen 01" v="0.00,"/>
+			<val e="Rev Send 01" v="-300.00,"/>
+			<val e="Hide State 01" v="0.00,"/>
+			<val e="Remote Controls 01" v="1023.00,"/>
+			<val e="Stereo 02" v="1.00,"/>
+			<val e="Name 02" v=""/>
+			<val e="Chan Mute 02" v="0.00,"/>
+			<val e="Rev Return 02" v="-65.00,"/>
+			<val e="Chan Level 02" v="1.00,"/>
+			<val e="Chan Gain 02" v="0.00,"/>
+			<val e="Auto Set 02" v="0.00,"/>
+			<val e="Phase Invert 02" v="0.00,"/>
+			<val e="M/S-Coding 02" v="0.00,"/>
+			<val e="Width 02" v="1.00,"/>
+			<val e="PF Listen 02" v="0.00,"/>
+			<val e="Rev Send 02" v="-300.00,"/>
+			<val e="Hide State 02" v="0.00,"/>
+			<val e="Remote Controls 02" v="1023.00,"/>
+			<val e="Stereo 03" v="1.00,"/>
+			<val e="Name 03" v=""/>
+			<val e="Chan Mute 03" v="0.00,"/>
+			<val e="Rev Return 03" v="-65.00,"/>
+			<val e="Chan Level 03" v="1.00,"/>
+			<val e="Chan Gain 03" v="0.00,"/>
+			<val e="Auto Set 03" v="0.00,"/>
+			<val e="Phase Invert 03" v="0.00,"/>
+			<val e="M/S-Coding 03" v="0.00,"/>
+			<val e="Width 03" v="1.00,"/>
+			<val e="PF Listen 03" v="0.00,"/>
+			<val e="Rev Send 03" v="-300.00,"/>
+			<val e="Hide State 03" v="0.00,"/>
+			<val e="Remote Controls 03" v="1023.00,"/>
+			<val e="Stereo 04" v="1.00,"/>
+			<val e="Name 04" v=""/>
+			<val e="Chan Mute 04" v="0.00,"/>
+			<val e="Rev Return 04" v="-65.00,"/>
+			<val e="Chan Level 04" v="1.00,"/>
+			<val e="Chan Gain 04" v="0.00,"/>
+			<val e="Auto Set 04" v="0.00,"/>
+			<val e="Phase Invert 04" v="0.00,"/>
+			<val e="M/S-Coding 04" v="0.00,"/>
+			<val e="Width 04" v="1.00,"/>
+			<val e="PF Listen 04" v="0.00,"/>
+			<val e="Rev Send 04" v="-300.00,"/>
+			<val e="Hide State 04" v="0.00,"/>
+			<val e="Remote Controls 04" v="1023.00,"/>
+			<val e="Stereo 05" v="1.00,"/>
+			<val e="Name 05" v=""/>
+			<val e="Chan Mute 05" v="0.00,"/>
+			<val e="Rev Return 05" v="-65.00,"/>
+			<val e="Chan Level 05" v="1.00,"/>
+			<val e="Chan Gain 05" v="0.00,"/>
+			<val e="Auto Set 05" v="0.00,"/>
+			<val e="Phase Invert 05" v="0.00,"/>
+			<val e="M/S-Coding 05" v="0.00,"/>
+			<val e="Width 05" v="1.00,"/>
+			<val e="PF Listen 05" v="0.00,"/>
+			<val e="Rev Send 05" v="-300.00,"/>
+			<val e="Hide State 05" v="0.00,"/>
+			<val e="Remote Controls 05" v="1023.00,"/>
+			<val e="Stereo 06" v="1.00,"/>
+			<val e="Name 06" v=""/>
+			<val e="Chan Mute 06" v="0.00,"/>
+			<val e="Rev Return 06" v="-65.00,"/>
+			<val e="Chan Level 06" v="1.00,"/>
+			<val e="Chan Gain 06" v="0.00,"/>
+			<val e="Auto Set 06" v="0.00,"/>
+			<val e="Phase Invert 06" v="0.00,"/>
+			<val e="M/S-Coding 06" v="0.00,"/>
+			<val e="Width 06" v="1.00,"/>
+			<val e="PF Listen 06" v="0.00,"/>
+			<val e="Rev Send 06" v="-300.00,"/>
+			<val e="Hide State 06" v="0.00,"/>
+			<val e="Remote Controls 06" v="1023.00,"/>
+			<val e="Stereo 07" v="1.00,"/>
+			<val e="Name 07" v=""/>
+			<val e="Chan Mute 07" v="0.00,"/>
+			<val e="Rev Return 07" v="-65.00,"/>
+			<val e="Chan Level 07" v="1.00,"/>
+			<val e="Chan Gain 07" v="0.00,"/>
+			<val e="Auto Set 07" v="0.00,"/>
+			<val e="Phase Invert 07" v="0.00,"/>
+			<val e="M/S-Coding 07" v="0.00,"/>
+			<val e="Width 07" v="1.00,"/>
+			<val e="PF Listen 07" v="0.00,"/>
+			<val e="Rev Send 07" v="-300.00,"/>
+			<val e="Hide State 07" v="0.00,"/>
+			<val e="Remote Controls 07" v="1023.00,"/>
+			<val e="Stereo 08" v="1.00,"/>
+			<val e="Name 08" v=""/>
+			<val e="Chan Mute 08" v="0.00,"/>
+			<val e="Rev Return 08" v="-65.00,"/>
+			<val e="Chan Level 08" v="1.00,"/>
+			<val e="Chan Gain 08" v="0.00,"/>
+			<val e="Auto Set 08" v="0.00,"/>
+			<val e="Phase Invert 08" v="0.00,"/>
+			<val e="M/S-Coding 08" v="0.00,"/>
+			<val e="Width 08" v="1.00,"/>
+			<val e="PF Listen 08" v="0.00,"/>
+			<val e="Rev Send 08" v="-300.00,"/>
+			<val e="Hide State 08" v="0.00,"/>
+			<val e="Remote Controls 08" v="1023.00,"/>
+			<val e="Stereo 09" v="1.00,"/>
+			<val e="Name 09" v=""/>
+			<val e="Chan Mute 09" v="0.00,"/>
+			<val e="Rev Return 09" v="-65.00,"/>
+			<val e="Chan Level 09" v="1.00,"/>
+			<val e="Chan Gain 09" v="0.00,"/>
+			<val e="Auto Set 09" v="0.00,"/>
+			<val e="Phase Invert 09" v="0.00,"/>
+			<val e="M/S-Coding 09" v="0.00,"/>
+			<val e="Width 09" v="1.00,"/>
+			<val e="PF Listen 09" v="0.00,"/>
+			<val e="Rev Send 09" v="-300.00,"/>
+			<val e="Hide State 09" v="0.00,"/>
+			<val e="Remote Controls 09" v="1023.00,"/>
+			<val e="Stereo 10" v="1.00,"/>
+			<val e="Name 10" v=""/>
+			<val e="Chan Mute 10" v="0.00,"/>
+			<val e="Rev Return 10" v="-65.00,"/>
+			<val e="Chan Level 10" v="1.00,"/>
+			<val e="Chan Gain 10" v="0.00,"/>
+			<val e="Auto Set 10" v="0.00,"/>
+			<val e="Phase Invert 10" v="0.00,"/>
+			<val e="M/S-Coding 10" v="0.00,"/>
+			<val e="Width 10" v="1.00,"/>
+			<val e="PF Listen 10" v="0.00,"/>
+			<val e="Rev Send 10" v="-300.00,"/>
+			<val e="Hide State 10" v="0.00,"/>
+			<val e="Remote Controls 10" v="1023.00,"/>
+			<val e="Stereo 11" v="1.00,"/>
+			<val e="Name 11" v=""/>
+			<val e="Chan Mute 11" v="0.00,"/>
+			<val e="Rev Return 11" v="-65.00,"/>
+			<val e="Chan Level 11" v="1.00,"/>
+			<val e="Chan Gain 11" v="0.00,"/>
+			<val e="Auto Set 11" v="0.00,"/>
+			<val e="Phase Invert 11" v="0.00,"/>
+			<val e="M/S-Coding 11" v="0.00,"/>
+			<val e="Width 11" v="1.00,"/>
+			<val e="PF Listen 11" v="0.00,"/>
+			<val e="Rev Send 11" v="-300.00,"/>
+			<val e="Hide State 11" v="0.00,"/>
+			<val e="Remote Controls 11" v="1023.00,"/>
+			<val e="Stereo 12" v="1.00,"/>
+			<val e="Name 12" v=""/>
+			<val e="Chan Mute 12" v="0.00,"/>
+			<val e="Rev Return 12" v="-65.00,"/>
+			<val e="Chan Level 12" v="1.00,"/>
+			<val e="Chan Gain 12" v="0.00,"/>
+			<val e="Auto Set 12" v="0.00,"/>
+			<val e="Phase Invert 12" v="0.00,"/>
+			<val e="M/S-Coding 12" v="0.00,"/>
+			<val e="Width 12" v="1.00,"/>
+			<val e="PF Listen 12" v="0.00,"/>
+			<val e="Rev Send 12" v="-300.00,"/>
+			<val e="Hide State 12" v="0.00,"/>
+			<val e="Remote Controls 12" v="1023.00,"/>
+			<val e="Stereo 13" v="1.00,"/>
+			<val e="Name 13" v=""/>
+			<val e="Chan Mute 13" v="0.00,"/>
+			<val e="Rev Return 13" v="-65.00,"/>
+			<val e="Chan Level 13" v="1.00,"/>
+			<val e="Chan Gain 13" v="0.00,"/>
+			<val e="Auto Set 13" v="0.00,"/>
+			<val e="Phase Invert 13" v="0.00,"/>
+			<val e="M/S-Coding 13" v="0.00,"/>
+			<val e="Width 13" v="1.00,"/>
+			<val e="PF Listen 13" v="0.00,"/>
+			<val e="Rev Send 13" v="-300.00,"/>
+			<val e="Hide State 13" v="0.00,"/>
+			<val e="Remote Controls 13" v="1023.00,"/>
+			<val e="Stereo 14" v="1.00,"/>
+			<val e="Name 14" v=""/>
+			<val e="Chan Mute 14" v="0.00,"/>
+			<val e="Rev Return 14" v="-65.00,"/>
+			<val e="Chan Level 14" v="1.00,"/>
+			<val e="Chan Gain 14" v="0.00,"/>
+			<val e="Auto Set 14" v="0.00,"/>
+			<val e="Phase Invert 14" v="0.00,"/>
+			<val e="M/S-Coding 14" v="0.00,"/>
+			<val e="Width 14" v="1.00,"/>
+			<val e="PF Listen 14" v="0.00,"/>
+			<val e="Rev Send 14" v="-300.00,"/>
+			<val e="Hide State 14" v="0.00,"/>
+			<val e="Remote Controls 14" v="1023.00,"/>
+			<val e="Stereo 15" v="1.00,"/>
+			<val e="Name 15" v=""/>
+			<val e="Chan Mute 15" v="0.00,"/>
+			<val e="Rev Return 15" v="-65.00,"/>
+			<val e="Chan Level 15" v="1.00,"/>
+			<val e="Chan Gain 15" v="0.00,"/>
+			<val e="Auto Set 15" v="0.00,"/>
+			<val e="Phase Invert 15" v="0.00,"/>
+			<val e="M/S-Coding 15" v="0.00,"/>
+			<val e="Width 15" v="1.00,"/>
+			<val e="PF Listen 15" v="0.00,"/>
+			<val e="Rev Send 15" v="-300.00,"/>
+			<val e="Hide State 15" v="0.00,"/>
+			<val e="Remote Controls 15" v="1023.00,"/>
+			<val e="Stereo 16" v="1.00,"/>
+			<val e="Name 16" v=""/>
+			<val e="Chan Mute 16" v="0.00,"/>
+			<val e="Rev Return 16" v="-65.00,"/>
+			<val e="Chan Level 16" v="1.00,"/>
+			<val e="Chan Gain 16" v="0.00,"/>
+			<val e="Auto Set 16" v="0.00,"/>
+			<val e="Phase Invert 16" v="0.00,"/>
+			<val e="M/S-Coding 16" v="0.00,"/>
+			<val e="Width 16" v="1.00,"/>
+			<val e="PF Listen 16" v="0.00,"/>
+			<val e="Rev Send 16" v="-300.00,"/>
+			<val e="Hide State 16" v="0.00,"/>
+			<val e="Remote Controls 16" v="1023.00,"/>
+			<val e="Stereo 17" v="1.00,"/>
+			<val e="Name 17" v=""/>
+			<val e="Chan Mute 17" v="0.00,"/>
+			<val e="Rev Return 17" v="-65.00,"/>
+			<val e="Chan Level 17" v="1.00,"/>
+			<val e="Chan Gain 17" v="0.00,"/>
+			<val e="Auto Set 17" v="0.00,"/>
+			<val e="Phase Invert 17" v="0.00,"/>
+			<val e="M/S-Coding 17" v="0.00,"/>
+			<val e="Width 17" v="1.00,"/>
+			<val e="PF Listen 17" v="0.00,"/>
+			<val e="Rev Send 17" v="-300.00,"/>
+			<val e="Hide State 17" v="0.00,"/>
+			<val e="Remote Controls 17" v="1023.00,"/>
+			<val e="Stereo 18" v="1.00,"/>
+			<val e="Name 18" v=""/>
+			<val e="Chan Mute 18" v="0.00,"/>
+			<val e="Rev Return 18" v="-65.00,"/>
+			<val e="Chan Level 18" v="1.00,"/>
+			<val e="Chan Gain 18" v="0.00,"/>
+			<val e="Auto Set 18" v="0.00,"/>
+			<val e="Phase Invert 18" v="0.00,"/>
+			<val e="M/S-Coding 18" v="0.00,"/>
+			<val e="Width 18" v="1.00,"/>
+			<val e="PF Listen 18" v="0.00,"/>
+			<val e="Rev Send 18" v="-300.00,"/>
+			<val e="Hide State 18" v="0.00,"/>
+			<val e="Remote Controls 18" v="1023.00,"/>
+			<val e="Stereo 19" v="1.00,"/>
+			<val e="Name 19" v=""/>
+			<val e="Chan Mute 19" v="0.00,"/>
+			<val e="Rev Return 19" v="-65.00,"/>
+			<val e="Chan Level 19" v="1.00,"/>
+			<val e="Chan Gain 19" v="0.00,"/>
+			<val e="Auto Set 19" v="0.00,"/>
+			<val e="Phase Invert 19" v="0.00,"/>
+			<val e="M/S-Coding 19" v="0.00,"/>
+			<val e="Width 19" v="1.00,"/>
+			<val e="PF Listen 19" v="0.00,"/>
+			<val e="Rev Send 19" v="-300.00,"/>
+			<val e="Hide State 19" v="0.00,"/>
+			<val e="Remote Controls 19" v="1023.00,"/>
+			<val e="Stereo 20" v="1.00,"/>
+			<val e="Name 20" v=""/>
+			<val e="Chan Mute 20" v="0.00,"/>
+			<val e="Rev Return 20" v="-65.00,"/>
+			<val e="Chan Level 20" v="1.00,"/>
+			<val e="Chan Gain 20" v="0.00,"/>
+			<val e="Auto Set 20" v="0.00,"/>
+			<val e="Phase Invert 20" v="0.00,"/>
+			<val e="M/S-Coding 20" v="0.00,"/>
+			<val e="Width 20" v="1.00,"/>
+			<val e="PF Listen 20" v="0.00,"/>
+			<val e="Rev Send 20" v="-300.00,"/>
+			<val e="Hide State 20" v="0.00,"/>
+			<val e="Remote Controls 20" v="1023.00,"/>
+			<val e="Stereo 21" v="1.00,"/>
+			<val e="Name 21" v=""/>
+			<val e="Chan Mute 21" v="0.00,"/>
+			<val e="Rev Return 21" v="-65.00,"/>
+			<val e="Chan Level 21" v="1.00,"/>
+			<val e="Chan Gain 21" v="0.00,"/>
+			<val e="Auto Set 21" v="0.00,"/>
+			<val e="Phase Invert 21" v="0.00,"/>
+			<val e="M/S-Coding 21" v="0.00,"/>
+			<val e="Width 21" v="1.00,"/>
+			<val e="PF Listen 21" v="0.00,"/>
+			<val e="Rev Send 21" v="-300.00,"/>
+			<val e="Hide State 21" v="0.00,"/>
+			<val e="Remote Controls 21" v="1023.00,"/>
+			<val e="Stereo 22" v="1.00,"/>
+			<val e="Name 22" v=""/>
+			<val e="Chan Mute 22" v="0.00,"/>
+			<val e="Rev Return 22" v="-65.00,"/>
+			<val e="Chan Level 22" v="1.00,"/>
+			<val e="Chan Gain 22" v="0.00,"/>
+			<val e="Auto Set 22" v="0.00,"/>
+			<val e="Phase Invert 22" v="0.00,"/>
+			<val e="M/S-Coding 22" v="0.00,"/>
+			<val e="Width 22" v="1.00,"/>
+			<val e="PF Listen 22" v="0.00,"/>
+			<val e="Rev Send 22" v="-300.00,"/>
+			<val e="Hide State 22" v="0.00,"/>
+			<val e="Remote Controls 22" v="1023.00,"/>
+			<val e="Stereo 23" v="1.00,"/>
+			<val e="Name 23" v=""/>
+			<val e="Chan Mute 23" v="0.00,"/>
+			<val e="Rev Return 23" v="-65.00,"/>
+			<val e="Chan Level 23" v="1.00,"/>
+			<val e="Chan Gain 23" v="0.00,"/>
+			<val e="Auto Set 23" v="0.00,"/>
+			<val e="Phase Invert 23" v="0.00,"/>
+			<val e="M/S-Coding 23" v="0.00,"/>
+			<val e="Width 23" v="1.00,"/>
+			<val e="PF Listen 23" v="0.00,"/>
+			<val e="Rev Send 23" v="-300.00,"/>
+			<val e="Hide State 23" v="0.00,"/>
+			<val e="Remote Controls 23" v="1023.00,"/>
+			<val e="Stereo 24" v="1.00,"/>
+			<val e="Name 24" v=""/>
+			<val e="Chan Mute 24" v="0.00,"/>
+			<val e="Rev Return 24" v="-65.00,"/>
+			<val e="Chan Level 24" v="1.00,"/>
+			<val e="Chan Gain 24" v="0.00,"/>
+			<val e="Auto Set 24" v="0.00,"/>
+			<val e="Phase Invert 24" v="0.00,"/>
+			<val e="M/S-Coding 24" v="0.00,"/>
+			<val e="Width 24" v="1.00,"/>
+			<val e="PF Listen 24" v="0.00,"/>
+			<val e="Rev Send 24" v="-300.00,"/>
+			<val e="Hide State 24" v="0.00,"/>
+			<val e="Remote Controls 24" v="1023.00,"/>
+			<val e="Stereo 25" v="1.00,"/>
+			<val e="Name 25" v=""/>
+			<val e="Chan Mute 25" v="0.00,"/>
+			<val e="Rev Return 25" v="-65.00,"/>
+			<val e="Chan Level 25" v="1.00,"/>
+			<val e="Chan Gain 25" v="0.00,"/>
+			<val e="Auto Set 25" v="0.00,"/>
+			<val e="Phase Invert 25" v="0.00,"/>
+			<val e="M/S-Coding 25" v="0.00,"/>
+			<val e="Width 25" v="1.00,"/>
+			<val e="PF Listen 25" v="0.00,"/>
+			<val e="Rev Send 25" v="-300.00,"/>
+			<val e="Hide State 25" v="0.00,"/>
+			<val e="Remote Controls 25" v="1023.00,"/>
+			<val e="Stereo 26" v="1.00,"/>
+			<val e="Name 26" v=""/>
+			<val e="Chan Mute 26" v="0.00,"/>
+			<val e="Rev Return 26" v="-65.00,"/>
+			<val e="Chan Level 26" v="1.00,"/>
+			<val e="Chan Gain 26" v="0.00,"/>
+			<val e="Auto Set 26" v="0.00,"/>
+			<val e="Phase Invert 26" v="0.00,"/>
+			<val e="M/S-Coding 26" v="0.00,"/>
+			<val e="Width 26" v="1.00,"/>
+			<val e="PF Listen 26" v="0.00,"/>
+			<val e="Rev Send 26" v="-300.00,"/>
+			<val e="Hide State 26" v="0.00,"/>
+			<val e="Remote Controls 26" v="1023.00,"/>
+			<val e="Stereo 27" v="1.00,"/>
+			<val e="Name 27" v=""/>
+			<val e="Chan Mute 27" v="0.00,"/>
+			<val e="Rev Return 27" v="-65.00,"/>
+			<val e="Chan Level 27" v="1.00,"/>
+			<val e="Chan Gain 27" v="0.00,"/>
+			<val e="Auto Set 27" v="0.00,"/>
+			<val e="Phase Invert 27" v="0.00,"/>
+			<val e="M/S-Coding 27" v="0.00,"/>
+			<val e="Width 27" v="1.00,"/>
+			<val e="PF Listen 27" v="0.00,"/>
+			<val e="Rev Send 27" v="-300.00,"/>
+			<val e="Hide State 27" v="0.00,"/>
+			<val e="Remote Controls 27" v="1023.00,"/>
+		</Playbacks>
+		<Outputs>
+			<val e="Stereo 00" v="1.00,"/>
+			<val e="Name 00" v=""/>
+			<val e="Chan Mute 00" v="0.00,"/>
+			<val e="Rev Return 00" v="-65.00,"/>
+			<val e="Chan Level 00" v="1.00,"/>
+			<val e="Chan Gain 00" v="0.00,"/>
+			<val e="Auto Set 00" v="0.00,"/>
+			<val e="Phase Invert 00" v="0.00,"/>
+			<val e="M/S-Coding 00" v="0.00,"/>
+			<val e="Width 00" v="1.00,"/>
+			<val e="PF Listen 00" v="0.00,"/>
+			<val e="Rev Send 00" v="-300.00,"/>
+			<val e="Loopback 00" v="0.00,"/>
+			<val e="Phant Power 00" v="0.00,"/>
+			<val e="High Z Inp 00" v="0.00,"/>
+			<val e="RecordEnable 00" v="0.00,"/>
+			<val e="PlayChannel 00" v="0.00,"/>
+			<val e="Talkback Sel. 00" v="-1.00,"/>
+			<val e="No Trim 00" v="0.00,"/>
+			<val e="Mirror To 00" v="0.00,"/>
+			<val e="Input Pad 00" v="0.00,"/>
+			<val e="Hide State 00" v="0.00,"/>
+			<val e="Remote Controls 00" v="1023.00,"/>
+			<val e="Stereo 01" v="1.00,"/>
+			<val e="Name 01" v=""/>
+			<val e="Chan Mute 01" v="0.00,"/>
+			<val e="Rev Return 01" v="-65.00,"/>
+			<val e="Chan Level 01" v="1.00,"/>
+			<val e="Chan Gain 01" v="0.00,"/>
+			<val e="Auto Set 01" v="0.00,"/>
+			<val e="Phase Invert 01" v="0.00,"/>
+			<val e="M/S-Coding 01" v="0.00,"/>
+			<val e="Width 01" v="1.00,"/>
+			<val e="PF Listen 01" v="0.00,"/>
+			<val e="Rev Send 01" v="-300.00,"/>
+			<val e="Loopback 01" v="0.00,"/>
+			<val e="Phant Power 01" v="0.00,"/>
+			<val e="High Z Inp 01" v="0.00,"/>
+			<val e="RecordEnable 01" v="0.00,"/>
+			<val e="PlayChannel 01" v="0.00,"/>
+			<val e="Talkback Sel. 01" v="-1.00,"/>
+			<val e="No Trim 01" v="0.00,"/>
+			<val e="Mirror To 01" v="0.00,"/>
+			<val e="Input Pad 01" v="0.00,"/>
+			<val e="Hide State 01" v="0.00,"/>
+			<val e="Remote Controls 01" v="1023.00,"/>
+			<val e="Stereo 02" v="1.00,"/>
+			<val e="Name 02" v=""/>
+			<val e="Chan Mute 02" v="0.00,"/>
+			<val e="Rev Return 02" v="-65.00,"/>
+			<val e="Chan Level 02" v="1.00,"/>
+			<val e="Chan Gain 02" v="0.00,"/>
+			<val e="Auto Set 02" v="0.00,"/>
+			<val e="Phase Invert 02" v="0.00,"/>
+			<val e="M/S-Coding 02" v="0.00,"/>
+			<val e="Width 02" v="1.00,"/>
+			<val e="PF Listen 02" v="0.00,"/>
+			<val e="Rev Send 02" v="-300.00,"/>
+			<val e="Loopback 02" v="0.00,"/>
+			<val e="Phant Power 02" v="0.00,"/>
+			<val e="High Z Inp 02" v="0.00,"/>
+			<val e="RecordEnable 02" v="0.00,"/>
+			<val e="PlayChannel 02" v="0.00,"/>
+			<val e="Talkback Sel. 02" v="-1.00,"/>
+			<val e="No Trim 02" v="0.00,"/>
+			<val e="Mirror To 02" v="0.00,"/>
+			<val e="Input Pad 02" v="0.00,"/>
+			<val e="Hide State 02" v="0.00,"/>
+			<val e="Remote Controls 02" v="1023.00,"/>
+			<val e="Stereo 03" v="1.00,"/>
+			<val e="Name 03" v=""/>
+			<val e="Chan Mute 03" v="0.00,"/>
+			<val e="Rev Return 03" v="-65.00,"/>
+			<val e="Chan Level 03" v="1.00,"/>
+			<val e="Chan Gain 03" v="0.00,"/>
+			<val e="Auto Set 03" v="0.00,"/>
+			<val e="Phase Invert 03" v="0.00,"/>
+			<val e="M/S-Coding 03" v="0.00,"/>
+			<val e="Width 03" v="1.00,"/>
+			<val e="PF Listen 03" v="0.00,"/>
+			<val e="Rev Send 03" v="-300.00,"/>
+			<val e="Loopback 03" v="0.00,"/>
+			<val e="Phant Power 03" v="0.00,"/>
+			<val e="High Z Inp 03" v="0.00,"/>
+			<val e="RecordEnable 03" v="0.00,"/>
+			<val e="PlayChannel 03" v="0.00,"/>
+			<val e="Talkback Sel. 03" v="-1.00,"/>
+			<val e="No Trim 03" v="0.00,"/>
+			<val e="Mirror To 03" v="0.00,"/>
+			<val e="Input Pad 03" v="0.00,"/>
+			<val e="Hide State 03" v="0.00,"/>
+			<val e="Remote Controls 03" v="1023.00,"/>
+			<val e="Stereo 04" v="1.00,"/>
+			<val e="Name 04" v=""/>
+			<val e="Chan Mute 04" v="0.00,"/>
+			<val e="Rev Return 04" v="-65.00,"/>
+			<val e="Chan Level 04" v="1.00,"/>
+			<val e="Chan Gain 04" v="0.00,"/>
+			<val e="Auto Set 04" v="0.00,"/>
+			<val e="Phase Invert 04" v="0.00,"/>
+			<val e="M/S-Coding 04" v="0.00,"/>
+			<val e="Width 04" v="1.00,"/>
+			<val e="PF Listen 04" v="0.00,"/>
+			<val e="Rev Send 04" v="-300.00,"/>
+			<val e="Loopback 04" v="0.00,"/>
+			<val e="Phant Power 04" v="0.00,"/>
+			<val e="High Z Inp 04" v="0.00,"/>
+			<val e="RecordEnable 04" v="0.00,"/>
+			<val e="PlayChannel 04" v="0.00,"/>
+			<val e="Talkback Sel. 04" v="-1.00,"/>
+			<val e="No Trim 04" v="0.00,"/>
+			<val e="Mirror To 04" v="0.00,"/>
+			<val e="Input Pad 04" v="0.00,"/>
+			<val e="Hide State 04" v="0.00,"/>
+			<val e="Remote Controls 04" v="1023.00,"/>
+			<val e="Stereo 05" v="1.00,"/>
+			<val e="Name 05" v=""/>
+			<val e="Chan Mute 05" v="0.00,"/>
+			<val e="Rev Return 05" v="-65.00,"/>
+			<val e="Chan Level 05" v="1.00,"/>
+			<val e="Chan Gain 05" v="0.00,"/>
+			<val e="Auto Set 05" v="0.00,"/>
+			<val e="Phase Invert 05" v="0.00,"/>
+			<val e="M/S-Coding 05" v="0.00,"/>
+			<val e="Width 05" v="1.00,"/>
+			<val e="PF Listen 05" v="0.00,"/>
+			<val e="Rev Send 05" v="-300.00,"/>
+			<val e="Loopback 05" v="0.00,"/>
+			<val e="Phant Power 05" v="0.00,"/>
+			<val e="High Z Inp 05" v="0.00,"/>
+			<val e="RecordEnable 05" v="0.00,"/>
+			<val e="PlayChannel 05" v="0.00,"/>
+			<val e="Talkback Sel. 05" v="-1.00,"/>
+			<val e="No Trim 05" v="0.00,"/>
+			<val e="Mirror To 05" v="0.00,"/>
+			<val e="Input Pad 05" v="0.00,"/>
+			<val e="Hide State 05" v="0.00,"/>
+			<val e="Remote Controls 05" v="1023.00,"/>
+			<val e="Stereo 06" v="1.00,"/>
+			<val e="Name 06" v=""/>
+			<val e="Chan Mute 06" v="0.00,"/>
+			<val e="Rev Return 06" v="-65.00,"/>
+			<val e="Chan Level 06" v="1.00,"/>
+			<val e="Chan Gain 06" v="0.00,"/>
+			<val e="Auto Set 06" v="0.00,"/>
+			<val e="Phase Invert 06" v="0.00,"/>
+			<val e="M/S-Coding 06" v="0.00,"/>
+			<val e="Width 06" v="1.00,"/>
+			<val e="PF Listen 06" v="0.00,"/>
+			<val e="Rev Send 06" v="-300.00,"/>
+			<val e="Loopback 06" v="0.00,"/>
+			<val e="Phant Power 06" v="0.00,"/>
+			<val e="High Z Inp 06" v="0.00,"/>
+			<val e="RecordEnable 06" v="0.00,"/>
+			<val e="PlayChannel 06" v="0.00,"/>
+			<val e="Talkback Sel. 06" v="-1.00,"/>
+			<val e="No Trim 06" v="0.00,"/>
+			<val e="Mirror To 06" v="0.00,"/>
+			<val e="Input Pad 06" v="0.00,"/>
+			<val e="Hide State 06" v="0.00,"/>
+			<val e="Remote Controls 06" v="1023.00,"/>
+			<val e="Stereo 07" v="1.00,"/>
+			<val e="Name 07" v=""/>
+			<val e="Chan Mute 07" v="0.00,"/>
+			<val e="Rev Return 07" v="-65.00,"/>
+			<val e="Chan Level 07" v="1.00,"/>
+			<val e="Chan Gain 07" v="0.00,"/>
+			<val e="Auto Set 07" v="0.00,"/>
+			<val e="Phase Invert 07" v="0.00,"/>
+			<val e="M/S-Coding 07" v="0.00,"/>
+			<val e="Width 07" v="1.00,"/>
+			<val e="PF Listen 07" v="0.00,"/>
+			<val e="Rev Send 07" v="-300.00,"/>
+			<val e="Loopback 07" v="0.00,"/>
+			<val e="Phant Power 07" v="0.00,"/>
+			<val e="High Z Inp 07" v="0.00,"/>
+			<val e="RecordEnable 07" v="0.00,"/>
+			<val e="PlayChannel 07" v="0.00,"/>
+			<val e="Talkback Sel. 07" v="-1.00,"/>
+			<val e="No Trim 07" v="0.00,"/>
+			<val e="Mirror To 07" v="0.00,"/>
+			<val e="Input Pad 07" v="0.00,"/>
+			<val e="Hide State 07" v="0.00,"/>
+			<val e="Remote Controls 07" v="1023.00,"/>
+			<val e="Stereo 08" v="1.00,"/>
+			<val e="Name 08" v=""/>
+			<val e="Chan Mute 08" v="0.00,"/>
+			<val e="Rev Return 08" v="-65.00,"/>
+			<val e="Chan Level 08" v="1.00,"/>
+			<val e="Chan Gain 08" v="0.00,"/>
+			<val e="Auto Set 08" v="0.00,"/>
+			<val e="Phase Invert 08" v="0.00,"/>
+			<val e="M/S-Coding 08" v="0.00,"/>
+			<val e="Width 08" v="1.00,"/>
+			<val e="PF Listen 08" v="0.00,"/>
+			<val e="Rev Send 08" v="-300.00,"/>
+			<val e="Loopback 08" v="0.00,"/>
+			<val e="Phant Power 08" v="0.00,"/>
+			<val e="High Z Inp 08" v="0.00,"/>
+			<val e="RecordEnable 08" v="0.00,"/>
+			<val e="PlayChannel 08" v="0.00,"/>
+			<val e="Talkback Sel. 08" v="1.00,"/>
+			<val e="No Trim 08" v="0.00,"/>
+			<val e="Mirror To 08" v="0.00,"/>
+			<val e="Input Pad 08" v="0.00,"/>
+			<val e="Hide State 08" v="0.00,"/>
+			<val e="Remote Controls 08" v="1023.00,"/>
+			<val e="Stereo 09" v="1.00,"/>
+			<val e="Name 09" v=""/>
+			<val e="Chan Mute 09" v="0.00,"/>
+			<val e="Rev Return 09" v="-65.00,"/>
+			<val e="Chan Level 09" v="1.00,"/>
+			<val e="Chan Gain 09" v="0.00,"/>
+			<val e="Auto Set 09" v="0.00,"/>
+			<val e="Phase Invert 09" v="0.00,"/>
+			<val e="M/S-Coding 09" v="0.00,"/>
+			<val e="Width 09" v="1.00,"/>
+			<val e="PF Listen 09" v="0.00,"/>
+			<val e="Rev Send 09" v="-300.00,"/>
+			<val e="Loopback 09" v="0.00,"/>
+			<val e="Phant Power 09" v="0.00,"/>
+			<val e="High Z Inp 09" v="0.00,"/>
+			<val e="RecordEnable 09" v="0.00,"/>
+			<val e="PlayChannel 09" v="0.00,"/>
+			<val e="Talkback Sel. 09" v="1.00,"/>
+			<val e="No Trim 09" v="0.00,"/>
+			<val e="Mirror To 09" v="0.00,"/>
+			<val e="Input Pad 09" v="0.00,"/>
+			<val e="Hide State 09" v="0.00,"/>
+			<val e="Remote Controls 09" v="1023.00,"/>
+			<val e="Stereo 10" v="1.00,"/>
+			<val e="Name 10" v=""/>
+			<val e="Chan Mute 10" v="0.00,"/>
+			<val e="Rev Return 10" v="-65.00,"/>
+			<val e="Chan Level 10" v="1.00,"/>
+			<val e="Chan Gain 10" v="0.00,"/>
+			<val e="Auto Set 10" v="0.00,"/>
+			<val e="Phase Invert 10" v="0.00,"/>
+			<val e="M/S-Coding 10" v="0.00,"/>
+			<val e="Width 10" v="1.00,"/>
+			<val e="PF Listen 10" v="0.00,"/>
+			<val e="Rev Send 10" v="-300.00,"/>
+			<val e="Loopback 10" v="0.00,"/>
+			<val e="Phant Power 10" v="0.00,"/>
+			<val e="High Z Inp 10" v="0.00,"/>
+			<val e="RecordEnable 10" v="0.00,"/>
+			<val e="PlayChannel 10" v="0.00,"/>
+			<val e="Talkback Sel. 10" v="-1.00,"/>
+			<val e="No Trim 10" v="0.00,"/>
+			<val e="Mirror To 10" v="0.00,"/>
+			<val e="Input Pad 10" v="0.00,"/>
+			<val e="Hide State 10" v="0.00,"/>
+			<val e="Remote Controls 10" v="1023.00,"/>
+			<val e="Stereo 11" v="1.00,"/>
+			<val e="Name 11" v=""/>
+			<val e="Chan Mute 11" v="0.00,"/>
+			<val e="Rev Return 11" v="-65.00,"/>
+			<val e="Chan Level 11" v="1.00,"/>
+			<val e="Chan Gain 11" v="0.00,"/>
+			<val e="Auto Set 11" v="0.00,"/>
+			<val e="Phase Invert 11" v="0.00,"/>
+			<val e="M/S-Coding 11" v="0.00,"/>
+			<val e="Width 11" v="1.00,"/>
+			<val e="PF Listen 11" v="0.00,"/>
+			<val e="Rev Send 11" v="-300.00,"/>
+			<val e="Loopback 11" v="0.00,"/>
+			<val e="Phant Power 11" v="0.00,"/>
+			<val e="High Z Inp 11" v="0.00,"/>
+			<val e="RecordEnable 11" v="0.00,"/>
+			<val e="PlayChannel 11" v="0.00,"/>
+			<val e="Talkback Sel. 11" v="-1.00,"/>
+			<val e="No Trim 11" v="0.00,"/>
+			<val e="Mirror To 11" v="0.00,"/>
+			<val e="Input Pad 11" v="0.00,"/>
+			<val e="Hide State 11" v="0.00,"/>
+			<val e="Remote Controls 11" v="1023.00,"/>
+			<val e="Stereo 12" v="1.00,"/>
+			<val e="Name 12" v=""/>
+			<val e="Chan Mute 12" v="0.00,"/>
+			<val e="Rev Return 12" v="-65.00,"/>
+			<val e="Chan Level 12" v="1.00,"/>
+			<val e="Chan Gain 12" v="0.00,"/>
+			<val e="Auto Set 12" v="0.00,"/>
+			<val e="Phase Invert 12" v="0.00,"/>
+			<val e="M/S-Coding 12" v="0.00,"/>
+			<val e="Width 12" v="1.00,"/>
+			<val e="PF Listen 12" v="0.00,"/>
+			<val e="Rev Send 12" v="-300.00,"/>
+			<val e="Loopback 12" v="0.00,"/>
+			<val e="Phant Power 12" v="0.00,"/>
+			<val e="High Z Inp 12" v="0.00,"/>
+			<val e="RecordEnable 12" v="0.00,"/>
+			<val e="PlayChannel 12" v="0.00,"/>
+			<val e="Talkback Sel. 12" v="-1.00,"/>
+			<val e="No Trim 12" v="0.00,"/>
+			<val e="Mirror To 12" v="0.00,"/>
+			<val e="Input Pad 12" v="0.00,"/>
+			<val e="Hide State 12" v="0.00,"/>
+			<val e="Remote Controls 12" v="1023.00,"/>
+			<val e="Stereo 13" v="1.00,"/>
+			<val e="Name 13" v=""/>
+			<val e="Chan Mute 13" v="0.00,"/>
+			<val e="Rev Return 13" v="-65.00,"/>
+			<val e="Chan Level 13" v="1.00,"/>
+			<val e="Chan Gain 13" v="0.00,"/>
+			<val e="Auto Set 13" v="0.00,"/>
+			<val e="Phase Invert 13" v="0.00,"/>
+			<val e="M/S-Coding 13" v="0.00,"/>
+			<val e="Width 13" v="1.00,"/>
+			<val e="PF Listen 13" v="0.00,"/>
+			<val e="Rev Send 13" v="-300.00,"/>
+			<val e="Loopback 13" v="0.00,"/>
+			<val e="Phant Power 13" v="0.00,"/>
+			<val e="High Z Inp 13" v="0.00,"/>
+			<val e="RecordEnable 13" v="0.00,"/>
+			<val e="PlayChannel 13" v="0.00,"/>
+			<val e="Talkback Sel. 13" v="-1.00,"/>
+			<val e="No Trim 13" v="0.00,"/>
+			<val e="Mirror To 13" v="0.00,"/>
+			<val e="Input Pad 13" v="0.00,"/>
+			<val e="Hide State 13" v="0.00,"/>
+			<val e="Remote Controls 13" v="1023.00,"/>
+			<val e="Stereo 14" v="1.00,"/>
+			<val e="Name 14" v=""/>
+			<val e="Chan Mute 14" v="0.00,"/>
+			<val e="Rev Return 14" v="-65.00,"/>
+			<val e="Chan Level 14" v="1.00,"/>
+			<val e="Chan Gain 14" v="0.00,"/>
+			<val e="Auto Set 14" v="0.00,"/>
+			<val e="Phase Invert 14" v="0.00,"/>
+			<val e="M/S-Coding 14" v="0.00,"/>
+			<val e="Width 14" v="1.00,"/>
+			<val e="PF Listen 14" v="0.00,"/>
+			<val e="Rev Send 14" v="-300.00,"/>
+			<val e="Loopback 14" v="0.00,"/>
+			<val e="Phant Power 14" v="0.00,"/>
+			<val e="High Z Inp 14" v="0.00,"/>
+			<val e="RecordEnable 14" v="0.00,"/>
+			<val e="PlayChannel 14" v="0.00,"/>
+			<val e="Talkback Sel. 14" v="-1.00,"/>
+			<val e="No Trim 14" v="0.00,"/>
+			<val e="Mirror To 14" v="0.00,"/>
+			<val e="Input Pad 14" v="0.00,"/>
+			<val e="Hide State 14" v="0.00,"/>
+			<val e="Remote Controls 14" v="1023.00,"/>
+			<val e="Stereo 15" v="1.00,"/>
+			<val e="Name 15" v=""/>
+			<val e="Chan Mute 15" v="0.00,"/>
+			<val e="Rev Return 15" v="-65.00,"/>
+			<val e="Chan Level 15" v="1.00,"/>
+			<val e="Chan Gain 15" v="0.00,"/>
+			<val e="Auto Set 15" v="0.00,"/>
+			<val e="Phase Invert 15" v="0.00,"/>
+			<val e="M/S-Coding 15" v="0.00,"/>
+			<val e="Width 15" v="1.00,"/>
+			<val e="PF Listen 15" v="0.00,"/>
+			<val e="Rev Send 15" v="-300.00,"/>
+			<val e="Loopback 15" v="0.00,"/>
+			<val e="Phant Power 15" v="0.00,"/>
+			<val e="High Z Inp 15" v="0.00,"/>
+			<val e="RecordEnable 15" v="0.00,"/>
+			<val e="PlayChannel 15" v="0.00,"/>
+			<val e="Talkback Sel. 15" v="-1.00,"/>
+			<val e="No Trim 15" v="0.00,"/>
+			<val e="Mirror To 15" v="0.00,"/>
+			<val e="Input Pad 15" v="0.00,"/>
+			<val e="Hide State 15" v="0.00,"/>
+			<val e="Remote Controls 15" v="1023.00,"/>
+			<val e="Stereo 16" v="1.00,"/>
+			<val e="Name 16" v=""/>
+			<val e="Chan Mute 16" v="0.00,"/>
+			<val e="Rev Return 16" v="-65.00,"/>
+			<val e="Chan Level 16" v="1.00,"/>
+			<val e="Chan Gain 16" v="0.00,"/>
+			<val e="Auto Set 16" v="0.00,"/>
+			<val e="Phase Invert 16" v="0.00,"/>
+			<val e="M/S-Coding 16" v="0.00,"/>
+			<val e="Width 16" v="1.00,"/>
+			<val e="PF Listen 16" v="0.00,"/>
+			<val e="Rev Send 16" v="-300.00,"/>
+			<val e="Loopback 16" v="0.00,"/>
+			<val e="Phant Power 16" v="0.00,"/>
+			<val e="High Z Inp 16" v="0.00,"/>
+			<val e="RecordEnable 16" v="0.00,"/>
+			<val e="PlayChannel 16" v="0.00,"/>
+			<val e="Talkback Sel. 16" v="-1.00,"/>
+			<val e="No Trim 16" v="0.00,"/>
+			<val e="Mirror To 16" v="0.00,"/>
+			<val e="Input Pad 16" v="0.00,"/>
+			<val e="Hide State 16" v="0.00,"/>
+			<val e="Remote Controls 16" v="1023.00,"/>
+			<val e="Stereo 17" v="1.00,"/>
+			<val e="Name 17" v=""/>
+			<val e="Chan Mute 17" v="0.00,"/>
+			<val e="Rev Return 17" v="-65.00,"/>
+			<val e="Chan Level 17" v="1.00,"/>
+			<val e="Chan Gain 17" v="0.00,"/>
+			<val e="Auto Set 17" v="0.00,"/>
+			<val e="Phase Invert 17" v="0.00,"/>
+			<val e="M/S-Coding 17" v="0.00,"/>
+			<val e="Width 17" v="1.00,"/>
+			<val e="PF Listen 17" v="0.00,"/>
+			<val e="Rev Send 17" v="-300.00,"/>
+			<val e="Loopback 17" v="0.00,"/>
+			<val e="Phant Power 17" v="0.00,"/>
+			<val e="High Z Inp 17" v="0.00,"/>
+			<val e="RecordEnable 17" v="0.00,"/>
+			<val e="PlayChannel 17" v="0.00,"/>
+			<val e="Talkback Sel. 17" v="-1.00,"/>
+			<val e="No Trim 17" v="0.00,"/>
+			<val e="Mirror To 17" v="0.00,"/>
+			<val e="Input Pad 17" v="0.00,"/>
+			<val e="Hide State 17" v="0.00,"/>
+			<val e="Remote Controls 17" v="1023.00,"/>
+			<val e="Stereo 18" v="1.00,"/>
+			<val e="Name 18" v=""/>
+			<val e="Chan Mute 18" v="0.00,"/>
+			<val e="Rev Return 18" v="-65.00,"/>
+			<val e="Chan Level 18" v="1.00,"/>
+			<val e="Chan Gain 18" v="0.00,"/>
+			<val e="Auto Set 18" v="0.00,"/>
+			<val e="Phase Invert 18" v="0.00,"/>
+			<val e="M/S-Coding 18" v="0.00,"/>
+			<val e="Width 18" v="1.00,"/>
+			<val e="PF Listen 18" v="0.00,"/>
+			<val e="Rev Send 18" v="-300.00,"/>
+			<val e="Loopback 18" v="0.00,"/>
+			<val e="Phant Power 18" v="0.00,"/>
+			<val e="High Z Inp 18" v="0.00,"/>
+			<val e="RecordEnable 18" v="0.00,"/>
+			<val e="PlayChannel 18" v="0.00,"/>
+			<val e="Talkback Sel. 18" v="-1.00,"/>
+			<val e="No Trim 18" v="0.00,"/>
+			<val e="Mirror To 18" v="0.00,"/>
+			<val e="Input Pad 18" v="0.00,"/>
+			<val e="Hide State 18" v="0.00,"/>
+			<val e="Remote Controls 18" v="1023.00,"/>
+			<val e="Stereo 19" v="1.00,"/>
+			<val e="Name 19" v=""/>
+			<val e="Chan Mute 19" v="0.00,"/>
+			<val e="Rev Return 19" v="-65.00,"/>
+			<val e="Chan Level 19" v="1.00,"/>
+			<val e="Chan Gain 19" v="0.00,"/>
+			<val e="Auto Set 19" v="0.00,"/>
+			<val e="Phase Invert 19" v="0.00,"/>
+			<val e="M/S-Coding 19" v="0.00,"/>
+			<val e="Width 19" v="1.00,"/>
+			<val e="PF Listen 19" v="0.00,"/>
+			<val e="Rev Send 19" v="-300.00,"/>
+			<val e="Loopback 19" v="0.00,"/>
+			<val e="Phant Power 19" v="0.00,"/>
+			<val e="High Z Inp 19" v="0.00,"/>
+			<val e="RecordEnable 19" v="0.00,"/>
+			<val e="PlayChannel 19" v="0.00,"/>
+			<val e="Talkback Sel. 19" v="-1.00,"/>
+			<val e="No Trim 19" v="0.00,"/>
+			<val e="Mirror To 19" v="0.00,"/>
+			<val e="Input Pad 19" v="0.00,"/>
+			<val e="Hide State 19" v="0.00,"/>
+			<val e="Remote Controls 19" v="1023.00,"/>
+			<val e="Stereo 20" v="1.00,"/>
+			<val e="Name 20" v=""/>
+			<val e="Chan Mute 20" v="0.00,"/>
+			<val e="Rev Return 20" v="-65.00,"/>
+			<val e="Chan Level 20" v="1.00,"/>
+			<val e="Chan Gain 20" v="0.00,"/>
+			<val e="Auto Set 20" v="0.00,"/>
+			<val e="Phase Invert 20" v="0.00,"/>
+			<val e="M/S-Coding 20" v="0.00,"/>
+			<val e="Width 20" v="1.00,"/>
+			<val e="PF Listen 20" v="0.00,"/>
+			<val e="Rev Send 20" v="-300.00,"/>
+			<val e="Loopback 20" v="0.00,"/>
+			<val e="Phant Power 20" v="0.00,"/>
+			<val e="High Z Inp 20" v="0.00,"/>
+			<val e="RecordEnable 20" v="0.00,"/>
+			<val e="PlayChannel 20" v="0.00,"/>
+			<val e="Talkback Sel. 20" v="-1.00,"/>
+			<val e="No Trim 20" v="0.00,"/>
+			<val e="Mirror To 20" v="0.00,"/>
+			<val e="Input Pad 20" v="0.00,"/>
+			<val e="Hide State 20" v="0.00,"/>
+			<val e="Remote Controls 20" v="1023.00,"/>
+			<val e="Stereo 21" v="1.00,"/>
+			<val e="Name 21" v=""/>
+			<val e="Chan Mute 21" v="0.00,"/>
+			<val e="Rev Return 21" v="-65.00,"/>
+			<val e="Chan Level 21" v="1.00,"/>
+			<val e="Chan Gain 21" v="0.00,"/>
+			<val e="Auto Set 21" v="0.00,"/>
+			<val e="Phase Invert 21" v="0.00,"/>
+			<val e="M/S-Coding 21" v="0.00,"/>
+			<val e="Width 21" v="1.00,"/>
+			<val e="PF Listen 21" v="0.00,"/>
+			<val e="Rev Send 21" v="-300.00,"/>
+			<val e="Loopback 21" v="0.00,"/>
+			<val e="Phant Power 21" v="0.00,"/>
+			<val e="High Z Inp 21" v="0.00,"/>
+			<val e="RecordEnable 21" v="0.00,"/>
+			<val e="PlayChannel 21" v="0.00,"/>
+			<val e="Talkback Sel. 21" v="-1.00,"/>
+			<val e="No Trim 21" v="0.00,"/>
+			<val e="Mirror To 21" v="0.00,"/>
+			<val e="Input Pad 21" v="0.00,"/>
+			<val e="Hide State 21" v="0.00,"/>
+			<val e="Remote Controls 21" v="1023.00,"/>
+			<val e="Stereo 22" v="1.00,"/>
+			<val e="Name 22" v=""/>
+			<val e="Chan Mute 22" v="0.00,"/>
+			<val e="Rev Return 22" v="-65.00,"/>
+			<val e="Chan Level 22" v="1.00,"/>
+			<val e="Chan Gain 22" v="0.00,"/>
+			<val e="Auto Set 22" v="0.00,"/>
+			<val e="Phase Invert 22" v="0.00,"/>
+			<val e="M/S-Coding 22" v="0.00,"/>
+			<val e="Width 22" v="1.00,"/>
+			<val e="PF Listen 22" v="0.00,"/>
+			<val e="Rev Send 22" v="-300.00,"/>
+			<val e="Loopback 22" v="0.00,"/>
+			<val e="Phant Power 22" v="0.00,"/>
+			<val e="High Z Inp 22" v="0.00,"/>
+			<val e="RecordEnable 22" v="0.00,"/>
+			<val e="PlayChannel 22" v="0.00,"/>
+			<val e="Talkback Sel. 22" v="-1.00,"/>
+			<val e="No Trim 22" v="0.00,"/>
+			<val e="Mirror To 22" v="0.00,"/>
+			<val e="Input Pad 22" v="0.00,"/>
+			<val e="Hide State 22" v="0.00,"/>
+			<val e="Remote Controls 22" v="1023.00,"/>
+			<val e="Stereo 23" v="1.00,"/>
+			<val e="Name 23" v=""/>
+			<val e="Chan Mute 23" v="0.00,"/>
+			<val e="Rev Return 23" v="-65.00,"/>
+			<val e="Chan Level 23" v="1.00,"/>
+			<val e="Chan Gain 23" v="0.00,"/>
+			<val e="Auto Set 23" v="0.00,"/>
+			<val e="Phase Invert 23" v="0.00,"/>
+			<val e="M/S-Coding 23" v="0.00,"/>
+			<val e="Width 23" v="1.00,"/>
+			<val e="PF Listen 23" v="0.00,"/>
+			<val e="Rev Send 23" v="-300.00,"/>
+			<val e="Loopback 23" v="0.00,"/>
+			<val e="Phant Power 23" v="0.00,"/>
+			<val e="High Z Inp 23" v="0.00,"/>
+			<val e="RecordEnable 23" v="0.00,"/>
+			<val e="PlayChannel 23" v="0.00,"/>
+			<val e="Talkback Sel. 23" v="-1.00,"/>
+			<val e="No Trim 23" v="0.00,"/>
+			<val e="Mirror To 23" v="0.00,"/>
+			<val e="Input Pad 23" v="0.00,"/>
+			<val e="Hide State 23" v="0.00,"/>
+			<val e="Remote Controls 23" v="1023.00,"/>
+			<val e="Stereo 24" v="1.00,"/>
+			<val e="Name 24" v=""/>
+			<val e="Chan Mute 24" v="0.00,"/>
+			<val e="Rev Return 24" v="-65.00,"/>
+			<val e="Chan Level 24" v="1.00,"/>
+			<val e="Chan Gain 24" v="0.00,"/>
+			<val e="Auto Set 24" v="0.00,"/>
+			<val e="Phase Invert 24" v="0.00,"/>
+			<val e="M/S-Coding 24" v="0.00,"/>
+			<val e="Width 24" v="1.00,"/>
+			<val e="PF Listen 24" v="0.00,"/>
+			<val e="Rev Send 24" v="-300.00,"/>
+			<val e="Loopback 24" v="0.00,"/>
+			<val e="Phant Power 24" v="0.00,"/>
+			<val e="High Z Inp 24" v="0.00,"/>
+			<val e="RecordEnable 24" v="0.00,"/>
+			<val e="PlayChannel 24" v="0.00,"/>
+			<val e="Talkback Sel. 24" v="-1.00,"/>
+			<val e="No Trim 24" v="0.00,"/>
+			<val e="Mirror To 24" v="0.00,"/>
+			<val e="Input Pad 24" v="0.00,"/>
+			<val e="Hide State 24" v="0.00,"/>
+			<val e="Remote Controls 24" v="1023.00,"/>
+			<val e="Stereo 25" v="1.00,"/>
+			<val e="Name 25" v=""/>
+			<val e="Chan Mute 25" v="0.00,"/>
+			<val e="Rev Return 25" v="-65.00,"/>
+			<val e="Chan Level 25" v="1.00,"/>
+			<val e="Chan Gain 25" v="0.00,"/>
+			<val e="Auto Set 25" v="0.00,"/>
+			<val e="Phase Invert 25" v="0.00,"/>
+			<val e="M/S-Coding 25" v="0.00,"/>
+			<val e="Width 25" v="1.00,"/>
+			<val e="PF Listen 25" v="0.00,"/>
+			<val e="Rev Send 25" v="-300.00,"/>
+			<val e="Loopback 25" v="0.00,"/>
+			<val e="Phant Power 25" v="0.00,"/>
+			<val e="High Z Inp 25" v="0.00,"/>
+			<val e="RecordEnable 25" v="0.00,"/>
+			<val e="PlayChannel 25" v="0.00,"/>
+			<val e="Talkback Sel. 25" v="-1.00,"/>
+			<val e="No Trim 25" v="0.00,"/>
+			<val e="Mirror To 25" v="0.00,"/>
+			<val e="Input Pad 25" v="0.00,"/>
+			<val e="Hide State 25" v="0.00,"/>
+			<val e="Remote Controls 25" v="1023.00,"/>
+			<val e="Stereo 26" v="1.00,"/>
+			<val e="Name 26" v=""/>
+			<val e="Chan Mute 26" v="0.00,"/>
+			<val e="Rev Return 26" v="-65.00,"/>
+			<val e="Chan Level 26" v="1.00,"/>
+			<val e="Chan Gain 26" v="0.00,"/>
+			<val e="Auto Set 26" v="0.00,"/>
+			<val e="Phase Invert 26" v="0.00,"/>
+			<val e="M/S-Coding 26" v="0.00,"/>
+			<val e="Width 26" v="1.00,"/>
+			<val e="PF Listen 26" v="0.00,"/>
+			<val e="Rev Send 26" v="-300.00,"/>
+			<val e="Loopback 26" v="0.00,"/>
+			<val e="Phant Power 26" v="0.00,"/>
+			<val e="High Z Inp 26" v="0.00,"/>
+			<val e="RecordEnable 26" v="0.00,"/>
+			<val e="PlayChannel 26" v="0.00,"/>
+			<val e="Talkback Sel. 26" v="-1.00,"/>
+			<val e="No Trim 26" v="0.00,"/>
+			<val e="Mirror To 26" v="0.00,"/>
+			<val e="Input Pad 26" v="0.00,"/>
+			<val e="Hide State 26" v="0.00,"/>
+			<val e="Remote Controls 26" v="1023.00,"/>
+			<val e="Stereo 27" v="1.00,"/>
+			<val e="Name 27" v=""/>
+			<val e="Chan Mute 27" v="0.00,"/>
+			<val e="Rev Return 27" v="-65.00,"/>
+			<val e="Chan Level 27" v="1.00,"/>
+			<val e="Chan Gain 27" v="0.00,"/>
+			<val e="Auto Set 27" v="0.00,"/>
+			<val e="Phase Invert 27" v="0.00,"/>
+			<val e="M/S-Coding 27" v="0.00,"/>
+			<val e="Width 27" v="1.00,"/>
+			<val e="PF Listen 27" v="0.00,"/>
+			<val e="Rev Send 27" v="-300.00,"/>
+			<val e="Loopback 27" v="0.00,"/>
+			<val e="Phant Power 27" v="0.00,"/>
+			<val e="High Z Inp 27" v="0.00,"/>
+			<val e="RecordEnable 27" v="0.00,"/>
+			<val e="PlayChannel 27" v="0.00,"/>
+			<val e="Talkback Sel. 27" v="-1.00,"/>
+			<val e="No Trim 27" v="0.00,"/>
+			<val e="Mirror To 27" v="0.00,"/>
+			<val e="Input Pad 27" v="0.00,"/>
+			<val e="Hide State 27" v="0.00,"/>
+			<val e="Remote Controls 27" v="1023.00,"/>
+		</Outputs>
+		<Mixer>
+			<val e="Slider 00 00" v="-65.00,"/>
+			<val e="Slider 00 01" v="-6.44,"/>
+			<val e="Pan 00 01" v="1.00,"/>
+			<val e="Slider 00 02" v="-22.22,"/>
+			<val e="Slider 00 03" v="-22.22,"/>
+			<val e="Slider 00 04" v="-65.00,"/>
+			<val e="Slider 00 05" v="-65.00,"/>
+			<val e="Slider 00 06" v="-65.00,"/>
+			<val e="Slider 00 07" v="-65.00,"/>
+			<val e="Slider 00 08" v="-65.00,"/>
+			<val e="Slider 00 09" v="-65.00,"/>
+			<val e="Slider 00 10" v="-65.00,"/>
+			<val e="Slider 00 11" v="-65.00,"/>
+			<val e="Slider 00 12" v="-65.00,"/>
+			<val e="Slider 00 13" v="-65.00,"/>
+			<val e="Slider 00 14" v="-65.00,"/>
+			<val e="Slider 00 15" v="-65.00,"/>
+			<val e="Slider 00 16" v="-65.00,"/>
+			<val e="Slider 00 17" v="-65.00,"/>
+			<val e="Slider 00 18" v="-65.00,"/>
+			<val e="Slider 00 19" v="-65.00,"/>
+			<val e="Slider 00 20" v="-65.00,"/>
+			<val e="Slider 00 21" v="-65.00,"/>
+			<val e="Slider 00 22" v="-65.00,"/>
+			<val e="Slider 00 23" v="-65.00,"/>
+			<val e="Slider 00 24" v="-65.00,"/>
+			<val e="Slider 00 25" v="-65.00,"/>
+			<val e="Slider 00 26" v="-65.00,"/>
+			<val e="Slider 00 27" v="-65.00,"/>
+			<val e="Slider 00 28" v="-12.86,"/>
+			<val e="Slider 00 29" v="-12.86,"/>
+			<val e="Slider 00 30" v="0.00,"/>
+			<val e="Slider 00 31" v="0.00,"/>
+			<val e="Slider 00 32" v="0.00,"/>
+			<val e="Slider 00 33" v="0.00,"/>
+			<val e="Slider 00 34" v="0.00,"/>
+			<val e="Slider 00 35" v="0.00,"/>
+			<val e="Slider 00 36" v="0.00,"/>
+			<val e="Slider 00 37" v="0.00,"/>
+			<val e="Slider 00 38" v="0.00,"/>
+			<val e="Slider 00 39" v="0.00,"/>
+			<val e="Slider 00 40" v="0.00,"/>
+			<val e="Slider 00 41" v="0.00,"/>
+			<val e="Slider 00 42" v="0.00,"/>
+			<val e="Slider 00 43" v="0.00,"/>
+			<val e="Slider 00 44" v="0.00,"/>
+			<val e="Slider 00 45" v="0.00,"/>
+			<val e="Slider 00 46" v="0.00,"/>
+			<val e="Slider 00 47" v="0.00,"/>
+			<val e="Slider 00 48" v="0.00,"/>
+			<val e="Slider 00 49" v="0.00,"/>
+			<val e="Slider 00 50" v="0.00,"/>
+			<val e="Slider 00 51" v="0.00,"/>
+			<val e="Slider 00 52" v="0.00,"/>
+			<val e="Slider 00 53" v="0.00,"/>
+			<val e="Slider 00 54" v="0.00,"/>
+			<val e="Slider 00 55" v="0.00,"/>
+			<val e="Slider 00 56" v="0.00,"/>
+			<val e="Pan 02 00" v="-1.00,"/>
+			<val e="Slider 02 01" v="-6.44,"/>
+			<val e="Pan 02 01" v="1.00,"/>
+			<val e="Slider 02 28" v="-12.86,"/>
+			<val e="Slider 02 29" v="-12.86,"/>
+			<val e="Slider 02 30" v="0.00,"/>
+			<val e="Slider 02 31" v="0.00,"/>
+			<val e="Slider 02 32" v="0.00,"/>
+			<val e="Slider 02 33" v="0.00,"/>
+			<val e="Slider 02 34" v="0.00,"/>
+			<val e="Slider 02 35" v="0.00,"/>
+			<val e="Slider 02 36" v="0.00,"/>
+			<val e="Slider 02 37" v="0.00,"/>
+			<val e="Slider 02 38" v="0.00,"/>
+			<val e="Slider 02 39" v="0.00,"/>
+			<val e="Slider 02 40" v="0.00,"/>
+			<val e="Slider 02 41" v="0.00,"/>
+			<val e="Slider 02 42" v="0.00,"/>
+			<val e="Slider 02 43" v="0.00,"/>
+			<val e="Slider 02 44" v="0.00,"/>
+			<val e="Slider 02 45" v="0.00,"/>
+			<val e="Slider 02 46" v="0.00,"/>
+			<val e="Slider 02 47" v="0.00,"/>
+			<val e="Slider 02 48" v="0.00,"/>
+			<val e="Slider 02 49" v="0.00,"/>
+			<val e="Slider 02 50" v="0.00,"/>
+			<val e="Slider 02 51" v="0.00,"/>
+			<val e="Slider 02 52" v="0.00,"/>
+			<val e="Slider 02 53" v="0.00,"/>
+			<val e="Slider 02 54" v="0.00,"/>
+			<val e="Slider 02 55" v="0.00,"/>
+			<val e="Slider 02 56" v="-5.29,"/>
+			<val e="Pan 02 56" v="-0.03,"/>
+			<val e="Slider 03 56" v="-5.29,"/>
+			<val e="Pan 03 56" v="-0.03,"/>
+			<val e="Pan 04 00" v="-1.00,"/>
+			<val e="Pan 04 01" v="1.00,"/>
+			<val e="Slider 04 30" v="-12.86,"/>
+			<val e="Slider 04 31" v="-12.86,"/>
+			<val e="Slider 04 56" v="0.00,"/>
+			<val e="Slider 05 56" v="0.00,"/>
+			<val e="Pan 06 00" v="-1.00,"/>
+			<val e="Pan 06 01" v="1.00,"/>
+			<val e="Slider 06 32" v="0.00,"/>
+			<val e="Slider 06 33" v="0.00,"/>
+			<val e="Slider 06 56" v="0.00,"/>
+			<val e="Slider 07 56" v="0.00,"/>
+			<val e="Pan 08 00" v="-1.00,"/>
+			<val e="Pan 08 01" v="1.00,"/>
+			<val e="Slider 08 02" v="-22.22,"/>
+			<val e="Slider 08 03" v="-22.22,"/>
+			<val e="Slider 08 34" v="0.00,"/>
+			<val e="Slider 08 35" v="0.00,"/>
+			<val e="Slider 08 56" v="3.14,"/>
+			<val e="Slider 09 56" v="3.14,"/>
+			<val e="Pan 10 00" v="-1.00,"/>
+			<val e="Pan 10 01" v="1.00,"/>
+			<val e="Slider 10 36" v="-1.43,"/>
+			<val e="Slider 10 37" v="-1.43,"/>
+			<val e="Slider 10 56" v="0.00,"/>
+			<val e="Slider 11 56" v="0.00,"/>
+			<val e="Pan 12 00" v="-1.00,"/>
+			<val e="Pan 12 01" v="1.00,"/>
+			<val e="Slider 12 38" v="0.00,"/>
+			<val e="Slider 12 39" v="0.00,"/>
+			<val e="Slider 12 56" v="0.00,"/>
+			<val e="Slider 13 56" v="0.00,"/>
+			<val e="Pan 14 00" v="-1.00,"/>
+			<val e="Pan 14 01" v="1.00,"/>
+			<val e="Slider 14 40" v="0.00,"/>
+			<val e="Slider 14 41" v="0.00,"/>
+			<val e="Slider 14 56" v="0.00,"/>
+			<val e="Slider 15 56" v="0.00,"/>
+			<val e="Pan 16 00" v="-1.00,"/>
+			<val e="Pan 16 01" v="1.00,"/>
+			<val e="Slider 16 42" v="0.00,"/>
+			<val e="Slider 16 43" v="0.00,"/>
+			<val e="Slider 16 56" v="0.00,"/>
+			<val e="Slider 17 56" v="0.00,"/>
+			<val e="Pan 18 00" v="-1.00,"/>
+			<val e="Pan 18 01" v="1.00,"/>
+			<val e="Slider 18 44" v="0.00,"/>
+			<val e="Slider 18 45" v="0.00,"/>
+			<val e="Slider 18 56" v="0.00,"/>
+			<val e="Slider 19 56" v="0.00,"/>
+			<val e="Pan 20 00" v="-1.00,"/>
+			<val e="Pan 20 01" v="1.00,"/>
+			<val e="Slider 20 46" v="0.00,"/>
+			<val e="Slider 20 47" v="0.00,"/>
+			<val e="Slider 20 56" v="0.00,"/>
+			<val e="Slider 21 56" v="0.00,"/>
+			<val e="Pan 22 00" v="-1.00,"/>
+			<val e="Pan 22 01" v="1.00,"/>
+			<val e="Slider 22 48" v="0.00,"/>
+			<val e="Slider 22 49" v="0.00,"/>
+			<val e="Slider 22 56" v="0.00,"/>
+			<val e="Slider 23 56" v="0.00,"/>
+			<val e="Pan 24 00" v="-1.00,"/>
+			<val e="Pan 24 01" v="1.00,"/>
+			<val e="Slider 24 50" v="0.00,"/>
+			<val e="Slider 24 51" v="0.00,"/>
+			<val e="Slider 24 56" v="0.00,"/>
+			<val e="Slider 25 56" v="0.00,"/>
+			<val e="Pan 26 00" v="-1.00,"/>
+			<val e="Pan 26 01" v="1.00,"/>
+			<val e="Slider 26 52" v="0.00,"/>
+			<val e="Slider 26 53" v="0.00,"/>
+			<val e="Slider 26 56" v="0.00,"/>
+			<val e="Slider 27 56" v="0.00,"/>
+			<val e="Pan 28 00" v="-1.00,"/>
+			<val e="Pan 28 01" v="1.00,"/>
+			<val e="Slider 28 54" v="0.00,"/>
+			<val e="Slider 28 55" v="0.00,"/>
+			<val e="Slider 28 56" v="0.00,"/>
+			<val e="Slider 29 56" v="0.00,"/>
+		</Mixer>
+		<MidiRemote0>
+			<val e="MidiRemoteInUse" v="1"/>
+			<val e="MidiIn" v=""/>
+			<val e="MidiOut" v=""/>
+			<val e="MidiSelBus" v="0"/>
+			<val e="MidiSelChannel" v="0"/>
+			<val e="MidiSelSubmix" v="2"/>
+			<val e="MCSupport" v="1"/>
+			<val e="MCExtender" v="0"/>
+			<val e="MCSelSubmixInPb" v="0"/>
+			<val e="MidiLCDSupport" v="0"/>
+			<val e="MidiSendUserNames" v="0"/>
+			<val e="MidiInBackGround" v="0"/>
+			<val e="MidiStereo" v="0"/>
+			<val e="MidiLevel" v="0"/>
+			<val e="MidiLevelHold" v="0"/>
+		</MidiRemote0>
+		<MidiRemote1>
+			<val e="MidiRemoteInUse" v="0"/>
+			<val e="MidiIn" v=""/>
+			<val e="MidiOut" v=""/>
+			<val e="MidiSelBus" v="0"/>
+			<val e="MidiSelChannel" v="0"/>
+			<val e="MidiSelSubmix" v="2"/>
+			<val e="MCSupport" v="1"/>
+			<val e="MCExtender" v="0"/>
+			<val e="MCSelSubmixInPb" v="0"/>
+			<val e="MidiLCDSupport" v="0"/>
+			<val e="MidiSendUserNames" v="0"/>
+			<val e="MidiInBackGround" v="0"/>
+			<val e="MidiStereo" v="0"/>
+			<val e="MidiLevel" v="0"/>
+			<val e="MidiLevelHold" v="0"/>
+		</MidiRemote1>
+		<MidiRemote2>
+			<val e="MidiRemoteInUse" v="0"/>
+			<val e="MidiIn" v=""/>
+			<val e="MidiOut" v=""/>
+			<val e="MidiSelBus" v="0"/>
+			<val e="MidiSelChannel" v="0"/>
+			<val e="MidiSelSubmix" v="2"/>
+			<val e="MCSupport" v="1"/>
+			<val e="MCExtender" v="0"/>
+			<val e="MCSelSubmixInPb" v="0"/>
+			<val e="MidiLCDSupport" v="0"/>
+			<val e="MidiSendUserNames" v="0"/>
+			<val e="MidiInBackGround" v="0"/>
+			<val e="MidiStereo" v="0"/>
+			<val e="MidiLevel" v="0"/>
+			<val e="MidiLevelHold" v="0"/>
+		</MidiRemote2>
+		<MidiRemote3>
+			<val e="MidiRemoteInUse" v="0"/>
+			<val e="MidiIn" v=""/>
+			<val e="MidiOut" v=""/>
+			<val e="MidiSelBus" v="0"/>
+			<val e="MidiSelChannel" v="0"/>
+			<val e="MidiSelSubmix" v="2"/>
+			<val e="MCSupport" v="1"/>
+			<val e="MCExtender" v="0"/>
+			<val e="MCSelSubmixInPb" v="0"/>
+			<val e="MidiLCDSupport" v="0"/>
+			<val e="MidiSendUserNames" v="0"/>
+			<val e="MidiInBackGround" v="0"/>
+			<val e="MidiStereo" v="0"/>
+			<val e="MidiLevel" v="0"/>
+			<val e="MidiLevelHold" v="0"/>
+		</MidiRemote3>
+		<OscRemote0>
+			<val e="OscSelBus" v="0"/>
+			<val e="OscSelChannel" v="0"/>
+			<val e="OscSelSubmix" v="2"/>
+			<val e="OSCRemoteInUse" v="1"/>
+			<val e="OSCOwnPort" v="7001"/>
+			<val e="OSCRemotePort" v="9001"/>
+			<val e="OSCRemoteHost" v=""/>
+			<val e="OSCSendLevel" v="0"/>
+			<val e="OSCLevelHold" v="0"/>
+		</OscRemote0>
+		<OscRemote1>
+			<val e="OscSelBus" v="0"/>
+			<val e="OscSelChannel" v="0"/>
+			<val e="OscSelSubmix" v="2"/>
+			<val e="OSCRemoteInUse" v="0"/>
+			<val e="OSCOwnPort" v="7002"/>
+			<val e="OSCRemotePort" v="9002"/>
+			<val e="OSCRemoteHost" v=""/>
+			<val e="OSCSendLevel" v="0"/>
+			<val e="OSCLevelHold" v="0"/>
+		</OscRemote1>
+		<OscRemote2>
+			<val e="OscSelBus" v="0"/>
+			<val e="OscSelChannel" v="0"/>
+			<val e="OscSelSubmix" v="2"/>
+			<val e="OSCRemoteInUse" v="0"/>
+			<val e="OSCOwnPort" v="7003"/>
+			<val e="OSCRemotePort" v="9003"/>
+			<val e="OSCRemoteHost" v=""/>
+			<val e="OSCSendLevel" v="0"/>
+			<val e="OSCLevelHold" v="0"/>
+		</OscRemote2>
+		<OscRemote3>
+			<val e="OscSelBus" v="0"/>
+			<val e="OscSelChannel" v="0"/>
+			<val e="OscSelSubmix" v="2"/>
+			<val e="OSCRemoteInUse" v="0"/>
+			<val e="OSCOwnPort" v="7004"/>
+			<val e="OSCRemotePort" v="9004"/>
+			<val e="OSCRemoteHost" v=""/>
+			<val e="OSCSendLevel" v="0"/>
+			<val e="OSCLevelHold" v="0"/>
+		</OscRemote3>
+		<AuxDevice0>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice0>
+		<AuxDevice1>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice1>
+		<AuxDevice2>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice2>
+		<AuxDevice3>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice3>
+		<AuxDevice4>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice4>
+		<AuxDevice5>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice5>
+		<AuxDevice6>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice6>
+		<AuxDevice7>
+			<val e="AuxDeviceType" v="0"/>
+			<val e="AuxDeviceID" v="0"/>
+			<val e="AuxMidiIn" v=""/>
+			<val e="AuxMidiOut" v=""/>
+		</AuxDevice7>
+	</Fireface80040D>
+</Preset>
