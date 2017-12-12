@@ -43,11 +43,14 @@ MykMidiObserver : Object {
 
 	/** time period has ended - send observations to callback and reset memory*/
 	step{
-		("MYKMidiObs::step_event keys: "++step_events.keys().size).postln;
+		//("MYKMidiObs::step_event keys: "++step_events.keys().size).postln;
 		if (step_events.keys().size > 0, {
 			callback.value(step_events);
 			this.initStepEvents();
-		})
+		}, {
+			//	"midiobs: step but no events. ".postln;
+				callback.value(Dictionary.new);
+		});
 	}
 
 	initStepEvents{

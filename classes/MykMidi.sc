@@ -13,8 +13,13 @@ MykMidi : Object {
 		MIDIClient.init;
 		MIDIClient.destinations;
 		try{
-			"MYKMidi: Connecting to MIDI out device: Fireface 800 (40D)".postln;
-			midi_out = MIDIOut.newByName("Fireface 800 (40D)", "Port 1");
+			//"MYKMidi: Connecting to MIDI out device: Fireface 800 (40D)".postln;
+			//midi_out = MIDIOut.newByName("Fireface 800 (40D)", "Port 1");
+			//midi_out = MIDIOut.newByName("Akai MPD24-Akai MPD24 MIDI 2");
+
+			//midi_out = MIDIOut.new(3);
+			midi_out = MIDIOut(0);// this works for linux and qjackctl connected
+
 			midi_out.latency = 0;
 
 

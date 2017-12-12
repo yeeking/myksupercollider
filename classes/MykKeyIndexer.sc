@@ -25,4 +25,7 @@ MykObjId : Object {
 		^id;
 	}
 
+	getObj{arg id;
+		^dict.findKeyForValue(id);
+	}
 }

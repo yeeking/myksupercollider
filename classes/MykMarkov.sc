@@ -268,13 +268,22 @@ MykMarkov : Object {
 	^dict;
   }
 
-
+	// call this one from outside to
+	// query the stored freq chain in generative mode
+	// also maintains a memory of previous states
   nextFreq{
 	var ind, key, value, freq, updated;
 	// querying chain updates and returns the memory
 	snake_freq_mem = this.queryChain(freqChain, snake_freq_mem);
 	^snake_freq_mem[0];
   }
+	// call this one from the outside to force a symbol onto the memory
+	// used for the freq generation chain.
+	forceFreq{arg freq;
+		if (((snake_freq_mem != nil) && (snake_freq_mem.size == 0)), {"***ARG!".postln});
+		//snake_freq_mem = snake_freq_mem.rotate(1);
+		//snake_freq_mem[0] = freq;
+	}
 
   nextBeat{
 	var ind, key, value, beat;

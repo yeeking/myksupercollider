@@ -29,3 +29,4 @@ s = Server.local.boot;
 ~play.stop;
 
 0.1.coin;
+~eve.reset
