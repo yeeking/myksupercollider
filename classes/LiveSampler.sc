@@ -73,7 +73,7 @@ LiveSampler : Object{
 
 	// gets called by the onset detector
 	onset{arg amp;
-		//"LiveSample::onset".postln;
+		"LiveSample::onset".postln;
 
 		if ((collect_samples == true) && (target_buffer < buf_count) && (amp > thresh),
 			// now we either stop sampling the current sound or start sampling a new sound

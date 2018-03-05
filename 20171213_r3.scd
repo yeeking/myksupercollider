@@ -1,9 +1,8 @@
 
-
-
-s.boot;
 ~mark = MykMidiMarkov.new;
+
 ~mark.setupSynthMode;
+
 ~mark.synthMode = false;
 
 ~mark.playNote(54);
@@ -11,6 +10,13 @@ s.boot;
 ~mark.interval = 2;
 
 ~mark.reset;
+
+
+
+
+
+
+
 
 
 
@@ -44,7 +50,7 @@ MIDIOut
 
 ~midi = MykMidi.new;
 ~midi.playNote(0);
-
+(
 {
 	var note, energy;
 	note = 32;
@@ -67,6 +73,10 @@ MIDIOut
 		});
 	};
 }.fork;
+)
+
+
+
 
 
 ~m = MIDIOut.new(1)

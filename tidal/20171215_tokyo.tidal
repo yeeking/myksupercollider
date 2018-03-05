@@ -1,0 +1,860 @@
+import Sound.Tidal.MIDI.Context 
+import Sound.Tidal.MIDI.VolcaFM
+displayOutputDevices >>= putStrLn
+devices <- midiDevices
+m1 <- midiStream devices "MIDI4x4 MIDI 1" 1 synthController
+
+# dirt samples here
+ls /home/matthew/.local/share/SuperCollider/downloaded-quarks/Dirt-Samples
+# tidal ref
+https://tidalcycles.org/patterns.html
+http://www.pianochord.org/cmaj7.html
+
+## this stuff sets up some custom effects
+let (grunge, _) = pF "grunge" Nothing
+let (glass, _) = pF "glass" Nothing
+let (delboy, _) = pF "delboy" Nothing
+
+let bump = (|+| nudge "0.2")
+let bump = (|+| nudge "2")
+hush
+
+
+m1 $ silence
+m1 $ fast 2 $ n "[1 2 3 4]"
+d2 $ bump $ sound "bd:3*2" # legato 0.1 # gain 1.25
+d1 $ bump $ sometimes (every 3 (fast 1.5)) $ (# speed rand) $ sound "sd:3*8" # legato 0.1 # room (slow 4 (sine)) # orbit 1 # gain 0.74
+d1 $ silence
+
+d3 $ bump $ sometimesBy 0.8  (fast 4) $ (#speed ((rand )*5))$ sound "bass1*2" # n (irand 5) #  legato "<0.1 0.25 0.5>"# room "<0.1 0.2>" # gain 1.75
+d2 $ silence
+
+d1 $ bump $ sound "hc*8" # end 0.1
+d1 $ bump $ fast 2 $ sound "[sn:4*8?]"
+d2 $ bump $ fast 2 $ sound "[hc:6 hc:7 sn:1 ~ ~ hc:7]"
+d1 $ silence
+m1 $ silence
+d1 $ silence
+m1 $ every 3 (fast (run 5)) $ (#dur 0.01) $ n "[3 5 7 9 12]" 
+d1 $ sound "hc*8" # legato 0.1
+cps (152/60/)
+
+d1 $ bump $ sound "[bd hc hc hc]"
+
+bump $ sound "bd*2"
+
+d1 $ sound "sd"# delboy "<0.01>"# legato 1
+
+d1 $ fast 2 $ sound "[hc sd]"  # room 0.5 # size "<0.01 0.5 1.0>"
+
+hush
+d1 $ sound "sd*8" # legato 0.5 # speed (slow 10 (sine*5))# grunge (slow 85 (sine)) # glass (slow 100 (sine))
+d8 $ silence
+d6 $ (#speed "[1 2 3 5 7? 8]") $ sound "bass1*8" # note "<3 2 1>" # legato 0.25 # gain 1.2 # room "0.1"
+d7 $ (#speed (run 8)) $ sound "bass1*8" # note "<3 2 1>" # legato 0.25 # gain 1.2 # room "0.1"
+d8 $ (#legato ((run 10)*0.1))$ slow "<2 4 5 7 10 20>" $ (#speed (run 100)) $ sound "bass1*100" # note "<2>" # gain 1.2 # room "0.1 0.2 0.5 0.7" # size "0.5"
+d7 $ degrade $ (#legato ((run 10)*0.1))$ slow "<2 4 5 7 10 20>" $ (#speed (run 100)) $ sound "bass1*100" # note "<2>" # gain 1.2 # room "0.1 0.2 0.5 0.7" # size "0.5"
+
+d1 $ sound "[bd(3,8)?]" # legato 0.5 # gain 4 # orbit 2
+d6 $ fast 8 $ sound "[bass1]" # speed "<1 3 5 7 13 11>"# legato "<0.2 0.5 0.25>" # gain 1.5 # room "<0.1 0.05>" # orbit 2
+d7 $ fast 4 $(#speed "<4 8>") $ sound "[bass1]" # speed "<1 3 5 7 9 11>"# legato "<0.2 0.5 0.25>" # gain 1.5 # room "<0.1 0.05>" # orbit 2
+d8 $ fast "[1 2 4]" $(#speed "<4 8 16 11>") $ sound "[bass1]" #  legato "<0.2 0.5 0.25>" # gain 1.5 # room "<0.1 0.05>" # orbit 2
+
+d1 $ sound "[bd?*8]" # gain 1.25
+d2 $  sound "[sd ~ ~]" # gain 1.5 # orbit 1 
+d1 $ silence
+d3 $ sometimesBy 0.9 (fast 2) $  sound "[hc*8?]" # legato 0.7 # gain 1.1 # orbit 1 
+
+d6 $ sometimes (#speed ((rand)*4)) $ sometimesBy 0.9 (every 1 (fast "[1 2 3]")) $ sound "[bass1]" # room "<0.05, 0.01>"  # note "<1 3 5 7>"# legato "<0.1 0.5 0.25>" # gain 1.5 # orbit 2
+
+d7 $ sometimes (#speed (rand)) $ sometimesBy 0.9 (every 1 (fast "[1 2 3 16 32]")) $ sound "[bd:4*4? ~*4, ~ ~ sd ~]" # room "<0.05, 0.01>"  # legato "<0.1 0.5 1.0>" # gain 1.5 # orbit 2
+d6 $ sometimes ( (fast 1.5)) $ (#speed ((rand * 2) + 0.5)) $ sound "hc:7*8" # legato 0.5
+hush
+d1 $ (#speed ((irand 2)+1)) $ fast 8 $ sound "[bass1:2]" # speed "<1,0.25,0.5>" # legato "<0.1 0.5 1 0.25>" # gain 1.25 # room "<0.1 0.05 0.01>" # orbit 1 # pan (sine)
+d1 $ (#speed ((rand*5)+1))$ (#note (irand 4)) $sound "bass1*6" # legato ((rand*0.25)+0.1) # room (rand*0.25) # orbit 1
+d1 $ (#speed (run 20))$ (#note (irand 7)) $ every 2 (fast 1.5) $ sound "bass1*8" # legato ((rand*0.25)+0.1) # room (rand*0.25) # size 0.7 # orbit 1
+d2 $ (#speed (run 7))$ (#note (irand 5)) $ sometimes (fast 1.5) $ sound "bass1*8" # legato ((rand*0.25)+0.1) # room (rand*0.25) # size 0.7 # orbit 1
+d3 $ (#speed ((rand * 2)+1))$(# legato ((run 5) / 10)) $ sound "hc*8" # room 0.05  # gain 1.2
+d4 $ sometimesBy 0.1 (fast 8) $ sound "bass2:1*2" # end 0.1
+d4 $ silence
+d5 $ (#speed ((rand*4)*1.5))$ (#note (run 9)) $sound "bass1*8?" # legato ((rand*0.25)+0.3) # room (rand*0.25) # orbit 1
+d1 $ (#speed ((rand*4)+1))$ (#note (run 9)) $sound "bass1*8" # legato 0.2 # room (rand*0.25) # orbit 1
+d7 $ sound "[bd:4*4? ~*4, ~ ~ sd ~]" # room 0.05 # gain 1.5 # orbit 2
+d1 $ sound "sd:7*8?" # gain 1.5 # grunge rand # legato 0.5 # room 0.1
+d4 $ (#note (irand 16)) $ every 2 (fast 2)$ sound "amencutup*8" # gain 1.25
+d4 $ (#note (irand 16)) $(#speed ((irand 2) + 1)) $ sound "amencutup*8" # legato 1.0  # gain 1.25 
+d5 $ sound "bd bd ~ ~ ~ sd ~ ~"
+hush
+d6 $ (#speed ((rand*5) + 0.1))$  sound "[hc:7*8 [hc*4]]" # end "<0.5*8 0.25>" # room 0.1 # orbit 1
+hush
+
+d3 $ every 3 (fast 1.5) $ (# speed (rand*2))$ sound "hc*8" # legato 0.5 # room 0.05 # orbit 2
+d2 $ (#end rand) $ (#note (irand 8)) $ (# gain 2) $ sometimesBy 0.7 (fast (irand 4)) $ sound "[bd sd:1 ~ sd:3]"
+
+d2 $ (# legato (rand+0.2))$ (#note (irand 10)) $ slow 1 $ sound "[bd*4 [sd sd ~ ~]]" # gain 2
+d3 $ sound "amen"
+d2 $ silence
+d3 $ (#note (irand 4)) $ (#gain 1.5) $ sometimesBy 0.25 (fast 4) $ sound "bass ~ bass ~"# end (rand) # legato 0.5 # room (rand) # size 0.1 # orbit 1
+d1 $ every 4 (fast 2) $ slow 2 $ sound "[bd*4 [hc sd]*4]" # gain 1.5
+d4 $ (# end 0.25) $ sound "[bass:4*16?]" 
+d3 $ silence
+hush
+
+d1 $ every ((rand * 2) fast 2) $ sound "hc" #  end 0.1
+d1 $ every 2 (fast (1/3))$ sound "hc*8" # end 0.3
+d1 $ every 2 (# begin rand) $ sound "cr*8" # end 0.2
+d6 $ sound "sd*8" # begin "[0, 0.5 1.0]" # end "[1.0, 0.5, 0]" 
+d1 $ sound "sd*4" # begin "[0 1.0]" # end "[1.0 0]"
+d1 $ every 2 (# end 0 ( # begin 0.5)) $ sound "sd*4"
+d1 $ every (2) (|+| speed (irand 4)) $ sound "arpy*8?"
+d1 $ every (irand 2) (# speed ((irand 2)+1)) $ every 2 (fast 1.5) $ sound "[bd ~ sd bd, hc*8?]" # gain 2
+d2  $ sound "hc:7*8" # speed 2 # end 0.5 # gain 1.5
+d1 $ sound "bd? sd? sd? sd?"
+d6 $ silence
+hush
+d3 $ silence
+d3 $ every 2 (# speed (run 13)) $ sound "bass*8" # end 0.5 # gain 1.5
+d4 $ every 1 (# speed (run 16)) $ sound "arpy*8" # speed 2 # gain 1
+d5 $ sound "arpy*8" # end 0.3# speed 4 # gain 1.0 # room 0.2 # size 0.5 # orbit 1
+d6 $ sound "arpy*8" # end 0.3# speed (run 9) # gain 1.0 # room 0.2 # size 0.5 # orbit 1
+d6 $ silence
+d1 $ sound "bd*8" # glass "[0.1 0.2 0.3 0.9]" # grunge "0.9" 
+d2 $ sound "sd*4" # glass "[0.5 0.6 0.7 0.0]" # grunge "1" # gain 1.2
+hush
+d3 $ sound "sd"
+d5 $ sound "bd:3*2" # gain 2 
+d2 $ sound "[~ cp:2]" # glass "[0.5 0.6 0.7 0.0]" # grunge "1" 
+d5 $ sometimes (# speed "[1.2 1.4 1.5]" ) $  sound "bass*8"  # begin 0.1 #  end 0.2 # gain 1.2
+hush
+d1 $ silence
+d6 $ sometimesBy 0.8 (# speed "[1 2 3]") $sound "hc:5*8" # end "[0.2 0.1 0.4]" # gain 0.9
+d6 $ every 2 (sometimesBy 0.8 (# speed "[1 2 3]")) $ sound "hc:5*8" # end "[0.2 0.1 0.4]" # gain 0.5
+d1 $ sound "sd:4*2" # room "0.1" # size "<0.0 0.9>"
+d1 $ sound "[sd:4*2 sd:7,hc:7*4]" # room 0.1 # size 0.1 # orbit 0
+d1 $ sometimesBy 0.8 (fast 2) $  (# speed ("[1 2 3 4 3 2 1]")) $ sound "arpy*4" # room 0.9 # size 0.9 # orbit 1 # gain  0.6
+
+d2 $ sometimesBy 0.5 (fast 2) $  (# speed (run 8)) $ sound "arpy*4" # room 0.9 # size 0.9 # orbit 1 # gain  0.6
+d2 $ sometimesBy 0.5 (fast 2) $  (# speed (run 8)) $ sound "arpy:7*4" # room 0.9 # size 0.9 # orbit 1 # gain  0.6
+d3 $ sometimesBy 0.5 (fast 2) $  (# speed (run 8)) $ sound "arpy:6*4" # room 0.9 # size 0.9 # orbit 1 # gain  0.6
+
+hush
+d3 $ (# speed (run 8)) $ sound "arpy:5*4" # room 0.9 # size 0.9 # orbit 1 # gain  0.6
+d2 $ sometimesBy 0.9 ((# speed (run 8))) $ sound "arpy:3*4" # room 0.9 # size 0.9 # orbit 1 # gain  0.6
+d2 $ silence
+d1 $ silence
+d1 $ sound "bd*4"
+d6 $ sound "bd:6*8"# gain 2
+d9 $ sound "sd:6*4"# gain 2
+d7 $ sound "cp:6*4"# gain 2
+d7 $ sound "sd:6*32"# gain 2
+d8 $ sometimes (fast 2) $sound "hc:6*16"# cut "2"# gain 1.5
+d8 $ sound "hc:6*32"# cut "2"# gain 1.5 
+
+d1 $ sometimesBy 0.5  (|/| speed "2 3 4") $ sound "arpy*3" |=| speed "1" 
+t2 (clutchIn 12) $ sometimesBy 0.4  (|/| speed "2 3 4") $ sound "[arpy:2*6, arpy:4*4, arpy:5*4]" |=| speed "1"
+d2 $  sometimesBy 0.4  (|/| speed "2 3 4") $ sound "[arpy:2*6, arpy:4*4, arpy:5*4]" |=| speed "1" # gain "0.7"
+d3 $   sound "[bd bd bd bd ~, sd:3 ~ sd:4 ~]"
+d3 $ sound "bd:4*2" # gain 1.
+t2 (clutchIn 12) $ sound "arpy*8" # n (run 8 )
+d3 $ every 2 (fast 2) $ sometimesBy 0.5 (|/| speed 4) $ slow 2 $ sound "arpy*16" # n (run 16)
+d2 $ every 2 (fast 3) $  sometimesBy 0.5 (|/| speed 2) $ slow 2 $ sound "arpy*8" # n (run 8 )
+d4 $  (# speed (run 5)) $ sound "bass*5" # gain 1.5
+d1 $ slow "2"$ (# speed (run 32)) $ sound "bass*32" # cut "1"# gain 1.5
+d2 $ slow "[1.5 0.5 2]" $ sometimesBy 0.9 (# speed (run 16)) $ sound "arpy:3*16" # gain 1.5
+d3 $ slow 1.5 $ sometimesBy 1 (# speed (run 16)) $ sound "bass:3*16" # speed 0.25 # delayFeedback 0.7  # gain 1.5 
+
+hush
+
+d2 $ sometimes (fast 4) $ sound "sd:4*2" # gain 1.5
+d3 $ sometimes (fast 4) $ sound "hc:4*2" # len 0.1 # gain 1
+d2$ silence
+d1 $ silence
+d1 $ sometimesBy 0.5 (|/| speed 2) $ slow 2 $ rev $ sound "arpy*7 ~" # n (run 8 )
+d4 $ silence
+d4 $ sometimesBy 0.5 (every 2 (fast 1.5))$ sound "hc*8" # cut "0.1*8"
+
+d4 $ sometimesBy 0.5 (fast 1.5)$ sound "hc*8" # cut "0.1*8"
+
+d1 $ every 2 # sound "arpy(3,8)"# n ("0 2" * 3)
+d1 $ sometimesBy 0.5  (|/| speed "2 3 4") $ sound "arpy*3" |=| speed "1" 
+d2 $ sometimesBy 0.4  (|/| speed "2 3 4") $ sound "[arpy:2*6, arpy:4*4]" |=| speed "1"
+
+d2 $ sometimesBy 0.5  (|/| speed "2 3 4") $ sound "arpy:2*8" |=| speed "1"
+d1 $ every 2 (|=| speed "2") $ sound "arpy*4" |=| speed "1"
+d1 $ sound "bd*4"
+d1 $ silence
+
+d1 $ every 1 (slow (run 128)) $ striate' 5000 (1/100) $ sound "[breaks152]"
+d1 $ slow 4 $ striate' 5000 (1/100)  $ sound "[breaks152*8]"
+d1 $ silence
+d1 $ every "[1 2]" (# speed "[2 4]") $ sound "arpy*2" 
+d1 $ (|=| speed "2") $ sound "arpy*4" |=| speed "1"
+d1 $ every 1 (|*| speed rev ((run 7))) $ sound "arpy*7" |=| speed "1"
+d1 $ every 2 (# speed "2") $ sound "arpy*4" |=| speed "4"
+d1 $ silence
+d1 $ sometimesBy 0.5 (fast "0.5 2 1 1") $ every 3 (every 2 (# speed "2")) $ sound "bd*8" # speed "0.1 1 1 1" # vowel "a e i o u" # gain 1.5
+
+m1 $ iter "<1 2 3>" $ n (run 10)
+m1 $ silence
+d2 $ bump $ sound "[hc]*8"
+m1 $ n "[0]*8" # dur "<0.01>*8"
+
+
+d1 $ bump $ sound "[bd, sn]*2" # gain 2
+d1 $ bump $sometimesBy 0.15 (fast 2) $ sound "[bd:3 ~ ~]*2" # gain 1.5
+d6 $ sometimesBy 0.25 (fast 2) $ sound "[hc:5 ~]*8" # speed 2 # gain 1
+d3 $ bump $ sometimesBy 0.25 (fast 2) $ sound "[sd:3]*4" # gain 2
+d4 $ bump $ sound "imp(2,7)" # n "<1 2 3>*8" # gain 1
+d5 $ bump $ fast 2 $ sound "imp(2,7)" # n "<1 2 3>*8"
+d5 $ silence
+d2 $ silence
+d4 $ silence
+hush
+
+m1$ silence
+
+0.6 -> 0 on sn (0 before hc) --> should be after it 
+
+d1$ silence
+
+
+m2 <- midiStream devices "MIDI4x4 MIDI 2" 1 synthController
+v1 <- midiStream devices "MIDI4x4 MIDI 1" 1 volcafmController
+v2 <- midiStream devices "MIDI4x4 MIDI 1" 1 volcafmController
+
+
+let bump = (|+| nudge "0.7")
+let bump = (|+| nudge "0.2")
+
+d2 $ bump $sound "[hc:6 hc:7]"
+d2 $ bump $ sound "[hc:6 hc:7 sn:1]"
+d2 $ sound "[hc:6 hc:7 sn:1]"
+
+m1 $ n "[2 10 20]" # dur "<0.01>*2" 
+
+d2 $ silence
+d1 $ bump $ every 3 ("[0.25 0.5 0.75]" <~) $ sound "bd*2 cp*2 hh sn:2" # n 2 # gain 2
+d2 $ bump $ sound "[hc:6]*8"
+d2 $ sound "[hc:6]*8"
+m1 $ every 4 (fast 0.5) $ n "[a b c d]*2"
+m1 $ sometimesBy 0.4 (every 4 (fast 0.5)) $ n "[a b c d]*2"
+m1 $ note "0*8" 
+m1 $ note (run 4) # velocity "0.1"
+m1 $ note "2*8" # dur "<0.01>*8" 
+m1 $ note "2*8" # dur "<1.0 0.1 0.01>*7" 
+m1 $ note "2*8" # expression (sine1*5)
+amencutup
+m1 $ silence12
+m1 $ iter "[1 2 3 4]"$ slow 4 $ n "[[a c e g] [d fs a c e] [g b d fs] [c e g b] [fs e cs e][a c e g] [d fs a c e][g b d fs][c e g b][fs e cs e][b ds fs a][e g b d fs][a cs e g][b d  fs a cs][g b d f][c e g b][b ds fs a][e g b d]]*0.125"
+
+m1 $ sometimesBy 0.5 (fast 2) $ slow 16$  n "[a c e g d fs a c e g b d fs c e g b fs e cs ea c e g d fs a c eg b d fsc e g bfs e cs eb ds fs ae g b d fs a cs e gb d  fs a cs g b d fc e g bb ds fs ae g b d]"
+v1 $ degrade $ n "[a c e a c g,c e a c g c, a cs e gb d]"
+
+v1 $ every 3 (fast 2) $ every 2 (0.25 <~)  $ n "[a c e b]"
+v1 $ every 3 (slow 2) $ every 2 (0.5 <~)  $ n "[a c e g d fs a c e g b d fs c e g b fs e cs e a c e g d fs a c e g b d fs c e g b fs e cs e b ds fs a e g b d fs a cs e g b d fs a cs g b d f c e g b b ds fs a e g b d]*0.125"
+
+d1 $ sound (samples "arpy*8" (run 8)) # speed "0.125" # cut "1"
+
+v1 $ degrade $ n "[a c e a c g,c e a c g c, a cs e gb d]*0.125"
+
+d1 $ every 4 (0.5 <-) $ every 2 (density 3) $ sound "hc sd sd"
+d1 $ cat [sound "bd sn:2" # vowel "[a o]/2",
+          sound "casio casio:1 casio:2*2",
+          sound "drum drum:2 drum:3 drum:4*2"
+         ]
+
+v1 $ silence
+d1 $ silence
+
+d1 $ n "[1 2 3 0]"  # s ""
+
+d1 $ every 4 (fast 0.75) $ pan "<0 1 0.25>*8" # sound "bd sn drum sn:2" # gain 1
+d2 $ every 3 (fast 0.75) $ pan "<0 1 0.25>*8" # sound "hc:6" # cut 1 # gain 0.64
+v1 $ every 4 (fast 1.5) $  n (run 6)
+
+d1 $ every 4 (fast 1.5) $ n "<0 1 0.25>*8" # sound "bd sn drum sn:2"
+
+d1 $ sound "arpy*8" # up (run 8)
+d1 $ every 4 (fast 1.5) $ n (run 7) # sound "arpy*8"
+
+
+d1 $ sound "arpy(5,7)" # n ("[1]" * 3) 
+
+d1 $ jux (# accelerate "-0.1") $ s "supermandolin*8" # midinote "[80!6 78]/8" # sustain "1 0.25 2 1"
+
+d1 $ iter 3 $ jux (# accelerate "-0.5") $ n "[-12 -14 -16]*2" # s "supersaw" # sustain 0.1 
+
+d1 $ midinote (fast 1 $ (run 8) * 7 + 50) # s "supergong" # decay "[1 0.2]/4" # voice "[0.5 0]/8" # sustain (slow 16 $ scale 5 0.5 $ saw1)
+
+
+## autumn leaves
+# am7
+v1 $ n "[a c e g]" 
+# d9
+v1 $ n "[d fs a c e]"
+# gmaj7
+v1 $ n "[g b d fs]"
+# cmaj7
+v1 $ n "[c e g b]"
+# f#m7
+v1 $ n "[fs e cs e]"
+# b7
+b ds fs a
+# em7 x 2
+e g b d   e g b d
+# f#m7
+fs e cs e
+# em7
+e g b d
+# bm7
+b d fs a
+# e7
+e gs b d
+# am7
+v1 $ n "<[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e][a,c,e g] [d,fs,a c e][g,b d fs][c,e,g b][fs e,cs e][b,ds,fs a][e,g,b d fs][a,cs,e g][b,d, fs a cs][g,b,d f][c,e,g b][b,ds,fs a][e,g,b d]>"
+
+v1 $ linget 0.25 $ n "<[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e][a,c,e g] [d,fs,a c e][g,b d fs][c,e,g b][fs e,cs e][b,ds,fs a][e,g,b d fs][a,cs,e g][b,d, fs a cs][g,b,d f][c,e,g b][b,ds,fs a][e,g,b d]>"
+v1 $ silence
+v1 $ every 2 (sometimesBy 0.5 (iter 2)) $ n "<[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e][a,c,e g] [d,fs,a c e][g,b d fs][c,e,g b][fs e,cs e][b,ds,fs a][e,g,b d fs][a,cs,e g][b,d,fs a cs][g,b,d f][c,e,g b][b,ds,fs a][e,g,b d]>"
+
+v1 $ sometimesBy 0.7 (slow 32) $ n "[[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e][a,c,e g] [d,fs,a c e][g,b d fs][c,e,g b][fs e,cs e][b,ds,fs a][e,g,b d fs][a,cs,e g][b,d, fs a cs][g,b,d f][c,e,g b][b,ds,fs a][e,g,b d]]*0.125"
+
+v1 $ every 2 (linger 0.2) $ slow 8 $  n "[[a c e g] [d fs a c e] [g b d fs] [c e g b] [fs e cs e][a c e g] [d fs a c e][g b d fs][c e g b][fs e cs e][b ds fs a][e g b d fs][a cs e g][b d  fs a cs][g b d f][c e g b][b ds fs a][e g b d]]*0.125"
+
+v1 $ iter "[1 2 3 4]"$ slow 4 $ n "[[a c e g] [d fs a c e] [g b d fs] [c e g b] [fs e cs e][a c e g] [d fs a c e][g b d fs][c e g b][fs e cs e][b ds fs a][e g b d fs][a cs e g][b d  fs a cs][g b d f][c e g b][b ds fs a][e g b d]]*0.125"
+
+
+v1 $ iter "[1 2 3]" $ n "[2 4 7]" 
+ 
+
+
+d1 $ sound "[hc:6]*3"
+d1 $ every 2 (degradeBy 0.5) $ sometimesBy 0.5 (fast 2) $ sound "[bd:6 hc:6  ~ hc:6 sn:2]*1.5" 
+
+d1 $ silence
+v1 $ silence
+
+d1 $ cat [sound "bd*2 sn", sound "arpy jvbass*2"]
+
+d1 $ randcat [sound "bd*2 sn", sound "jvbass*3", sound "drum*2", sound "ht mt"]
+
+[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e] 
+
+v1 $ n "<[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e]>"
+v1 $ every 2 (sometimesBy 0.4 (fast 1.5)) $ n "<[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e]>"
+v1 $ every 2 (sometimesBy 0.4 (speed 2)) $ n "<[a c e,g] [d fs a,c,e] [g b d fs] [c e g b] [fs e,cs e]>"
+v1 $ every 2 (sometimesBy 1 (iter 4)) $ n "<[a c e,g] [d fs a,c,e] [g b d fs] [c e g b] [fs e,cs e]>"
+v1 $ every 2 (sometimesBy 0.4 (fast 1.5)) $ n "<[a,c,e g] [d,fs,a c e] [g,b,d fs] [c,e,g b] [fs,e,cs e]>"
+
+d1 $ n "[a c e g ~]" # sound "arpy" # gain 0.5
+d1 $ silence
+v1 $ silence
+
+# 
+algtm (slow 4 sine1)
+
+d2 $ sound "amencutup*8" # n (irand 8)
+d1 $ degrade $ sound "[bd(3,8),hc:1]*4"
+
+hush
+
+d2 $ silence
+
+d1 $ degrade $ sound "[bd(3,8),hc*8]*1.25" # gain 1.5
+m1 $ n "[[0 2 3 4 0 2 3 2]*0.9999,4 3 2 0 4 3 2 0]"
+m1 $ silence
+d1 $ sometimesBy 0.25 (every 2 (fast 2)) $ sound "[bd bd bd bd]" # gain 2.0
+d2 $ sometimesBy 0.5 (every 2 (fast 4)) $ sound "[hc]*4" # gain 1.5
+d3 $ sound "arpy*8" # n "<2 4 6>*8"
+let (grunge, _) = pF "grunge" Nothing
+
+let (glass, _) = pF "glass" Nothing
+
+
+hush
+
+
+m1 $ n "[2 4 6 9,4 5 7]*0.5"
+m2 $ silence
+ $ degrade $  n "[2 5 7, 5, 9, [5 4 2]]*2"
+m1 $ sometimesBy 0.5 (fast 0.25)  $ n "[2 5 7,14 16 17 9*0.5]*3"
+v1 $ clampTo 2 ( n "[1 5 7]*2")
+m1 $ every 2 (fast 0.5) $ n "[1 5 4]*3"
+m2 $ every 2 (fast 0.5) $ n "[1 5 4]*3"
+degrade $  n "[2 5 7, 5, 9, [5 4 2]]*2"
+m2 $ degrade $ sometimesBy 0.5 (rev) $ n "[2 4 6 8]*2"
+m2 $ silence
+m1 $ sometimesBy 0.25 (fast 0.75) $ n "[2 5 7]*4"
+
+m2 $ degrade $ n "[0 4 -8 2 3]*2"
+
+d1 $ fit' 1 4 (run 4) "[0 3*2 2 1 0 3*2 2 [1*8 ~]]/2" $ chop 4 $ (sound "breaks152" # unit "c")
+d1 $ silence
+d1 $ silence
+d1 $ sometimesBy 0.25 (every 4 (linger 0.25)) $ n "0 2 [3 4] 2*4" # sound "arpy"
+# nice skipyy beat here
+# with 20% chance per cycle, triple the speed
+d1 $ sometimesBy 0.2 (every 3 (fast 4)) $ sound "[bd sd bd ~,hc hc hc hc hc hc]"
+
+d1 $ sound "bd*8" # glass (slow 4 $ sine) # pan (slow 4 $ sine)
+d1 $ sound "bd*8" # pan (fast 3 $ sine)
+
+d1 $ sound "bd*8 sn*8" # pan (density 1.75 $ tri)
+
+# glass (slow 4 $ sine)
+gain 2
+d1 $ sound "bd*16" # pan (slow 8 $ saw)
+
+d1 $ sound "[sd bd:1 hc, bd sd:4]*2" # glass "<1.1 0.7 0.4>*4"
+# gain "1.5" # gain 1.2
+d4 $ silence
+hush
+d4 $ sound "arpy:2 arpy:2 arpy:2" # glass "0.1" # gain "2.0"
+d4 $ sometimesBy 0.5 (rev) (sound "arpy*8" # n "<1,3,5 4 6>*4") # gain 0.5
+d3 $ sometimesBy 0.5 (rev) (sound "arpy*5" # n "<1,3,5 4 6,7>*3") #
+d3 $ sometimesBy 0.5 (rev) (sound "arpy*7" # n "<4,3,5 4 6,10>*7")
+# gain 2 #  glass "0.1"
+d1 $ sometimesBy 0.5 (rev) (sound "[arpy:1 arpy:2 arpy:3]")
+!
+d1 $ sometimesBy 0.5 (fast 4) $ sound "[bd bd bd, hc:1, [sd sd ~]*0.25]" # speed "[1 2 1]" # gain 1.5
+
+d1 $ silence
+
+d2 $ sound "[bd bd bd, [sd sd] cp, arpy [arpy [arpy arpy] arpy arpy], odx]"
+
+d1 $ sound "bd sd hh cp mt arpy drum odx bd arpy bass2 feel future"
+hush
+d1 $ sound "[bd bd bd, sd cp]"
+d1 $ sound "[bd bd bd, sd cp sd cp]"
+
+d1 $ sound "[bd bd bd, hc hc hc hc, [sd sd ~]*0.25]" # speed "[1 2 1]*3" # gain 1.5
+
+d3 $ sound "bass1" # n "<2 3 4>" # gain 2
+
+d1 $ sound "[bd sd sd] cp"
+
+d1 $ sound "[bd bd] [bd [sd [sd sd] sd] sd]"
+d1 $ silence
+d1 $ sometimesBy 0.15 (fast 2) $ sound "[bd:3 ~ ~]*2" # gain 1.5
+t1 (clutchIn 32) $ sometimesBy 0.15 (fast 2) $ sound "[bd:3 ~ ~]*2" # gain 1.5
+d2 $ sometimesBy 0.25 (fast 2) $ sound "[hc:5 ~]*8" # speed 2 # gain 1
+d3 $ sometimesBy 0.25 (fast 2) $ sound "[sd:3]*4" # gain 1
+d4 $ sound "imp(2,7)" # n "<1 2 3>*8"
+
+
+
+
+hush
+
+d1 $ sometimesBy 0.5 (fast 2) $ sound "arpy*8"
+
+d1 $ sound "[hc ~ hc sd:7 [hc hc] [bd:3]*3 ~ bd:6]" # gain 1.5
+
+d1 $ sometimesBy 0.15 (fast 2) $ sound "[bd:3 ~ ~]*2" # gain 1.5
+d2 $ sometimesBy 0.25 (fast 2) $ sound "[hc:5 ~]*8" # speed 2 # gain 1
+d3 $ sometimesBy 0.25 (fast 2) $ sound "[sd:5]*4" # gain 1
+d4 $ sound "imp(2,7)" # n "<1 2 3>*8"
+
+# sometimesBy 1 (n "<1>")
+
+d2 $ silence
+
+d2 $ sound "arpy" # n "<1 2 3>"
+t2 (clutchIn 24) $ sound "arpy*10" # n "<5 7 8 9>*3" # speed 5
+
+d2 $ sound "bd:4 sd .sd sn"
+
+d2 $ sound "[sn*2 imp bd*3]*0.25" |+| speed "1"
+
+d2 $ sound "[sn*2 imp bd*3]*0.25" # n "<1 2 3>"
+
+d2 $ silence
+
+# make constant hats
+d1 $ sound "hc*4 [hc]*4" # gain "[0.9 0.75]*8"
+t2 clutch $ sound "[hh*4, odx(3,8)]"
+# alternating bd 
+d2 $ sound "bd:2 sd:5"
+# more on the electro side
+d2 $ sound "[bd:2 ~ ~ bd:2 sd:5 ~ bd:2 ~]" 
+t1 clutch
+d2 $ gain "1.5*8" # sound "[bd:2 ~ ~ bd:2 sd:5 ~ [bd:2 bd:2] ~]" 
+d1 $ silence
+hush
+
+d2 $ gain 0.5 # sound "[arpy arpy arpy arpy earpy]*3" |+| n "[1,2,3 4,5,6 7,8 1 2 3]"
+d3 $ sound "arpy*8" |+| n "[7 8 9]" |+| speed 0.5
+
+d3 $ sound "[bd:3 sn:2]"
+d1 $ silence
+d1 $ sound "bd" # n <"2", "3">
+
+d1 $ (|=| speed "2") $ sound "arpy*4" |=| speed "1"
+
+d1 $ sound "<bd sd:3 sd:4>/0.25" # n 0
+
+
+d1 $ sound "bd bd [sd bd:2] hh:5"  # gain 0.7
+
+# happy rave chords
+d1 $ sound "arpy(3,8)" # n "<5,4,3 6,4,3 7,5,2>*0.25"
+d2 $ sound "[bd:3 sn:2]"
+
+
+
+d1 $ every 2 (|+| speed "1") $ sound "arpy*4" |=| speed "1"
+
+d1 $ sound "<[bd bd] [bd [sd [sd sd] sd] sd]>"
+
+d1 $ sound "[bd bd] [bd, sd cp sd cp]"
+
+d1 $ sound "<[bd [sd sd] sd:3] [~ [bd:2 sd] sd:3]>/0.5"
+
+d1 $ rev (sound "[bd*2 [bd [sn sn*2 sn] sn]]/2")
+
+d1 $ gain "1 0.8 0.5 0.7*4" # sound "bd"
+
+d1 $ sound "bd bd"
+
+d1 $ sound "<[bd sn sn:4/2] cp/2>/0.5"
+
+
+hush
+
+d1 $ sound "bd*8" # pan rand
+
+$ silence
+
+d1 $ midinote "60 62*2" # s "supersaw"
+d1 $ jux (# accelerate "-0.1") $ s "supermandolin*8" # midinote "[80!6 78]/8"
+  # sustain "1 0.25 2 1"
+
+d1 $ midinote (slow 2 $ (run 8) * 7 + 50) # s "supergong" # decay "[1 0.2]/4" # voice "[0.5 0]/8" # sustain (slow 16 $ scale 5 0.5 $ saw1)
+2
+d1 $ sound "arpy*12" # up (run 12)
+
+d1 $ sound "arpy:0 arpy:2 arpy:3"
+d1 $ n "0 2 3" # s "bd"
+d1 $ sound "arpy arpy arpy" # n "<0 2 3>"
+d1 $ silence
+
+
+d1 $ sound "arpy*10" # speed "<1 2 3 4>"
+d1 $ sound "arpy" # speed "[1, 1.5]"
+
+d1 $ up "0 1 2 3 4 5 6 7 8 9 10 11" # sound "arpy"
+d1 $ sound "arpy*5" # n "<1 2 4 8>*5"
+
+d4 $ sound "arpy(3,8)" # n "<2 4 5>*0.125" 
+d1 $ sound "arpy(3,8)" # n "<5,4,3 6,4,3 7,5,2>*0.25" # gain "[0.5,0.5,0.5]"ddj;'abcdefg
+d1 $ silence
+
+d1 $ sound "arpy(3,8)" # n "<5,4,3 6,4,19 3,5,2>*0.25" # gain "[0.5,0.5,0.5]"
+
+d1 $ sound "arpy(3,8)" # n "<5,4,3 6,4,3 7,5,2>*0.25" # gain "[0.5,0.5,0.5]"
+
+d1 $ silence
+d3 $ gain "[1 1 1 [1 1]]" # sound "[bd hat sn:2 [sn:3]]"
+
+d3 $  sound "[bd hat sn:2 [hc hc]]" 
+d2 $ sound "arpy(3,8)" # n (every 4 (* 2) "0 2") 
+
+d2 $ speed 2 # sound "[bass1]" # n "<13 14>" # gain 5
+d1 $ silence
+d4 $ silence
+# step through a note sequence using n
+
+
+
+d1 $ smash 3 [2,3,4] $ sound "ho ho:2 ho:3 hc"
+
+d1 $ slow "<2 4/3>" $ sound "ho ho:2 ho:3 hc"
+
+d1 $ slow 4 $ striate 16 $ sound "numbers:0 numbers:1 numbers:2 numbers:3"
+
+d1 $ stut 2 0.5 0.1 $ sound "bd sn ~ sn hc"
+d1 $ ifp ((== 0).(flip mod 2))  (striate 4)  (# coarse "10 48") $  sound "hh hc"
+
+d1 $ sound "bd(3,8)"
+t1 clutch $ sound "[hh*4, odx(3,8)]"
+t1 (clutchIn 8) $ sound "[hh*4, odx(3,8)]"
+t1 (clutchIn 24) $ sometimesBy 0.125 (fast 2) $ sound "[808sd:1 808sd:6]*4"
+hush
+
+d5 $ sometimesBy 0.15 (fast 2) $ sound "[bd:3 ~ ~]*2" # gain 1.25
+
+d1 $ bump $ every 4 (fast 0.75) $ pan "<0 1 0.25>*8" # sound "bd sn drum sn:2" # gain 1.5
+d2 $ bump $ sound "hc*8" # gain 1
+
+t4 (clutchIn 32) $ sound "imp*5" # n "<4 2 5>*7" # speed 2
+d4 $ silence
+
+d3 $ sound "arpy*8" # n "<1 2 5>*8" # speed 0.5
+t3 clutch $ sound "arpy*8" # n "[1]*8" # speed 0.5
+t3 (clutchIn 32) $ sound "arpy*8" # n "<1 2 5>*8" # speed 2
+
+d4 $ sound "arpy*8" # n "<1 2 5>*8" # speed 0.5
+d4 $ sound "arpy*8" # n "<1 2 5>*8" # speed 0.5 
+
+d4 $ silence
+d3 $ silence
+hush
+
+d1 $ sound "bd*8" # glass (slow 4 (sine*0.3))
+d1 $ sound "bd" # gain 2
+d1 $ sound "bd sd" # pan (fast 10 (sine))
+d2 $ sometimesBy 0.8 (brak) $ sound "[hc hc hc]*2" # glass 0.4 # gain 1.5
+
+(sine*2)
+
+d1 $ degrade $ sound "bd*8"# speed (slow 4 (sine*0.5))
+d2 $ silence
+d2 $ sometimesBy 0.2 (every 3 (fast 4)) $ sound "[bd sd bd ~,hc hc hc hc hc hc]" # gain 2.0
+
+d1 $ brak 2 $ sound "[feel feel:3]"
+d1 $ brak $ sound “[feel feel:3, hc:3 hc:2 hc:4 ho:1]”
+
+
+
+# plastikman spastik ish 
+d1 $ sometimesBy 0.125 (fast 2) $ sound "[808sd:1 808sd:6]*4"
+d2 $ sound "[bd:2 sn:4]" # gain 2
+
+# fancy alternating triplet pattern
+d1 $ every 2 (fast 3) $ sound "bd sn hc"
+
+# basic arpeggiator
+d1 $ sound "arpy*8" # n "<1 2 5>*8" # speed 0.5
+
+# shuffle a beat sequence (assumes 4 parts)
+d3 $ sound $ shuffle 3 "[hc:6 bd sn [hc:6 [sn:4]]]"
+d4 $ sound $ shuffle 4 "[hc:6 bd sn [hc:6 [sn:4]]]"
+d4 $ silence
+
+###
+### Good bits
+###
+
+# clutchIn mutates from one pattern to another
+hush
+d6 $ sound "bd(3,8)" # gain 2
+d5 $ sometimesBy 0.2 (every 3 (fast 1.5)) $  sound "[bd(3,8), hc hc hc hc:7]" # gain 2
+d6 $ sometimesBy 0.4 (fast 4) $ sound "[hc hc hc hc]" # gain 1.5
+d6 $ silence
+t1 clutch $ sound "[hh*4, odx(3,8)]" # gain 1.5
+t1 (clutchIn 8) $ sound "[hh*4, odx(3,7)]"
+t1 (clutchIn 24) $ sometimesBy 0.125 (fast 2) $ sound "[808sd:1 808sd:6]*4" # gain 1.5
+hush
+
+hush
+
+d1 $ silence
+d2 $ silence
+d1 $ sometimesBy 0.9 (every 5 (fast 4)) $ sound "[bd:5*2, hc*3,sn:1]" # gain 2.0
+
+d2 $ sometimesBy 0.9 (every 2 (fast 8)) $ sound "[sn:2]" # gain 1.5
+d3 $ sound "[hc:4]*4" # pan sine
+d1 $ silence
+m2 $ sometimesBy 0.9 (every 4 (fast 4)) $ n "[6 5 2]"
+
+m2 $ silence
+m1 $ silence
+d2 $ sound 
+
+m1 $ silence
+d1 $ silence
+d2 $ silence
+
+d1 $ bump $ sometimesBy 0.5 (every 2 (fast "[1 2 3]")) $ sound "[bd [sd:2 sd:2] ~ hc:6]" # n "<2 3 4>" # gain 1.5 # pan (sin)
+
+d1 $ bump $ every 2 ("<0.25 0.5 0.75>" <~) $ sound "bd*2 [sn:1 cp] 808lt [sn:2 ~]*3" # n "<1 2 3>" # gain 2
+
+#### INSTANTLY USEFUL BITS AND BOBS
+#### INSTANTLY USEFUL BITS AND BOBS
+#### INSTANTLY USEFUL BITS AND BOBS
+
+d5 $ silence
+hush
+# UR acid 
+d1 $ (#speed ((irand 2)+1)) $ fast 8 $ sound "[bass1:4]" # speed "<1,0.25,0.5>" # legato "<0.1 0.5 1 0.25>" # gain 1 # room "<0.5>" # orbit 1
+
+d5 $ bump $ sound "[bd(3,8), [~ sd]]" # gain 1.25 # orbit 0
+d7 $ bump $ (#speed (rand ) $sometimes (fast 1.5) $ sound "[hc*8]"# gain 1.25
+d6 $ sometimes (#speed "[1 0.75]")$ (#note ((irand 16)+2)) $ sometimesBy 0.5 (every 3 (fast "2")) $ sound "[amencutup*8]"  # legato 1 # gain 1.5
+
+d7 $ sometimesBy 0.7 (every 1 (fast "1.5 2")) $ sound "[sd:3*4]"  # room 0.05 # size 0.2
+
+d6 $ sometimes (#speed "[1 2]")$ (#note ((irand 16)+2)) $ sometimesBy 0.5 (every 3 (fast "2")) $ sound "[amencutup*8]"  # legato (slow 50 (saw)) # gain 2
+
+
+d5 $ fast 2 $ sound "[[bd bd] sd,[sd:3*4]? ]" # gain 2
+d1 $ fast "[2]" $ sometimesBy 0.7 (# speed (run 8)) $ sound "bass3*4" # speed "[10,20,22 12,22]" # legato 0.5 # gain 1.2 # room 0.2 # orbit 2
+d2 $ fast "[2]" $ sometimesBy 0.7 (# speed (run 8)) $ sound "bass3*4" # speed "20 14 16" # legato 0.5 # gain 1.2 # room 0.2 # orbit 2
+d3 $ fast "[2]" $ sometimesBy 0.7 (# speed (run 8)) $ sound "bass3*4" # speed "22 26 32" # legato 0.5 # gain 1.2 # room 0.2 # orbit 2
+
+d1 $ silence
+d6 $ silence
+hush
+# jolly fast little melody
+d1 $ sometimesBy 0.5  (|/| speed "2 3 4") $ sound "arpy*3" |=| speed "1" 
+d2 $ sometimesBy 0.4  (|/| speed "2 3 4") $ sound "[arpy:2*6, arpy:4*4]" |=| speed "1"
+
+# fancy drum roll thing using the vowel filters
+d1 $ sometimesBy 0.5 (fast "0.5 2 1 1") $ every 3 (every 2 (# speed "2")) $ sound "bd*8" # speed "0.1 1 1 1" # vowel "a e i o u" # gain 1.5
+d1 $ silence
+d3 $ sound "[bd*2, [sd:5, ~]]" # gain 1.5
+d
+d4 $ (#speed (irand 10))$ sound "imp:5*8" # legato (rand) # gain 1.5 # room "<0.25 0.5>"
+
+d2 $ silence
+d5 $ (#speed (run 10)) $ sound "arpy*8" # gain 1.2
+d6 $ every 2 (fast 1.5) $ (#speed (run 20)) $ sound "arpy*6" # gain 1.1
+ $ every 2 (fast 1.5) $ (#speed (run 20)) $ sound "arpy*6" # gain 1.1
+d5 $ silence
+d4 $ silence
+
+d1 $ sometimesBy 0.5 (fast "0.5 2 1 1") $ every 3 (every 2 (# speed "2")) $ sound "bd*8" # speed "0.1 1 1 1" # vowel "a e i o u" # gain 1.5
+d2 $  sound "hc:7*8"  
+#d1 $ bump $ every 1 (fast 2) $ every 2 ("<0.25 0.5 0.75>" <~) $ sound "bd*2 [sn:1 cp] 808lt sn:2" # n "<1 2 3>" # gain 2
+d1 $ bump $ every 2 ("<0.25 0.5 0.75>" <~) $ sound "bd*2 [sn:1 cp] 808lt sn:2" # n "<1 2 3>" # gain 2
+m1 $ n "[0]*8" # dur "<0.01 0.1 0.02>*7" 
+d2 $ bump $ sound "[hc]*8"
+d1 $ bump $ sometimesBy 0.5 (every 4 (fast 1.5)) $ every 3 ("[0.25 0.5 0.75]" <~) $ sound "bd*2 [~ ~] 808lt [~ sn:2]" # n "<1 2 3>" # gain 2 # dur "0.01"
+m1 $ n "[0]*8" # dur "<0.01 0.1 0.02>*7" 
+
+hush
+m1 $ silence
+## tricky as it is on 1.25 time! 
+# quite fast funky electro
+d1 $ sound "[bd(3,8),hc*8]*1.25" # gain 1.25
+d2 $ sometimesBy 0.7 (fast 2) $ sound "[sd:1 sd:2? sd:2 sd:2?]*1.25" # n (irand 7) #gain 1.25 # room "<0.1 0.2>" # orbit 1
+
+d2 $ silence
+d3 $ (#speed (run 20)) $ sound "[bass1*8]*1.25" # legato 0.1 # gain 1.25 # orbit 2
+d4 $ (#speed (run 30)) $ sound "[bass1*6]*1.25" # legato 0.1 # gain 1.25 # size 0.5 # orbit 2
+d4 $ (#speed (run 30)) $ sound "[bass1*6]*1.25" # legato 0.1 # gain 1.25
+d1 $ sound "[bd(3,8), [sd:7]]*1.25" # gain 1.25
+d2 $ sound "[hc:7*8]*1.25" # legato 0.1 # gain 1.01
+
+hush
+# low bass line for it...use e piano
+m1 $ slow 2 $ n "[[-24 -26 -27](3,8)]*1.25"
+
+# weird fun skipyy thing
+d3 $ silence
+v1 silence
+d3 $ every 4 (fast 0.75) $ pan "<0 1 0.25>*8" # sound "bd sn drum sn:2" # gain 1.5
+d2 $ sound "hc*8" # gain 1
+v1 $  every 4 (fast 1.5) $  n (run 6)
+m1 $ degrade $ every 4 (fast 1.5) $  n (run 6)
+
+m1 $ degrade $ slow 2 $ n "[[-24 -26 -27](3,8), [-2 -4 -7 -8]*4]*1.25"
+m1 $ silence
+# euclidean roller with occasional shuffle
+d5 $ sometimesBy 0.5 (every 1 (fast (irand 3))) $  sound "[bd(3,8), hc hc hc hc:7]" # n (irand 8)# gain 1.25 # legato 0.05 # room rand # orbit 1
+d1 $ sound "bass1*8" # legato 0.1
+
+d5 $ silence
+hush
+# techno funk
+hush
+d1 $ silence
+d1 $ sometimesBy 0.9 (every 5 (fast 4)) $ sound "[bd:3*2, hc*3,sn:1]" # gain 1.5
+d2 $ sometimesBy 0.1 (every 1 (fast 8)) $ sound "[sn:2,sn:4 sn:6]" # gain 1.5
+d3 $ (#speed rand) $ sound "[hc:4]*8" # legato 0.2 # glass (slow 4 (sine*0.1)) # gain 1.2 # size 0.1 # room 0.2
+d2 $ silence
+d3 $ silence
+m2 $ sometimesBy 0.9 (every 4 (fast 4)) $ n "[6 5 2]"
+
+m2 $ sometimesBy 0.9 (every 4 (fast 4)) $ n "[6 5 2]"
+m1 $ silence
+m1 $ n "[2 4 6,7 6 19,25 ~ ~ ~]"
+# up and down glass thing
+d1 $ sound "bd*8" # glass (slow 4 $ sine) # pan (slow 4 $ sine) # gain 2
+hush
+# nice skipyy beat here
+# with 20% chance per cycle, triple the speed
+d1 $ sometimesBy 0.2 (every 3 (fast 4)) $ sound "[bd sd bd ~,hc hc hc hc hc hc]" # gain 2.0
+d1 $ silence
+# basic arpeggiator
+d2 $ sound "arpy*8" # n "<1 2 5>*8" # speed 0.5 # gain 0.9
+d5 $ sound "arpy*8" # n "<1 2 5>*8" # speed 0.25 # orbit 1
+d6 $ sound "arpy*8" # n "<1 2 5>*8" # speed 1.5 # orbit 1
+d9 $ every 2 (# speed 1.5) $  sound "arpy*8" # n "<1 2 5>*8" # speed 2 # room "<0.1 0.2 0.5 1.0>" # size 0.1
+d8 $ every 2 (# speed 3) $  sound "arpy*8" # n "<1 2 5>*8"  # speed 2
+d3 $ silence
+hush
+# arpeggiator transition
+t3 (clutchIn 32) $ sound "arpy*8" # n "<1 2 5>*8" # speed 2 
+t3 (clutchIn 32) $ sound "arpy*5" # n "<4 2 5>*7" # speed 1.5
+t4 (clutchIn 32) $ sound "arpy*5" # n "<4 2 5>*7" # speed 3
+
+# happy rave chords
+hush
+d1 $ sound "arpy(3,8)" # n "<5,4,3 6,4,3 7,5,2>*0.25" # pan (fast 0.1 (sine))  # gain "[0.5,0.5,0.5]" # room 0.9 # size 0.5 # orbit 1
+# basic drums for the rave thing
+d7 $ sound "bd ~ sd ~" # gain 1.5
+d4 $ sound "[hc hc hc hc]*2" # gain 1.25
+t5 (clutchIn 64) $ sound "arpy*8" # n "<1 2 5>*8" # speed 2
+t5 (clutchIn 64) $ sometimesBy 0.25 (fast 2) $ sound "arpy*8" # n "<1 2 5>*8" # speed 2
+t3 (clutchIn 64) $ sound "arpy*8" # n "<4 3 7>*8" # speed 2
+t3 (clutchIn 64) $ sound "arpy*8" # n "<1 5 4>*8" # speed 2
+
+###
+# distorted electro beat
+###
+d3 $ sometimesBy 0.75 (every 3 (fast 2)) $ sound "[bd:2 ~ ~ bd:2 sd:5 ~ bd:2 ~]" # gain 2.5
+d2 $ sound "[bd:2 ~ ~ bd:2 sd:5 ~ bd:2 ~]" # gain 2.5
+d3 $ silence
+hush
+### ecstatic rave sound 
+d2 $ sometimesBy 0.5 (fast 2) $  (# speed (run 8)) $ sound "arpy*4" # room 0.9 # size 0.9 # orbit 1 # gain  01
+d3 $ sometimesBy 0.5 (fast 2) $  (# speed (run 8)) $ sound "arpy:7*4" # room 0.9 # size 0.9 # orbit 1 # gain  1
+d4 $ sometimesBy 0.5 (fast 2) $  (# speed (run 8)) $ sound "arpy:6*4" # room 0.9 # size 0.9 # orbit 1 # gain  1
+
+###
+# plastikman spastik ish 
+###
+d1 $ sometimesBy 0.125 (fast 2) $ sound "[808sd:1 808sd:6]*4" # gain 1.5
+d2 $ sound "[bd:2]*2" # gain 2
+d2 $ sound "[bd:2 sn:4]" # gain 1.5
+d4 $ silence
+hush
+###
+# cool little vogelesque thing
+###
+hush
+d1 $ sound "[bd, sn]*2" # gain 2
+d1 $ sometimesBy 0.15 (fast 2) $ sound "[bd:3 ~ ~]*2" # gain 1.5
+d6 $ sometimesBy 0.25 (fast 2) $ sound "[hc:5 ~]*8" # speed 2 # gain 1
+d3 $ sometimesBy 0.25 (fast 2) $ sound "[sd:3]*4" # gain 1
+d4 $  sound "imp(2,7)" # n "<1 2 3>*8" # gain 1
+d5 $ fast 2 $ sound "imp(2,7)" # n "<1 2 3>*8" # gain 0.6
+d5 $ silence
+d2 $ silence
+
+###
+# hard techno beat
+###
+
+d3 $ silence
+d2 $ sound "[bd bd bd, hc hc hc hc, [sd sd ~]*0.25]" # speed "[1 2 1]*3" # gain 1.5
+# transition into...
+d1 $ sometimesBy 0.5 (every 3 (fast 4)) $ sound "[bd bd bd, hc:1, [sd sd ~]*0.25]" # speed "<1 2 1>" # gain 1.5
+# or
+t1 (clutchIn 25) $ sometimesBy 0.5 (fast 3) $ sound "[bd bd bd, hc:1, [sd sd ~]*0.25]" # speed "[1 2 1]" # gain 1.5
+t1 (clutchIn 25) $ sometimesBy 0.5 (fast 2) $ sound "[bd bd bd, hc:1, [sd sd ~]*0.25]" # speed "[1 2 1]" # gain 1.5
+
+## some jazz chords
+d1 $ every 5 (slow 4) $ every 2 (linger 0.2) $  sound "arpy" # n "[[a c e g] [d fs a c e] [g b d fs] [c e g b] [fs e cs e][a c e g] [d fs a c e][g b d fs][c e g b][fs e cs e][b ds fs a][e g b d fs][a cs e g][b d  fs a cs][g b d f][c e g b][b ds fs a][e g b d]]*0.125" # room 0.5
+
+m1 $ every 5 (slow 4) $ every 2 (linger 0.2) $ slow 16 $  n "[[a c e g] [d fs a c e] [g b d fs] [c e g b] [fs e cs e][a c e g] [d fs a c e][g b d fs][c e g b][fs e cs e][b ds fs a][e g b d fs][a cs e g][b d  fs a cs][g b d f][c e g b][b ds fs a][e g b d]]*0.125"
+
+m1 $ iter "[1 2 3 4]"$ slow 4 $ n "[[a c e g] [d fs a c e] [g b d fs] [c e g b] [fs e cs e][a c e g] [d fs a c e][g b d fs][c e g b][fs e cs e][b ds fs a][e g b d fs][a cs e g][b d  fs a cs][g b d f][c e g b][b ds fs a][e g b d]]*0.125" # dur "2.0"
+
+
+
+
+
+
+hush
