@@ -11,9 +11,9 @@ GranularSampler : Object {
 	// creation arguments
 	channel, start_note, out_bus, in_bus, start_ctl, mpd_mode, <>pitch,
 	// stuff that needs to be freed
-	buffer, <play_synth, ctlResp, noteOnResp, noteOffResp,
+	>buffer, <play_synth, ctlResp, noteOnResp, noteOffResp,
 	// internal workings
-	rec_start_time, loop_length, activation_state = 1, record_state,
+	rec_start_time, >loop_length, activation_state = 1, record_state,
 	// midi controllable arguments
 	grain_length=127, grain_count=64, grain_pitch=64, playback_position=0, level=32, <ready;
 
@@ -254,15 +254,17 @@ GranularSampler2 : GranularSampler{
 		grain_pitches = [64, 96, 128, 32, 48];
 	}
 
-	startPlay{ arg synth = "granular_buffer_player_lfo";
+	startPlay{ arg synth = "granular_buffer_player_lfo", buff= false;
 		("granular2 playing synth "++synth).postln;
+		if (buff == false, {buff = buffer});
+
 		if (ready, {
 			play_synth.free;
 			grain_pitch = grain_pitches[0];
 			grain_pitches = grain_pitches.rotate(-1);
 
 			play_synth = Synth.new(synth, [
-				\bufnum, buffer.bufnum,
+				\bufnum, buff.bufnum,
 				\loop_length, loop_length,
 				\grain_length, grain_length,
 				\grain_count, grain_count,
