@@ -24,7 +24,7 @@ MiscFuncs : Object {
   // returns an array of frequency values that represent the requested scale
   // e.g. getScale('as', 'dorian'); returns the frequences that represent an a# dorian scale
 
-  *getScale{ arg key, type;
+	*getScale{ arg key='as', type='dorian';
 	var intervals, startIndex, chromatic, scale, currentPos;
 	// check for reandom
 	if (key=='random',

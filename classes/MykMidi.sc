@@ -26,6 +26,14 @@ MykMidi : Object {
 		};
 
 	}
+	// kill all notes
+	panic{
+		16.do{arg chan;
+			127.do{arg note;
+				midi_out.noteOff(chan, note, 0);
+			};
+		};
+	}
 
 	playNote{arg chan = 0, num = 64, vel = 64, len = 0.5;
 		if (midi_out == nil, {
@@ -38,6 +46,7 @@ MykMidi : Object {
 			});
 		});
 	}
+
 
 	noteOn{arg chan = 0, num = 64, vel = 64, len = 0.5;
 		this.playNote(chan, num, vel, len);
