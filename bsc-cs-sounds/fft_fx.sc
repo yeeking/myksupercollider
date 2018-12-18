@@ -8,12 +8,12 @@
 ~fx.set(\smear, 2);
 ~fx.set(\teeth, 0.1);
 ~fx.set(\comb_width, 2.5);
-
+~fx.free;
 
 ~fx.set(\length, 4.0);
-
+s.boot;
 (
-SynthDef("fft_fx", {arg in_bus=30, out_bus=0, buffer, freeze = 0, smear = 0.01, threshold = 0.001, stretch = 1.0, shift = 0.5,teeth=0.5, comb_width=0.1, length=1;
+SynthDef("fft_fx", {arg in_bus=30, out_bus=0, buffer, freeze = 0, smear = 0.01, threshold = 0.001, stretch = 1.0, shift = 0.5,teeth=0.5, comb_width=0.1, length=1, amp = 1;
 	  var in, chain, chain2;
 	in = In.ar(in_bus);
 	//Out.ar([0, 1], in);
@@ -61,6 +61,7 @@ SynthDef("fft_fx", {arg in_bus=30, out_bus=0, buffer, freeze = 0, smear = 0.01, 
 	  );
 
 	  //chain = Compander.ar(chain, chain, thresh:0.09,slopeBelow:0.1,slopeAbove:0.5,clampTime:0.01,relaxTime:0.01);
+	chain = chain * amp;
 	chain2 = chain;
 
 	4.do{

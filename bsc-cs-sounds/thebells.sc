@@ -156,15 +156,14 @@ SynthDef("bell_trig", {arg out = 40;
 
 SynthDef("trig_bell", {arg trig = 40, freq = 200;
 	var c;
-	c = Klank.ar(`[[freq, 671.0/200*freq, 1153.0/200 * freq, 1723.0/200*freq],
+	c = DynKlank.ar(`[[freq, 671.0/200*freq, 1153.0/200 * freq, 1723.0/200*freq],
 		nil, [5.0, 2.5, 2.0, 1.5]],
 	In.ar(trig)) ;
 	Out.ar([0, 1, 30], [c*0.5, c*0.5, c*0.25]);
 }).add;
 )
-
 (
-~freq = 70;
+~freq = 70.midicps;
 ~freqs = [~freq/1, ~freq*9/8.0, ~freq*3/2.0, ~freq*27/16, ~freq*4/5];
 //~freqs = [~freq.midicps, (~freq+2).midicps, (~freq+3).midicps, (~freq + 6).midicps];
 
@@ -188,17 +187,19 @@ Synth("bell_trig", [\out, [40, 41, 42, 43].choose]);
 
 // then some buzz electricity sounds at the end
 (
-SynthDef("lekky", {
-	var c, fs, sel, mf, cf, cfs, cf_sel, spd;
-	spd = MouseX.kr(0.25, 10.0);
-	cfs = [150, 263, 500, 1000];
+SynthDef("lekky", {arg freq = 500;
+	var c, fs, sel, mf, cf, cfs, cf_sel, spd, mod_ind;
+	spd = 1.5;
+	cfs = [freq, freq*1.25, freq*4, freq*10];
 	cf_sel = LFDNoise0.kr(spd)*(cfs.size+1);
 	cf = Select.kr(cf_sel, cfs);
-	fs = [0.25, 0.5, 4.0, 10, 29.0, 1.25, 6.75];
+	fs = [0.25, 0.5, 1.25, 6.75];
 	sel = LFDNoise0.kr(spd)*(fs.size +1);
 	mf = Select.kr(sel, fs);
-	c = PMOsc.ar(cf, cf*mf, 20.0);
-	Out.ar([30], c*0.01);
+	mod_ind = SinOsc.ar(
+		SinOsc.kr(1).range(1.0, 4)).range(5, 20);
+	c = PMOsc.ar(cf, cf*mf, mod_ind);
+	Out.ar([0, 1, 30], c*0.025*Line.kr(1, 0, 3.0, doneAction:2))
 }).add;
 )
 
