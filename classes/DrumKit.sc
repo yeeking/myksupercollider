@@ -254,7 +254,7 @@ DrumKit : Object {
   }
 }
 
-DrumKitGran : Object {
+DrumKitGran2 : Object {
   // arguments
   var channel, notes, files, >mix, fx_bus, out_bus, ccs, killer_note,  
   // state

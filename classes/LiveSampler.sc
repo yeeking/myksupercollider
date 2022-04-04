@@ -50,7 +50,7 @@ LiveSampler : Object{
 	}
 
 	playSample{arg bufnum, amp = 1, len = 1.0;
-		//("LiveSample::playSample "++bufnum++" length is "++buf_times[bufnum]).postln;
+		("LiveSample::playSample "++bufnum++" length is "++buf_times[bufnum]).postln;
 		if (len == nil, {len = buf_times[bufnum]});
 		Synth("livesample_play", [
 			\ratio, 1,
@@ -107,7 +107,7 @@ LiveSampler : Object{
 		server = Server.local;
 		SynthDef("livesample_record", {arg in_bus, rec_b;
 			var in, env, rec;
-			in = AudioIn.ar(in_bus);
+			in = SoundIn.ar(0);
 			// envelope the input to remove clicks
 			env = EnvGen.kr(Env.new([0, 1, 1, 0], [0.001, 1.0, 0.001]), doneAction:2, gate:1);
 			rec = RecordBuf.ar(in*env, rec_b, loop:0);
@@ -119,7 +119,8 @@ LiveSampler : Object{
 			//  env = EnvGen.kr(Env.perc(0.5, 0.5, 0.1), gate:1,doneAction:2);
 			env = EnvGen.kr(Env.new([0, 1, 0], [0.01, len], 'welch'), gate:1,doneAction:2);
 			//env = EnvGen.kr(Env.new([0, 1, 0], [0.01, len]), gate:1,doneAction:2);
-			Out.ar(out_bus, play*env * 0.25 * amp);
+			//Out.ar(out_bus, play*env * 0.25 * amp);
+			Out.ar([0, 1], play*env * 0.25 * amp);
 		}).send(server);
 	}
 }

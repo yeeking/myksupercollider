@@ -1,5 +1,5 @@
 MykEventStream : Object {
-	var >quant, >max_len, mykPitch, mykSilence, pitch_markov, event_markov, playing_note, note_started, silence_started, <midi, >bar_length, <>listening, >ext_pitch_callback, last_len;
+	var >event_callback, >quant, >max_len, mykPitch, mykSilence, pitch_markov, event_markov, playing_note, note_started, silence_started, <midi, >bar_length, <>listening, >ext_pitch_callback, last_len;
 
 	*new {
 		^super.newCopyArgs.prInit;
@@ -26,8 +26,11 @@ MykEventStream : Object {
 		mykPitch.callback = {arg note;
 			this.noteStarts(note);
 			ext_pitch_callback.value(note, last_len);
-		}
-
+		};
+		event_callback = {arg eve; 
+                       "Default Event callback - update event_callback to change".postln;
+                       eve.postln;
+                };
 	}
 
 	reset{
@@ -84,6 +87,9 @@ MykEventStream : Object {
 			key = (type ++ "_" ++len);
 			//key.postln;
 			event_markov.addFreq(key);
+                        // send it out to the callback 
+                        event_callback([type,len]);
+
 		});
 	}
 

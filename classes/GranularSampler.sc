@@ -111,6 +111,12 @@ GranularSampler : Object {
 		noteOffResp.remove;
 	}
 
+	// Load the sample at the sent
+	// address into the buffer
+	loadSample{ arg filename;
+		Buffer.read(Server.local, filename,action:{("loaded "++filename).postln; ready = true;});
+	}
+
 	updateCtl{ arg ctl, val, direct = false;
 		if (direct == false, {
 			ctl = ctl - start_ctl;
@@ -123,7 +129,7 @@ GranularSampler : Object {
 		);
 	}
 
-	startPlay{ arg synth;
+	startPlay{ arg synth = "granular_buffer_player_lfo";
 		"granular playing".postln;
 		play_synth.free;
 		// reset some values
@@ -314,7 +320,7 @@ GranSampler : GranularSampler2 {
 }
 
 // two samplers set up on the L
-GranSamplersLPD : GranularSampler2 {
+GranSamplerLPD : GranularSampler2 {
 	var samp, lpd;
 
 	*new {arg start_pad = 0, out=0;
