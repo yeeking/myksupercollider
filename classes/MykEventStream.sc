@@ -27,7 +27,7 @@ MykEventStream : Object {
 			this.noteStarts(note);
 			ext_pitch_callback.value(note, last_len);
 		};
-		event_callback = {arg eve; 
+		event_callback = {arg eve;
                        "Default Event callback - update event_callback to change".postln;
                        eve.postln;
                 };
@@ -77,6 +77,7 @@ MykEventStream : Object {
 	}
 
 	addEventToStream{arg type, start, end;
+		//[type, start, end].postln;
 		if (listening, {
 			var len, key;
 			len = end - start;
@@ -85,10 +86,10 @@ MykEventStream : Object {
 			// store it for the external pitch callback
 			last_len = len;
 			key = (type ++ "_" ++len);
-			//key.postln;
+			key.postln;
 			event_markov.addFreq(key);
-                        // send it out to the callback 
-                        event_callback([type,len]);
+                        // send it out to the callback
+                        //event_callback([type,len]);
 
 		});
 	}

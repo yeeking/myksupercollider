@@ -1,13 +1,11 @@
 (
 o = Server.local.options;
-o.numOutputBusChannels = 6;
+//o.numOutputBusChannels = 6;
 s = Server.local.boot;
-)
 
+s.doWhenBooted{
 ~eve = MykEventStream.new;
 ~eve.run;
-
-(
 // quesiton and response mode
 ~play = {inf.do{arg step;
 	// play some notes, then wait.
@@ -21,10 +19,15 @@ s = Server.local.boot;
 		~eve.bar_length = rrand(0.9, 1.0);
 	};
 	// wipe the memory occasionally
-	if (0.4.coin, {~eve.reset}, {rrand(0.1, 2.0).wait;});
+	if (0.4.coin, {
+			"brain wiped".postln;
+			~eve.reset
+
+		}, {rrand(0.1, 2.0).wait;});
 	// wait for a few seconds
 	//4.0.wait;
 }}.fork;
+}
 )
 ~play.stop;
 
