@@ -1,11 +1,17 @@
 (
+// double clickm above here and execute
+
 o = Server.local.options;
 //o.numOutputBusChannels = 6;
 s = Server.local.boot;
 
 s.doWhenBooted{
 ~eve = MykEventStream.new;
-~eve.run;
+	{
+		0.5.wait; // wait until the synthdefs are ready...
+		~eve.run;
+	}.fork;
+
 // quesiton and response mode
 ~play = {inf.do{arg step;
 	// play some notes, then wait.
@@ -29,7 +35,7 @@ s.doWhenBooted{
 }}.fork;
 }
 )
-~play.stop;
 
-0.1.coin;
+// stop the noise... please!
+~play.stop;
 ~eve.reset
