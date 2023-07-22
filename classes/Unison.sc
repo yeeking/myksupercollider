@@ -40,7 +40,8 @@ Unison : Object {
 		server = Server.local;
 		SynthDef("unison_record", {arg rec_in=1, active=1, rec_buff, fft_buff;
 			var chain, in, rec, trig, run, play;
-			in = AudioIn.ar(rec_in)*active;
+			//in = AudioIn.ar(rec_in)*active;
+			in = SoundIn.ar(0);
 			chain = FFT(fft_buff, in);
 			chain = PV_JensenAndersen.ar(chain,threshold:0.025,waittime:1.0);
 			trig = Decay.ar(0.1*chain,0.01);
@@ -53,7 +54,8 @@ Unison : Object {
 
 		SynthDef("unison_record_new", {arg rec_in=1, active=1, rec_buff, fft_buff;
 			var chain, in, rec, trig, run, play, onsets, pips;
-			in = AudioIn.ar(rec_in);
+			// in = AudioIn.ar(rec_in);
+			in = SoundIn.ar(0);
 			chain = FFT(fft_buff, in);
 			//chain = PV_JensenAndersen.ar(chain,threshold:0.025,waittime:1.0);
 			//trig = Decay.kr(0.1*chain,0.01);
@@ -114,11 +116,11 @@ Unison2 : Object {
 			// the osc responder which responds to onsets
 			osc_resp = OSCresponderNode(server.addr, '/tr', {arg time,responder,msg;
 				this.startRecord();
-				//[time, responder, msg].postln;
+				//["unison2 onset", time, responder, msg].postln;
 			}).add;
 		}, {
 				var m, n;
-				("setting up midi trigger on note "++midi_mode).postln;
+				//("setting up midi trigger on note "++midi_mode).postln;
 				m = MPD.new;
 				n = MIDIFunc.noteOn({arg ...args;
 					var note;
@@ -151,7 +153,7 @@ Unison2 : Object {
 
 	// this is called by the oscresponder when an onset(send trig) occurs
 	startRecord{
-		//"unison2:onset".postln;
+		//"unison2:onset rec".postln;
 		if (recording == 0, {
 			play_buff = 1-play_buff;
 			rec_buff = 1-rec_buff;
@@ -171,7 +173,8 @@ Unison2 : Object {
 
 		SynthDef("unison2_rec", {arg rec_in, rec_b;
 			var in, rec, env;
-			in = AudioIn.ar(rec_in);
+			//in = AudioIn.ar(rec_in);
+			in = SoundIn.ar(0);
 			// envelope the input to remove clicks
 			env = EnvGen.kr(Env.new([0, 1, 1, 0], [0.001, 1.0, 0.001]), doneAction:2, gate:1);
 			rec = RecordBuf.ar(in*env, rec_b, loop:0);
@@ -220,7 +223,8 @@ Unison2 : Object {
 
 		SynthDef("unison2_onsets", {arg rec_in=1, fft_b;
 			var onsets, fft, in;
-			in = AudioIn.ar(rec_in);
+			// in = AudioIn.ar(rec_in);
+			in = SoundIn.ar(0);
 			//in = Normalizer.ar(in, 1.0);
 			//fft = FFT(fft_b, in);
 			fft = FFT(LocalBuf(2048, 2), in);
